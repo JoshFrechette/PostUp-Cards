@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ 
+    <link rel="stylesheet" href="Main.css">
+  
+  <title>Basketball card!</title>
+</head>
+<style>
+  body {
+    background-image: url("/assets/images/397682.jpg");
+    
+  }
+  #mainSection {
+    border-radius: 25px;
+    background: rgb(42, 149, 176);
+    padding: 20px;
+    width: 400px;
+    height: 350px;
+    opacity: 50%;
+    outline-color: blue;
+    outline-width: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+/*submit button*/
+  #submit {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #152ca9;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  #submit span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  #submit span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  #submit:hover span {
+    padding-right: 25px;
+  }
+  
+  #submit:hover span:after {
+    opacity: 1;
+    right: 0;}
+    </style>
+<body>
+  <main>
+      <div id="mainSection">
+ <h1>Welcome to the card editor</h1>
+ <!--  <img src="../public/assets/images/burger.png" alt="burger"> -->
+ <button id ="submit">Submit</button>
+ <button id ="ViewDeck">View Deck</button>
+ <textarea id="Search Player">Search Player</textarea>
+</div>
+  </main>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</body>
+</html>

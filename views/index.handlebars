@@ -1,0 +1,26 @@
+
+<div>{{>logo}}</div>
+<h2 class='eat' >Eat-Da-Burger!</h2>
+<button id='clear' >Clear Lists</button>
+<div id="middle" >
+  {{>left}}
+  {{>right}}
+</div>
+<div id='a' >{{>submit}}</div>
+<p class='eat' >Enter a burger you want to eat Click the "submit" button</p>
+
+<script>
+  setTimeout(()=>{
+    document.getElementById('clear').addEventListener('click',clearList);
+  },10)
+  var clearList = async function (e){
+    e.preventDefault();
+    document.getElementById('clear').removeEventListener('click',clearList)
+    await axios({
+      url: '/api/clearlist',
+      method:'delete'
+    }).then(res=>{
+        location.reload()
+      }).catch(err=>console.log(err))
+  };
+</script>
