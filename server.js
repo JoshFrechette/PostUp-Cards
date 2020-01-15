@@ -14,10 +14,9 @@ app.use(express.json());
 
 // Static directory to be served
 app.use(express.static("public"));
-app.engine("handlebars", exphbs({ defaultLayout: "login"}));
+app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 // Routes
-//require("./controllers/burgersController")(app);
 
 app.get("/", function(req, res) {
   res.render(path.join(__dirname, "./views/index"));
