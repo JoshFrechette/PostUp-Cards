@@ -1,7 +1,4 @@
 
-// const path = require("path");
-// const exphbs = require("express-handlebars");
-
 //-- vvv PROBLEM AREA vvv -- //
 // app.use(express.urlencoded({ extended: true }));
 // app.use(express.json());
@@ -17,6 +14,7 @@
 
 var express = require('express');
 var exphbs = require('express-handlebars')
+var path = require("path")
 var app = express();
 var PORT = process.env.PORT || 8000;
 
@@ -29,7 +27,7 @@ app.engine('exphbs', exphbs({
 }))
 
 app.get('/', function(req, res) {
-  res.render('index', {layout: 'main'})
+  res.render(path.join(__dirname, 'index'), {layout: 'main'})
 })
 
 app.listen(PORT, function() {
