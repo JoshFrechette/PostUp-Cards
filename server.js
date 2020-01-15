@@ -15,7 +15,7 @@ app.set("view engine", "handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 
 app.get("/", function(req, res) {
-  res.render(path.join(__dirname, "/views.index"), {title: 'PostUp Cards'});
+  res.render("./views.index", {title: 'PostUp Cards'});
 });
 
 app.listen(PORT, function() {
