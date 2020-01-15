@@ -22,27 +22,25 @@
 //   console.log("App listening on PORT " + `http://localhost:${PORT}`);
 // });
 
-//--- TAKE TWO ---//
+const express = require('express');
+const app = express();
 
-// app.set('view engine', 'handlebars')
-// app.engine('handlebars', handlebars({
-//   defaultView: 'default',
-//   layoutsDir: __dirname + '/views/layouts',
-//   partialsDir: __dirname + '/views/Partials'
-// }));
+app.get('/', function(req, res) {
+  res.send("Hello World\n")
+})
 
-// const express = require('express');
-// const router = express.Router();
+app.set('view engine', 'handlebars')
+app.engine('handlebars', handlebars({
+  defaultView: 'default',
+  layoutsDir: __dirname + '/views/layouts',
+  partialsDir: __dirname + '/views/Partials'
+}));
 
-// router.get('/', function(req, res) {
-//   res.render('index')
-// })
 
-//--- TAKE THREE ---//
+//--- THIS WORKS AT LEAST---//
+// var http = require('http')
 
-var http = require('http')
-
-http.createServer(function (request, response) {
-    response.writeHead(200, {"Content-Type": "text/plain"})
-    response.end("Hello World\n")
-}).listen(process.env.PORT)
+// http.createServer(function (request, response) {
+//     response.writeHead(200, {"Content-Type": "text/plain"})
+//     response.end("Hello World\n")
+// }).listen(process.env.PORT)
