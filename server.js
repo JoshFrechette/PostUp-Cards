@@ -8,10 +8,6 @@
 // app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 //-- ^^^ PROBLEM AREA ^^^ -- //
 
-// app.get("/", function(req, res) {
-//   res.render("./views.index", {title: 'PostUp Cards'});
-// });
-
 var express = require('express');
 var exphbs = require('express-handlebars')
 var path = require("path")
@@ -27,7 +23,7 @@ app.engine('exphbs', exphbs({
 }))
 
 app.get('/', function(req, res) {
-  res.render(path.join(__dirname, 'index'), {layout: 'main'})
+  res.render(path.join(__dirname, 'views/index'), {layout: 'main'})
 })
 
 app.listen(PORT, function() {
