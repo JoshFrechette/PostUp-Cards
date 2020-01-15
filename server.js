@@ -22,7 +22,7 @@ app.engine('exphbs', exphbs({
 }))
 
 app.get('/', function(req, res) {
-  res.render('index', {layout: 'main'})
+  res.render('index.handlebars', {layout: 'main'})
 })
 
 app.listen(PORT, function() {
