@@ -10,7 +10,6 @@
 
 var express = require('express');
 var exphbs = require('express-handlebars')
-var path = require("path")
 var app = express();
 var PORT = process.env.PORT || 8000;
 
@@ -23,7 +22,7 @@ app.engine('exphbs', exphbs({
 }))
 
 app.get('/', function(req, res) {
-  res.render(path.join(__dirname, 'views/index'), {layout: 'main'})
+  res.render('index', {layout: 'main'})
 })
 
 app.listen(PORT, function() {
