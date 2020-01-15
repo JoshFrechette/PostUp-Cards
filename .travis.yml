@@ -1,15 +1,15 @@
 language: node_js
 node_js:
   - stable
+script: 'true'
 npm: true
 cache:
   directories:
   - node_modules
-script: 'true'
 deploy:
   provider: heroku
   api_key: 93153f01-2860-4cc4-94e9-5ca6a33122b7
   app: postup-cards
   on:
-    repo: KhalilMouna/postup-cards
+    repo: KhalilMouna/PostUp-Cards
   skip_cleanup: true
