@@ -29,14 +29,6 @@ app.get('/', function(req, res) {
   res.send("Hello World\n")
 })
 
-app.set('view engine', 'handlebars')
-app.engine('handlebars', handlebars({
-  defaultView: 'default',
-  layoutsDir: __dirname + '/views/layouts',
-  partialsDir: __dirname + '/views/Partials'
-}));
-
-
 //--- THIS WORKS AT LEAST---//
 // var http = require('http')
 
