@@ -11,5 +11,5 @@ deploy:
   api_key: 93153f01-2860-4cc4-94e9-5ca6a33122b7
   app: postup-cards
   on:
-    repo: KhalilMouna/PostUp-Cards
+    repo: https://github.com/KhalilMouna/PostUp-Cards
   skip_cleanup: true
