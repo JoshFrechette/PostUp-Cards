@@ -6,3 +6,6 @@ deploy:
   provider: heroku
   api_key: 93153f01-2860-4cc4-94e9-5ca6a33122b7
   app: postup-cards
+branches:
+  only:
+  - master
