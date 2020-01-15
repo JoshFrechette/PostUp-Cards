@@ -1,13 +1,3 @@
-
-//-- vvv PROBLEM AREA vvv -- //
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-
-// app.use(express.static("public"));
-// app.set("view engine", "handlebars");
-// app.engine("handlebars", exphbs({ defaultLayout: "main"}));
-//-- ^^^ PROBLEM AREA ^^^ -- //
-
 var express = require('express');
 var exphbs = require('express-handlebars');
 
