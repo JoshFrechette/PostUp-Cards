@@ -9,8 +9,7 @@ app.use(express.json());
 
 app.engine('handlebars', exphbs({
   defaultLayout: 'main',
-  layoutsDir: __dirname + '/views/layouts/',
-  partialsDir: __dirname + '/views/partials/'
+  layoutsDir: __dirname + '/views/layouts/'
 }));
 app.set('view engine', 'handlebars')
 
