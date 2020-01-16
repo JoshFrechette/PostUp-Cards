@@ -8,7 +8,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.engine('handlebars', exphbs({
-  defaultLayout: 'main'
+  defaultLayout: 'main',
+  layoutsDir: __dirname + '/views/layouts/'
 }));
 app.set('view engine', 'handlebars')
 
