@@ -17,6 +17,9 @@ app.use(express.static("public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 // Routes
+var test = require("./routes/api-routes.js");
+
+console.log(test);
 
 app.get("/", function(req, res) {
   res.render(path.join(__dirname, "./views/index"));
