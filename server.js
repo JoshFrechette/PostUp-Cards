@@ -2,13 +2,12 @@ var express = require('express');
 var exphbs = require('express-handlebars');
 
 var app = express();
-var hbs = exphbs.create({})
 var PORT = process.env.PORT || 8000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.engine('.handlebars', exphbs({
+app.engine('hbs', exphbs({
   extname: '.handlebars',
   defaultView: 'main',
   layoutsDir: __dirname + 'views/layouts/',
