@@ -11,7 +11,7 @@ Request.get("https://balldontlie.io/api/v1/players?search=Kawhi Leonard",
 if(error) {
         return console.dir(error);
     }
-    $("#card").append("<div class=col id=civicFeedLinks><H5>Links from Civic Feed API</H5></div>");
+    //$("#card").append("<div class=col id=civicFeedLinks><H5>Links from Civic Feed API</H5></div>");
     console.dir("Players id: " + JSON.parse(body).data[0].id);
     console.dir("Players name: " + JSON.parse(body).data[0].first_name + " " + JSON.parse(body).data[0].last_name );
     console.dir("Players height: " + JSON.parse(body).data[0].height_feet + "ft");

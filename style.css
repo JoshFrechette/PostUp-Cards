@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- 
-    <link rel="stylesheet" href="Main.css">
-  
-  <title>Basketball card!</title>
-</head>
-<style>
+h1{
+    color: #FFFFFF;
+  }
   body {
-    background-image: url("/assets/images/397682.jpg");
-    
+    background-image: url("assets/397682.jpg");
   }
   #mainSection {
     border-radius: 25px;
@@ -32,7 +22,7 @@
   #ViewDeck {
     display: inline-block;
     border-radius: 4px;
-    background-color: #152ca9;
+    background-color: #152CA9;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -44,14 +34,12 @@
     margin: 5px;
     float: right;
   }
-  
   #ViewDeck span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
   }
-  
   #ViewDeck span:after {
     content: '\00bb';
     position: absolute;
@@ -60,21 +48,17 @@
     right: -20px;
     transition: 0.5s;
   }
-  
   #ViewDeck:hover span {
     padding-right: 25px;
   }
-  
   #ViewDeck:hover span:after {
     opacity: 1;
     right: 0;}
-
   #card{
     width: 400px;
   height: 600px;
   border: 4px solid blue;
   box-sizing: border-box;
-
     margin-left: auto;
     margin-right: auto;
     position: absolute;

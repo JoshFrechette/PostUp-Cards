@@ -1,12 +1,6 @@
-
-// placeholder
-var express = require("express");
-var path = require("path");
-// Set Handlebars.
-const exphbs = require("express-handlebars");
-
-// Sets up the Express App
+var express = require('express');
 var app = express();
+var exphbs = require('express-handlebars')
 var PORT = process.env.PORT || 8000;
 
 app.use(express.urlencoded({ extended: true }));
@@ -21,11 +15,10 @@ var test = require("./routes/api-routes.js");
 
 console.log(test);
 
-app.get("/", function(req, res) {
-  res.render(path.join(__dirname, "./views/index"));
+app.get('/', function(req, res) {
+  res.render('index');
 });
 
-// Starts the server to begin listening
 app.listen(PORT, function() {
-  console.log("App listening on PORT " + `http://localhost:${PORT}`);
+  console.log(`Now listening on http://localhost:${PORT}`);
 });
