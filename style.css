@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
- 
-    <link rel="stylesheet" href="Main.css">
-  
-  <title>Basketball card!</title>
-</head>
-<style>
+h1{
+    color: #FFFFFF;
+  }
   body {
-    background-image: url("/assets/images/397682.jpg");
-    
+    background-image: url("assets/397682.jpg");
   }
   #mainSection {
     border-radius: 25px;
@@ -32,7 +22,7 @@
   #ViewDeck {
     display: inline-block;
     border-radius: 4px;
-    background-color: #152ca9;
+    background-color: #152CA9;
     border: none;
     color: #FFFFFF;
     text-align: center;
@@ -44,14 +34,12 @@
     margin: 5px;
     float: right;
   }
-  
   #ViewDeck span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
   }
-  
   #ViewDeck span:after {
     content: '\00bb';
     position: absolute;
@@ -60,41 +48,53 @@
     right: -20px;
     transition: 0.5s;
   }
-  
   #ViewDeck:hover span {
     padding-right: 25px;
   }
-  
   #ViewDeck:hover span:after {
     opacity: 1;
     right: 0;}
-
   #card{
     width: 400px;
   height: 600px;
   border: 4px solid blue;
   box-sizing: border-box;
-
     margin-left: auto;
     margin-right: auto;
     position: absolute;
     clip: rect(0px,400px,600px,0px);
   }
-    </style>
-<body>
-  <main>
-      
- <h1>Welcome to the card editor</h1>
- <!--  <img src="../public/assets/images/burger.png" alt="burger"> -->
- <button id ="submit">Submit</button>
- <button id ="ViewDeck">View Deck<span></span></button>
- <textarea id="Search Player">Search Player</textarea>
-<div id="mainSection">
-  <div id="card">
-    come on
-    <img src="/assets/images/niceparticleeffects.gif">
-        </div>
-  </main>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</body>
-</html>
+#card-portrait{
+  width: 600px;
+  height: 400px;
+  border: 4px solid blue;
+  box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    clip: rect(0px,600px,400px,0px);
+  }
+}
+  div.gfg {
+                margin:5px;
+                padding:5px;
+                background-color: green;
+                width: 500px;
+                height: 810px;
+                overflow: auto;
+                text-align:justify;
+            }
+  #slot{
+    background: rgb(42, 149, 176);
+    padding: 10px;
+    width: 400px;
+    height: 50px;
+    border: 15px solid blue;
+  }
+  #thumbnail{
+     background: rgb(96, 199, 129);
+    padding: 10px;
+    width: 20px;
+    height: 30px;
+    border: 4px solid rgb(252, 252, 252);
+  }

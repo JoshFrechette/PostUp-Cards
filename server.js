@@ -1,28 +1,21 @@
-
-// placeholder
-var express = require("express");
-var path = require("path");
-// Set Handlebars.
-const exphbs = require("express-handlebars");
-
-// Sets up the Express App
+var express = require('express');
 var app = express();
+var exphbs = require('express-handlebars')
 var PORT = process.env.PORT || 8000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Static directory to be served
-app.use(express.static("public"));
-app.engine("handlebars", exphbs({ defaultLayout: "main"}));
-app.set("view engine", "handlebars");
-// Routes
+app.engine('handlebars', exphbs({
+  defaultLayout: 'main',
+  layoutsDir: __dirname + '/views/layouts/'
+}));
+app.set('view engine', 'handlebars')
 
-app.get("/", function(req, res) {
-  res.render(path.join(__dirname, "./views/index"));
+app.get('/', function(req, res) {
+  res.render('index');
 });
 
-// Starts the server to begin listening
 app.listen(PORT, function() {
-  console.log("App listening on PORT " + `http://localhost:${PORT}`);
+  console.log(`Now listening on http://localhost:${PORT}`);
 });
