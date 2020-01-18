@@ -1,20 +1,17 @@
-var express = require('express');
-var app = express();
-var exphbs = require('express-handlebars')
-var PORT = process.env.PORT || 8000;
+var express = require('express')
+var app = express()
+var path = require('path');
+PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-
-app.engine('handlebars', exphbs({
-  defaultLayout: 'main',
-  layoutsDir: __dirname + '/views/layouts/'
-}));
-app.set('view engine', 'handlebars')
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function(req, res) {
-  res.render('index');
-});
+  res.sendFile('index.html');
+})
+
+app.get('card-nav', function(req, res) {
+  res.sendFile('card_nav.html');
+})
 
 app.listen(PORT, function() {
   console.log(`Now listening on http://localhost:${PORT}`);
