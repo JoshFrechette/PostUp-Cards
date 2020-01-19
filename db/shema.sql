@@ -31,6 +31,7 @@ CREATE TABLE playerStats
     Stl INT,
     Blk INT,
     Pts INT,
+    Avg int,
     primary key (Id),
    FOREIGN KEY (Id) REFERENCES playerpersonalinfo(Id)
 );
