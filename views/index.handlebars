@@ -27,10 +27,10 @@
 
         <div class="controls" id="generate">
             <ul>
-            <li><button id="new-card">New</button></li>
+            <li><button id="new-card">clear</button></li>
             <li><button id="save-card">Save</button></li>
             <li><button id="VDeck">Deck</button></li>
-            <li><button id="back">Back</button></li>
+            <li><button id="back">Back card</button></li>
             </ul>
     
         </div>
@@ -50,7 +50,7 @@
   });
    $("#back").on("click", function() {
         console.log("working")
-        location.replace("http://localhost:8000/back");
+        location.replace("http://localhost:8000/create");
         
   });
 
