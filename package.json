@@ -6,10 +6,14 @@
   "dependencies": {
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
+<<<<<<< HEAD
     "moment": "^2.24.0",
     "node-fetch": "^2.6.0",
     "node-libcurl": "^2.0.3",
     "request": "^2.88.0"
+=======
+    "moment": "^2.24.0"
+>>>>>>> 95a576d47d8c6dc053f7747c9da74881c6abb358
   },
   "devDependencies": {},
   "scripts": {
