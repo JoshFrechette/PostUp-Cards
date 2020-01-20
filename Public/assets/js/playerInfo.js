@@ -1,3 +1,11 @@
+//Setting dependencies
+
+//Empty array to hold the harvested data in the propper for for the front-end
+let stats = [];
+
+let avgStats = [];
+let multiple = 1;
+
 
 function playerInformation() {
   var player = $("#SearchPlayer").val();
