@@ -51,116 +51,369 @@ function NBAPlayerInfo(player) {
     })
 }
 
-function playerStatastics(playerID) {
+let playerStatastics = (playerID) => {
     let d = new Date();
-    let thisYear = d.getUTCFullYear();
-    console.log(thisYear);
-    // let thisYear = moment().format('YYYY');
-    var currentSeason = thisYear - 1;
-    var playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason;
-    $.ajax({
-        url: playerStats,
-        method: "GET"
-    }).then(function (data) {
-        console.log(playerStats)
-        let season = data;
-        //Declaring the variables for the loop
-        let fgm = 0;
-        let fga = 0;
-        let fg3m = 0;
-        let fg3a = 0;
-        let ftm = 0;
-        let fta = 0;
-        let oreb = 0;
-        let dreb = 0;
-        let ast = 0;
-        let stl = 0;
-        let blk = 0;
-        let pts = 0;
+    let currentSeason = d.getUTCFullYear();
+    currentSeason = currentSeason - 1;
+    // let dataCheck = () => {
+        console.log(currentSeason)
+        let playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason;
+
+        $.ajax({
+            url: playerStats,
+            method: "GET"
+        }).then(function (data) {
+            let season = data;
+            // console.log("test here " + season.meta)
+            // if (season.meta.total_count = 0) {
+            //     currentSeason = currentSeason - 1;
+            //     dataCheck(currentSeason);
+            // } else {
+                // console.log(currentSeason + " broken here if year is off");
+                // console.log(season + " if this sin't an array, broken here");
+                //Declaring the variables for the loop
+                let fgm = 0;
+                let fga = 0;
+                let fg3m = 0;
+                let fg3a = 0;
+                let ftm = 0;
+                let fta = 0;
+                let oreb = 0;
+                let dreb = 0;
+                let ast = 0;
+                let stl = 0;
+                let blk = 0;
+                let pts = 0;
+
+                //For loop to combine all of the game stats into one season for the player
+                for (const allStats of season.data) {
+                    fgm += allStats.fgm;
+                    fga += allStats.fga;
+                    fg3m += allStats.fg3m;
+                    fg3a += allStats.fg3a;
+                    ftm += allStats.ftm;
+                    fta += allStats.fta;
+                    oreb += allStats.oreb;
+                    dreb += allStats.dreb;
+                    ast += allStats.ast;
+                    stl += allStats.stl;
+                    blk += allStats.blk;
+                    pts += allStats.pts;
+                    avg = pts / season.data.length;
+                }
+                //Create the JSON for every season
+                let dataStats = {
+
+                    Season: currentSeason,
+                    FG_Made: fgm,
+                    FG_Att: fga,
+                    Three_Pts_Made: fg3m,
+                    Three_Pts_Att: fg3a,
+                    FT_Made: ftm,
+                    FT_Att: fta,
+                    Off_Reb: oreb,
+                    Def_Reb: dreb,
+                    Asst: ast,
+                    Stl: stl,
+                    Blk: blk,
+                    Pts: pts,
+                    AVG: avg
+
+                }
+            
+                stats.push(dataStats);
+                // }
+                console.log(stats);
+
+                $("#card").append("<div class=col id=playeStatsseason></div>");
+                $("#playeStatsseason").text("Season: " + stats[0].Season);
+
+                $("#card").append("<div class=col id=playeStatsfgm></div>");
+                $("#playeStatsfgm").text("FG_Made: " + stats[0].FG_Made);
+
+                $("#card").append("<div class=col id=playeStatsfga></div>");
+                $("#playeStatsfga").text("FG_Att: " + stats[0].FG_Att);
+
+                $("#card").append("<div class=col id=playeStatsfg3m></div>");
+                $("#playeStatsfg3m").text("Three_Pts_Made: " + stats[0].Three_Pts_Made);
+
+                $("#card").append("<div class=col id=playeStatsfg3a></div>");
+                $("#playeStatsfg3a").text("Three_Pts_Att: " + stats[0].Three_Pts_Att);
+
+                $("#card").append("<div class=col id=playeStatsftm></div>");
+                $("#playeStatsftm").text("FT_Made: " + stats[0].FT_Made);
+
+                $("#card").append("<div class=col id=playeStatsfta></div>");
+                $("#playeStatsfta").text("FT_Att: " + stats[0].FT_Att);
+
+                $("#card").append("<div class=col id=playeStatsoreb></div>");
+                $("#playeStatsoreb").text("Off_Reb: " + stats[0].Off_Reb);
+
+                $("#card").append("<div class=col id=playeStatsdreb></div>");
+                $("#playeStatsdreb").text("Def_Reb: " + stats[0].Def_Reb);
+
+                $("#card").append("<div class=col id=playeStatsast></div>");
+                $("#playeStatsast").text("Asst: " + stats[0].Asst);
+
+                $("#card").append("<div class=col id=playeStatsstl></div>");
+                $("#playeStatsstl").text("Stl: " + stats[0].Stl);
+
+                $("#card").append("<div class=col id=playeStatsblk></div>");
+                $("#playeStatsblk").text("Blk: " + stats[0].Blk);
+
+                $("#card").append("<div class=col id=playeStatspts></div>");
+                $("#playeStatspts").text("Pts: " + stats[0].Pts);
+
+                $("#card").append("<div class=col id=playeStatsavg></div>");
+                $("#playeStatsavg").text("AVG: " + stats[0].AVG);
+
+            
+        })
+    playerSeasonStats(playerID, c)
+    }
+
+    let playerSeasonStats = (playerID) => {
+        let d = new Date();
+        let currentSeason = d.getUTCFullYear();
+        currentSeason = currentSeason - 1;
+        // let dataCheck = () => {
+            console.log(currentSeason)
+            let playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason;
     
-        //For loop to combine all of the season stats for the player
-        for (const allStats of season.data) {
-            fgm += allStats.fgm;
-            fga += allStats.fga;
-            fg3m += allStats.fg3m;
-            fg3a += allStats.fg3a;
-            ftm += allStats.ftm;
-            fta += allStats.fta;
-            oreb += allStats.oreb;
-            dreb += allStats.dreb;
-            ast += allStats.ast;
-            stl += allStats.stl;
-            blk += allStats.blk;
-            pts += allStats.pts;
-            avg = pts / season.data.length;
+            $.ajax({
+                url: playerStats,
+                method: "GET"
+            }).then(function (data) {
+                let season = data;
+                // console.log("test here " + season.meta)
+                // if (season.meta.total_count = 0) {
+                //     currentSeason = currentSeason - 1;
+                //     dataCheck(currentSeason);
+                // } else {
+                    // console.log(currentSeason + " broken here if year is off");
+                    // console.log(season + " if this sin't an array, broken here");
+                    //Declaring the variables for the loop
+                    let fgm = 0;
+                    let fga = 0;
+                    let fg3m = 0;
+                    let fg3a = 0;
+                    let ftm = 0;
+                    let fta = 0;
+                    let oreb = 0;
+                    let dreb = 0;
+                    let ast = 0;
+                    let stl = 0;
+                    let blk = 0;
+                    let pts = 0;
+    
+                    //For loop to combine all of the game stats into one season for the player
+                    for (const allStats of season.data) {
+                        fgm += allStats.fgm;
+                        fga += allStats.fga;
+                        fg3m += allStats.fg3m;
+                        fg3a += allStats.fg3a;
+                        ftm += allStats.ftm;
+                        fta += allStats.fta;
+                        oreb += allStats.oreb;
+                        dreb += allStats.dreb;
+                        ast += allStats.ast;
+                        stl += allStats.stl;
+                        blk += allStats.blk;
+                        pts += allStats.pts;
+                        avg = pts / season.data.length;
+                    }
+                    //Create the JSON for every season
+                    let dataStats = {
+    
+                        Season: currentSeason,
+                        FG_Made: fgm,
+                        FG_Att: fga,
+                        Three_Pts_Made: fg3m,
+                        Three_Pts_Att: fg3a,
+                        FT_Made: ftm,
+                        FT_Att: fta,
+                        Off_Reb: oreb,
+                        Def_Reb: dreb,
+                        Asst: ast,
+                        Stl: stl,
+                        Blk: blk,
+                        Pts: pts,
+                        AVG: avg
+    
+                    }
+                
+                    stats.push(dataStats);
+                    // }
+                    console.log(stats);
+    
+                    $("#card").append("<div class=col id=playeStatsseason></div>");
+                    $("#playeStatsseason").text("Season: " + stats[0].Season);
+    
+                    $("#card").append("<div class=col id=playeStatsfgm></div>");
+                    $("#playeStatsfgm").text("FG_Made: " + stats[0].FG_Made);
+    
+                    $("#card").append("<div class=col id=playeStatsfga></div>");
+                    $("#playeStatsfga").text("FG_Att: " + stats[0].FG_Att);
+    
+                    $("#card").append("<div class=col id=playeStatsfg3m></div>");
+                    $("#playeStatsfg3m").text("Three_Pts_Made: " + stats[0].Three_Pts_Made);
+    
+                    $("#card").append("<div class=col id=playeStatsfg3a></div>");
+                    $("#playeStatsfg3a").text("Three_Pts_Att: " + stats[0].Three_Pts_Att);
+    
+                    $("#card").append("<div class=col id=playeStatsftm></div>");
+                    $("#playeStatsftm").text("FT_Made: " + stats[0].FT_Made);
+    
+                    $("#card").append("<div class=col id=playeStatsfta></div>");
+                    $("#playeStatsfta").text("FT_Att: " + stats[0].FT_Att);
+    
+                    $("#card").append("<div class=col id=playeStatsoreb></div>");
+                    $("#playeStatsoreb").text("Off_Reb: " + stats[0].Off_Reb);
+    
+                    $("#card").append("<div class=col id=playeStatsdreb></div>");
+                    $("#playeStatsdreb").text("Def_Reb: " + stats[0].Def_Reb);
+    
+                    $("#card").append("<div class=col id=playeStatsast></div>");
+                    $("#playeStatsast").text("Asst: " + stats[0].Asst);
+    
+                    $("#card").append("<div class=col id=playeStatsstl></div>");
+                    $("#playeStatsstl").text("Stl: " + stats[0].Stl);
+    
+                    $("#card").append("<div class=col id=playeStatsblk></div>");
+                    $("#playeStatsblk").text("Blk: " + stats[0].Blk);
+    
+                    $("#card").append("<div class=col id=playeStatspts></div>");
+                    $("#playeStatspts").text("Pts: " + stats[0].Pts);
+    
+                    $("#card").append("<div class=col id=playeStatsavg></div>");
+                    $("#playeStatsavg").text("AVG: " + stats[0].AVG);
+    
+                
+            })
+        
         }
-        //Create the JSON for every season
-        let plyrData = {
-    
-            Season: currentSeason,
-            FG_Made: fgm,
-            FG_Att: fga,
-            Three_Pts_Made: fg3m,
-            Three_Pts_Att: fg3a,
-            FT_Made: ftm,
-            FT_Att: fta,
-            Off_Reb: oreb,
-            Def_Reb: dreb,
-            Asst: ast,
-            Stl: stl,
-            Blk: blk,
-            Pts: pts,
-            AVG: avg
-    
-        }
-        stats.push(plyrData);
+// }
 
 
-        $("#card").append("<div class=col id=playeStatsseason></div>");
-        $("#playeStatsseason").text("Season: " + stats[0].Season);
-
-        $("#card").append("<div class=col id=playeStatsfgm></div>");
-        $("#playeStatsfgm").text("FG_Made: " + stats[0].FG_Made);
-
-        $("#card").append("<div class=col id=playeStatsfga></div>");
-        $("#playeStatsfga").text("FG_Att: " + stats[0].FG_Att);
-
-        $("#card").append("<div class=col id=playeStatsfg3m></div>");
-        $("#playeStatsfg3m").text("Three_Pts_Made: " + stats[0].Three_Pts_Made);
-
-        $("#card").append("<div class=col id=playeStatsfg3a></div>");
-        $("#playeStatsfg3a").text("Three_Pts_Att: " + stats[0].Three_Pts_Att);
-
-        $("#card").append("<div class=col id=playeStatsftm></div>");
-        $("#playeStatsftm").text("FT_Made: " + stats[0].FT_Made);
-
-        $("#card").append("<div class=col id=playeStatsfta></div>");
-        $("#playeStatsfta").text("FT_Att: " + stats[0].FT_Att);
-
-        $("#card").append("<div class=col id=playeStatsoreb></div>");
-        $("#playeStatsoreb").text("Off_Reb: " + stats[0].Off_Reb);
-
-        $("#card").append("<div class=col id=playeStatsdreb></div>");
-        $("#playeStatsdreb").text("Def_Reb: " + stats[0].Def_Reb);
-
-        $("#card").append("<div class=col id=playeStatsast></div>");
-        $("#playeStatsast").text("Asst: " + stats[0].Asst);
-
-        $("#card").append("<div class=col id=playeStatsstl></div>");
-        $("#playeStatsstl").text("Stl: " + stats[0].Stl);
-
-        $("#card").append("<div class=col id=playeStatsblk></div>");
-        $("#playeStatsblk").text("Blk: " + stats[0].Blk);
-
-        $("#card").append("<div class=col id=playeStatspts></div>");
-        $("#playeStatspts").text("Pts: " + stats[0].Pts);
-
-        $("#card").append("<div class=col id=playeStatsavg></div>");
-        $("#playeStatsavg").text("AVG: " + stats[0].AVG);
 
 
-    })
-}
+
+// let APICall = (playerID, mostRecent) => {
+//     let playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason;
+// }
+
+// function playerStatastics(playerID) {
+//     let d = new Date();
+//     let currentSeason = d.getUTCFullYear();
+//     console.log(thisYear);
+//     // let thisYear = moment().format('YYYY');
+//     var currentSeason = currentSeason - 1;
+//     var playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason;
+//     $.ajax({
+//         url: playerStats,
+//         method: "GET"
+//     }).then(function (data) {
+//         console.log(playerStats)
+//         let season = data;
+//         //Declaring the variables for the loop
+//         let fgm = 0;
+//         let fga = 0;
+//         let fg3m = 0;
+//         let fg3a = 0;
+//         let ftm = 0;
+//         let fta = 0;
+//         let oreb = 0;
+//         let dreb = 0;
+//         let ast = 0;
+//         let stl = 0;
+//         let blk = 0;
+//         let pts = 0;
+
+//         //For loop to combine all of the season stats for the player
+//         for (const allStats of season.data) {
+//             fgm += allStats.fgm;
+//             fga += allStats.fga;
+//             fg3m += allStats.fg3m;
+//             fg3a += allStats.fg3a;
+//             ftm += allStats.ftm;
+//             fta += allStats.fta;
+//             oreb += allStats.oreb;
+//             dreb += allStats.dreb;
+//             ast += allStats.ast;
+//             stl += allStats.stl;
+//             blk += allStats.blk;
+//             pts += allStats.pts;
+//             avg = pts / season.data.length;
+//         }
+//         //Create the JSON for every season
+//         let plyrData = {
+
+//             Season: currentSeason,
+//             FG_Made: fgm,
+//             FG_Att: fga,
+//             Three_Pts_Made: fg3m,
+//             Three_Pts_Att: fg3a,
+//             FT_Made: ftm,
+//             FT_Att: fta,
+//             Off_Reb: oreb,
+//             Def_Reb: dreb,
+//             Asst: ast,
+//             Stl: stl,
+//             Blk: blk,
+//             Pts: pts,
+//             AVG: avg
+
+//         }
+//         stats.push(plyrData);
+
+
+//         $("#card").append("<div class=col id=playeStatsseason></div>");
+//         $("#playeStatsseason").text("Season: " + stats[0].Season);
+
+//         $("#card").append("<div class=col id=playeStatsfgm></div>");
+//         $("#playeStatsfgm").text("FG_Made: " + stats[0].FG_Made);
+
+//         $("#card").append("<div class=col id=playeStatsfga></div>");
+//         $("#playeStatsfga").text("FG_Att: " + stats[0].FG_Att);
+
+//         $("#card").append("<div class=col id=playeStatsfg3m></div>");
+//         $("#playeStatsfg3m").text("Three_Pts_Made: " + stats[0].Three_Pts_Made);
+
+//         $("#card").append("<div class=col id=playeStatsfg3a></div>");
+//         $("#playeStatsfg3a").text("Three_Pts_Att: " + stats[0].Three_Pts_Att);
+
+//         $("#card").append("<div class=col id=playeStatsftm></div>");
+//         $("#playeStatsftm").text("FT_Made: " + stats[0].FT_Made);
+
+//         $("#card").append("<div class=col id=playeStatsfta></div>");
+//         $("#playeStatsfta").text("FT_Att: " + stats[0].FT_Att);
+
+//         $("#card").append("<div class=col id=playeStatsoreb></div>");
+//         $("#playeStatsoreb").text("Off_Reb: " + stats[0].Off_Reb);
+
+//         $("#card").append("<div class=col id=playeStatsdreb></div>");
+//         $("#playeStatsdreb").text("Def_Reb: " + stats[0].Def_Reb);
+
+//         $("#card").append("<div class=col id=playeStatsast></div>");
+//         $("#playeStatsast").text("Asst: " + stats[0].Asst);
+
+//         $("#card").append("<div class=col id=playeStatsstl></div>");
+//         $("#playeStatsstl").text("Stl: " + stats[0].Stl);
+
+//         $("#card").append("<div class=col id=playeStatsblk></div>");
+//         $("#playeStatsblk").text("Blk: " + stats[0].Blk);
+
+//         $("#card").append("<div class=col id=playeStatspts></div>");
+//         $("#playeStatspts").text("Pts: " + stats[0].Pts);
+
+//         $("#card").append("<div class=col id=playeStatsavg></div>");
+//         $("#playeStatsavg").text("AVG: " + stats[0].AVG);
+
+
+//     })
+// }
+
+
 
 // let seasonStats = () => {
 //     let season = data;

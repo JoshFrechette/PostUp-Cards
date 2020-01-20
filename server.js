@@ -4,6 +4,7 @@ var express = require("express");
 var path = require("path");
 // Set Handlebars.
 const exphbs = require("express-handlebars");
+var db = require("./models");
 
 // Sets up the Express App
 var app = express();
@@ -37,7 +38,8 @@ app.get("/back", function(req, res) {
     res.render(path.join(__dirname, "./views/layouts/Back"));
   });
 // Starts the server to begin listening
-app.listen(PORT, function() {
-  console.log("App listening on PORT " + `http://localhost:${PORT}/welcome`);
-  console.log("this is working");
+db.sequelize.sync().then(function() {
+  app.listen(PORT, function() {
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+  });
 });
