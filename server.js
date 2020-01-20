@@ -19,7 +19,7 @@ app.set("view engine", "handlebars");
 // Routes
 
 app.get("/", function(req, res) {
-  res.redirect(path.join(__dirname, "./views/layouts/welcome"));
+  res.render(path.join(__dirname, "./views/layouts/welcome"));
 });
 
 app.get("/welcome", function(req, res) {
