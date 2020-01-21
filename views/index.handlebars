@@ -8,7 +8,7 @@
     
     <div id="search">
         <button id="new-card">clear</button>
-        <button id ="submit" onclick="playerInformation()">Search</button>
+        <button id ="submit">Search</button>
         <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
         
     
@@ -36,5 +36,15 @@
         console.log("working")
         location.replace("/deck");
     });
-  
+
+   $("#submit").on("click", function() {
+        console.log("working")
+        playerInformation();
+          $("#SearchPlayer").val('');
+    });
+     $("#new-card").on("click", function() {
+        console.log("working")
+        $("#card").empty();
+
+    });
   </script>
