@@ -19,7 +19,6 @@
     </div>
 
     <div id="card-landscape" style="width: 600px; float: left;">
-        <ul></ul>
     </div>
 
     <div class="controls" id="generate">
@@ -27,7 +26,7 @@
             <li><button id="new-card">Clear</button></li>
             <li><button id="save-card">Save</button></li>
             <li><button id="VDeck">Deck</button></li>
-            <li><button id="back">Front card</button></li>
+            <li><button id="front">Front card</button></li>
         </ul>
     </div>
         
@@ -44,9 +43,14 @@
         location.replace("http://localhost:8000/deckview");
     });
 
-    $("#back").on("click", function() {
+    $("#front").on("click", function() {
         console.log("working");
-        location.replace("http://localhost:8000/back");  
+        location.replace("http://localhost:8000/create");  
+    });
+     $("#new-card").on("click", function() {
+        console.log("working");
+        $("#card-landscape").empty();
+        
     });
 </script>
 

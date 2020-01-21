@@ -41,7 +41,13 @@
         location.replace("http://localhost:8000/deck");
     });
     $("#back").on("click", function() {
+        console.log("working");
+        location.replace("http://localhost:8000/back");  
+    });
+    
+    $("#new-card").on("click", function() {
         console.log("working")
-        location.replace("http://localhost:8000/create");  
+        $("#card").empty();
+
     });
   </script>
