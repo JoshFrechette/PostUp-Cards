@@ -1,48 +1,54 @@
-<header>
-            <a href="index.html"><h1>PostUp Cards</h1></a>
+<body>>
+    <style>
+        #card {
+                float: right;
+            }
+    </style>
+    
+    <header>
+        <h1>PostUp Cards</h1>
             <nav>
                 <button id="Enter">Login</button>
                 <button id="Enter">Signup</button>
             </nav>
-        </header>
-
-<h1>Welcome to the back card editor</h1>
- 
- <button id ="submit" onclick="playerInformation()">Submit</button>
- <button id ="front">front card</button>
- <button id ="ViewDeck">View Deck<span></span></button>
- 
- <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
-<div id="mainSection">
-  <div id="card-portrait"style="width: 600px; float: left;">
-   <ul>
-                
-   </ul>
-        </div>
-  </main>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="/assets/js/playerInfo.js"></script>
-
-  <div>
-        <div class="controls" id="generate">
-           <ul> 
-            <li><button id="new-card">New</button></li>
-            <li><button id="save-card">Save</button></li>
-            <li><button id="ViewDeck">Deck</button></li>
-            <li><button id="back">Back</button></li>
-            </ul>
-    
-        </div>
-  </div>
-  <script>
+    </header>
   
-$("#ViewDeck").on("click", function() {
-        console.log("working")
+    <div id="search">
+        <button id="submit" onclick="playerInformation()">Search</button>
+        <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
+    </div>
+
+    <div id="card-landscape" style="width: 600px; float: left;">
+        <ul></ul>
+    </div>
+
+    <div class="controls" id="generate">
+        <ul>
+            <li><button id="new-card">Clear</button></li>
+            <li><button id="save-card">Save</button></li>
+            <li><button id="VDeck">Deck</button></li>
+            <li><button id="back">Front card</button></li>
+        </ul>
+    </div>
+        
+    <footer>
+        <p id="giphy">Powered by Giphy</p>
+        <p id="credits">Team Awesome Team</p>
+    </footer>
+</body>
+
+<script src="/assets/js/playerInfo.js"></script>
+<script>
+    $("#VDeck").on("click", function() {
+        console.log("working");
         location.replace("http://localhost:8000/deckview");
-        
-  });
-  $("#front").on("click", function() {
-        console.log("working")
-        location.replace("http://localhost:8000/");
-        
-  });</script>
+    });
+
+    $("#back").on("click", function() {
+        console.log("working");
+        location.replace("http://localhost:8000/back");  
+    });
+</script>
+
+
+
