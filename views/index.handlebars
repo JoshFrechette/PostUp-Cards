@@ -1,57 +1,47 @@
 <body>
-    <style>#card{
-        float: right;
-        }</style>
-        <header>
-            <a href="index.html"><h1>PostUp Cards</h1></a>
-            <nav>
-                <button id="Enter">Login</button>
-                <button id="Enter">Signup</button>
-            </nav>
-        </header>
-  
-        <div id= "search">
+    <style>
+        #card {
+            float: right;
+        }
+    </style>
+    
+    <header>
+        <h1>PostUp Cards</h1>
+        <nav>
+            <button id="login">Login</button>
+            <button id="signup">Signup</button>
+        </nav>
+    </header>
+    <div id="search">
         <button id ="submit" onclick="playerInformation()">Submit</button>
         <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
-        <div id="card">
-            {{!-- <img id="player-pic" src="assets/Profile_Pic.png"> --}}
-            {{!-- <ul>
-                <li>Height: 5'11"</li>
-                <li>Weight: 200lbs</li>
-                <li>Super Move: Finger Guns</li>
-                <li>Dance Ability: 11/10</li>
-                <li>Coffee Order: Black </li>
-            </ul> --}}
-        </div>
-        </div>
+    
+        <div id="card"></div>
+    </div>
 
-        <div class="controls" id="generate">
-            <ul>
+    <div class="controls" id="generate">
+        <ul>
             <li><button id="new-card">clear</button></li>
             <li><button id="save-card">Save</button></li>
             <li><button id="VDeck">Deck</button></li>
             <li><button id="back">Back card</button></li>
-            </ul>
-    
-        </div>
+        </ul>
+    </div>
         
-        <footer>
-            <p id="giphy">Powered by Giphy</p>
-            <p id="credits">Team Awesome Team</p>
-        </footer>
-    </body>
-   <script src="/assets/js/playerInfo.js"></script>
+    <footer>
+        <p id="giphy">Powered by Giphy</p>
+        <p id="credits">Team Awesome Team</p>
+    </footer>
+</body>
 
-   <script>
-       $("#VDeck").on("click", function() {
+<script src="/assets/js/playerInfo.js"></script>
+<script>
+    $("#VDeck").on("click", function() {
         console.log("working")
-        location.replace("http://localhost:8000/deckview");
-        
-  });
-   $("#back").on("click", function() {
+        location.replace("http://localhost:8000/deck");
+    });
+    $("#back").on("click", function() {
         console.log("working")
-        location.replace("http://localhost:8000/create");
-        
-  });
-
+        location.replace("http://localhost:8000/create");  
+    });
   </script>
