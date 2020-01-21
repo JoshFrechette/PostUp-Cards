@@ -10,6 +10,9 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 8000;
 
+//For syncing models
+var db = require("./models");
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -17,6 +20,7 @@ app.use(express.json());
 app.use(express.static("public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
+
 // Routes
 
 app.get("/welcome", function(req, res) {
@@ -37,6 +41,10 @@ app.get("/deckview", function(req, res) {
 app.get("/back", function(req, res) {
     res.render(path.join(__dirname, "./views/layouts/Back"));
   });
+
+  require("./routes/deck-api-routes.js")(app);
+  // require("./routes/card-api-routes.js")(app);
+
 // Starts the server to begin listening
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {

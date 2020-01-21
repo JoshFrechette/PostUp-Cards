@@ -1,10 +1,6 @@
   
 -- create database and table schema here
 
-
-
-### Schema
-
 CREATE DATABASE postup_cards;
 
 USE postup_cards;
