@@ -24,15 +24,16 @@ module.exports = function(app) {
       res.json(dbusers);
     });
   });
+  
 //If needed for a future delete function
-  app.delete("/api/userss/:id", function(req, res) {
-    db.users.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbusers) {
-      res.json(dbusers);
-    });
-  });
+  // app.delete("/api/userss/:id", function(req, res) {
+  //   db.users.destroy({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   }).then(function(dbusers) {
+  //     res.json(dbusers);
+  //   });
+  // });
 
 };

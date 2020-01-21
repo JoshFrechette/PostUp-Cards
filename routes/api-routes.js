@@ -1,3 +1,33 @@
+var db = require("../models");
+
+module.exports = function(app) {
+  app.get("/api/player_base", function(req, res) {
+    // 1. Add a join to include all of each users's cards
+    db.player_base.findAll({}).then(function(dbplayer_base) {
+      res.json(dbplayer_base);
+    });
+  });
+
+  app.get("/api/users/:id", function(req, res) {
+    // 2; Add a join to include all of the player's stats here
+    db.player_base.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbplayer_base) {
+      res.json(dbplayer_base);
+    });
+  });
+
+  app.post("/api/player_base", function(req, res) {
+    db.player_base.create(baseStats).then(function(dbplayer_base) {
+      res.json(dbplayer_base);
+    });
+  });
+
+
+
+
 // const fetch = require("node-fetch");
 // const Request = require("request");
 // function NBAPlayerInfo(){
