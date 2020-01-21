@@ -3,9 +3,15 @@ $(document).ready(function () {
     var playerId = $("#playerID");
     var allInput = $("#playeStatsseason");
     var cardSave = $("#generate");
+<<<<<<< HEAD
     $(cardSave).on("click", function handleCardSave(event) {
         event.preventDefault();
         console.log("Submit working?")
+=======
+    $(cardSave).on("submit", function handleCardSave(event) {
+        event.preventDefault();
+
+>>>>>>> master
 
         var newCardBase = {
             player_id: playerId.val().trim()
@@ -17,10 +23,16 @@ $(document).ready(function () {
 
     });
 
+<<<<<<< HEAD
    
 
 let submitCard = (Post) => {
     $.post("/api/posts/", Post)
     
+=======
+
+let submitCard = (Post) => {
+    $.post("/api/posts/", Post)
+>>>>>>> master
  }
 });

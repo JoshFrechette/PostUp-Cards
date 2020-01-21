@@ -58,6 +58,14 @@ db.sequelize.sync().then(function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 
+<<<<<<< HEAD
+=======
+});
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + `http://localhost:${PORT}/welcome`);
+
+>>>>>>> master
 });
 
 // app.listen(PORT, function() {
