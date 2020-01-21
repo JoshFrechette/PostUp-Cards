@@ -13,7 +13,7 @@
         </nav>
     </header>
     <div id="search">
-        <button id ="submit" onclick="playerInformation()">Submit</button>
+        <button id ="submit">Submit</button>
         <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
     
         <div id="card"></div>
@@ -24,7 +24,6 @@
             <li><button id="new-card">clear</button></li>
             <li><button id="save-card">Save</button></li>
             <li><button id="VDeck">Deck</button></li>
-            <li><button id="back">Back card</button></li>
         </ul>
     </div>
         
@@ -40,8 +39,14 @@
         console.log("working")
         location.replace("http://localhost:8000/deck");
     });
-    $("#back").on("click", function() {
+   $("#submit").on("click", function() {
         console.log("working")
-        location.replace("http://localhost:8000/create");  
+        playerInformation();
+          $("#SearchPlayer").val('');
+    });
+     $("#new-card").on("click", function() {
+        console.log("working")
+        $("#card").empty();
+
     });
   </script>

@@ -2,9 +2,9 @@
 
 //Empty array to hold the harvested data in the propper for for the front-end
 let stats = [];
-
 let avgStats = [];
 let multiple = 1;
+var shaili = [];
 
 
 function playerInformation() {
@@ -20,7 +20,6 @@ function NBAPlayerGif(player) {
         method: "GET"
     }).then(function (gifs) {
         $("#card").append("<img src=" + gifs.data[0].images.original.url + ">");
-        //$("#playerID").text("Player's id: " + response.data[0].id);
         NBAPlayerInfo(player);
     })
 }
@@ -31,11 +30,12 @@ function NBAPlayerInfo(player) {
         url: ballDontLie,
         method: "GET"
     }).then(function (response) {
+        $("#card").append("<div class=col id=playerName></div>");
+        $("#playerName").css({'font-family': "Impact,Charcoal,sans-serif", 'font-size': "xxx-large", 'text-align': 'center', 'color' : 'white'});
+        $("#playerName").text(response.data[0].first_name + " " + response.data[0].last_name);
+
         $("#card").append("<div class=col id=playerID></div>");
         $("#playerID").text("Player's id: " + response.data[0].id);
-
-        $("#card").append("<div class=col id=playerName></div>");
-        $("#playerName").text("Player's name: " + response.data[0].first_name + " " + response.data[0].last_name);
 
         $("#card").append("<div class=col id=playerHeight></div>");
         $("#playerHeight").text("Player's height: " + response.data[0].height_feet + " ft");
@@ -56,6 +56,8 @@ function NBAPlayerInfo(player) {
     })
 }
 
+
+
 function playerStatastics(playerID) {
     let d = new Date();
     let currentSeason = d.getUTCFullYear();
@@ -66,7 +68,7 @@ function playerStatastics(playerID) {
         url: playerStats,
         method: "GET"
     }).then(function (data) {
-        console.log(playerStats)
+        // console.log(playerStats)
         let season = data;
         //Declaring the variables for the loop
         let fgm = 0;
@@ -119,11 +121,7 @@ function playerStatastics(playerID) {
         }
         stats.push(plyrData);
 
-
         $("#card").append("<div class=col id=playeStatsseason></div>");
-
-        $("#card-landscape").append("<div class=col id=playeStatsseason></div>");
-
         $("#playeStatsseason").text("Season: " + stats[0].Season + " FG_Made: " + stats[0].FG_Made + " FG_Att: " + stats[0].FG_Att + " Three_Pts_Made: " + stats[0].Three_Pts_Made + " Three_Pts_Att: " + stats[0].Three_Pts_Att +
          " FT Made: " + stats[0].FT_Made + " FT Att: " + stats[0].FT_Att + " Off Reb: " + stats[0].Off_Reb + " Def Reb: " + stats[0].Def_Reb + " Asst: " + stats[0].Asst + " Stl: " + stats[0].Stl + " Blk: " + stats[0].Blk + " Pts: " + stats[0].Pts + " AVG: " + stats[0].AVG );
 
@@ -172,31 +170,30 @@ function playerStatastics(playerID) {
 
 
     })
-    // seasonStats(currentSeason, playerID)
-    allSeasonStats(currentSeason, playerID);
+    seasonStats(currentSeason, playerID);
+    // allSeasonStats(currentSeason, playerID);
 }
 
-let allSeasonStats = (currentSeason,playerID) => {
-    let i = 0;
-    do {
-        i += 1;
-        multiple = multiple +1;
-        currentSeason = currentSeason - 1;
-        seasonStats(currentSeason, playerID);
-    } while (i<5);
-    }
+// let allSeasonStats = (currentSeason,playerID) => {
+//     let i = 0;
+//     do {
+//         i += 1;
+//         currentSeason = currentSeason - 1;
+//         seasonStats(currentSeason, playerID);
+//     } while (i<5);
+//     }
 
 
 let seasonStats = (currentSeason, playerID) => {
-    // let avgStats = [];
-    // currentSeason = currentSeason - 1;
+    let avgStats = [];
+    currentSeason = currentSeason - 1;
     var playerStats = "https://cors-anywhere.herokuapp.com/https://www.balldontlie.io/api/v1/season_averages?season=" + currentSeason + "&player_ids[]=" + playerID;
     $.ajax({
         url: playerStats,
         method: "GET"
     }).then(function (avgData) {
         let seasonAvg = avgData;
-        console.log(seasonAvg)
+        console.log(seasonAvg);
     //Create the JSON for every season
     let plrAvgStats = {
 
@@ -216,12 +213,11 @@ let seasonStats = (currentSeason, playerID) => {
 
     }
     avgStats.push(plrAvgStats);
+   
+// console.log(avgStats);
 
 
     $("#card").append("<div class=col id=plyrAvgSeason></div>");
-
-    $("#card-landscape").append("<div class=col id=plyrAvgSeason></div>");
-
     $("#plyrAvgSeason").text(" Season: " + currentSeason + " FG Made AVG: " + seasonAvg.data[0].fgm + " FG Att AVG: " + seasonAvg.data[0].fga + " Three Pts Made AVG: " + seasonAvg.data[0].fg3m +
     " Three Pts Att AVG: " + seasonAvg.data[0].fg3a + " FT Made AVG: " + seasonAvg.data[0].ftm + " FT Att AVG: " + seasonAvg.data[0].fta + " Off Reb AVG: " + seasonAvg.data[0].oreb + " Def Reb AVG: " + seasonAvg.data[0].dreb
     + " Asst AVG: " + seasonAvg.data[0].ast + " Stl AVG: " + seasonAvg.data[0].stl + " Blk AVG: " + seasonAvg.data[0].blk + " Pts AVG: " + seasonAvg.data[0].pts);
@@ -270,3 +266,4 @@ let seasonStats = (currentSeason, playerID) => {
 
 })
 }
+
