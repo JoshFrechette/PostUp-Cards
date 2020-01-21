@@ -1,32 +1,42 @@
-
-    <body>
-        <header>
-            <a href="index.html"><h1>PostUp Cards</h1></a>
+<body>
+    <header>
+        ><h1>PostUp Cards</h1>
             <nav>
-                <button id="Signup">Signup</button>
-                <button id="Enter">Login</button>
-                
+                <button id="login">Login</button>
+                <button id="signup">Signup</button>
             </nav>
-        </header>
-        <div class="container">
-            <h2>Log In</h2>
-            <form class="center">
-                Username: <input type='text' id='uname'><br>
-                Password: <input type='password' id='pword'><br>
-            </form>
-            <div class="center">
-                <button id="Login">Log In</button>
-            </div>
+    </header>
+
+    <div class="container">
+        <h2>Log In</h2>
+        <form class="center">
+            Username: <input type='text' id='uname'><br>
+            Password: <input type='password' id='pword'><br>
+        </form>
+        <div class="center">
+            <button id="Login">Log In</button>
         </div>
-         <script>
-       $("#Enter").on("click", function() {
-        console.log("working")
-        location.replace("http://localhost:8000/create");
-        
-        
-  });</script>
-        <footer>
-            <p id="giphy">Powered by Giphy</p>
-            <p id="credits">Team Awesome Team</p>
-        </footer>
+    </div>
     
+    <footer>
+        <p id="giphy">Powered by Giphy</p>
+        <p id="credits">Team Awesome Team</p>
+    </footer>
+</body>
+
+<script>
+    $("#Enter").on("click", function() {
+        console.log("working");
+        location.replace("http://localhost:8000/create");
+    });
+
+    $("#login").on("click", function() {
+        console.log("working")
+        location.replace("http://localhost:8000/login");
+    });
+
+    $("#signup").on("click", function() {
+        console.log("working");
+        location.replace("http://localhost:8000/signup");
+    });
+</script>
