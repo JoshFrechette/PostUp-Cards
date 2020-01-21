@@ -23,6 +23,7 @@ const db = require('./config/database');
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+//Middleware
 app.use(express.static("public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
