@@ -68,10 +68,10 @@ let NBAPlayerInfo = (player) => {
             player_city:response.data[0].team.city
     
         }
-  
+        // console.log(playerInfo.player_id + " and " + baseStats)
         // playerInfo += imgSrc;
         baseStats.push(playerInfo);
-        console.log(baseStats)
+        // console.log("baseStats is " + baseStats[0].player_id) //format to get info JF
         playerStatastics(playerID);
 
     })
@@ -81,14 +81,14 @@ let NBAPlayerInfo = (player) => {
 let playerStatastics = (playerID) => {
     let d = new Date();
     let currentSeason = d.getUTCFullYear();
-    console.log(currentSeason);
+    // console.log(currentSeason);
     currentSeason = currentSeason - 1;
     var playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason;
     $.ajax({
         url: playerStats,
         method: "GET"
     }).then(function (data) {
-        console.log(playerStats)
+        // console.log(playerStats)
         let season = data;
         //Declaring the variables for the loop
         let fgm = 0;
@@ -239,7 +239,7 @@ let seasonStats = (currentSeason, playerID) => {
 
         }
         avgStats.push(plrAvgStats);
-        console.log("in function " + avgStats[0].Season);
+        // console.log("in function " + avgStats[0].Season);
         
 
         $("#card").append("<div class=col id=plyrAvgSeason></div>");
