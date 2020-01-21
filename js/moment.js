@@ -14,5 +14,9 @@ var moment = require('moment');
 //     }
 // }
 // check(now, date);
-
+module.exports = let timeCall = () => {
 var now = moment();
+let thisYear = moment().format('YYYY');
+}
+
+

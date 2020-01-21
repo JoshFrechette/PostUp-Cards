@@ -1,0 +1,54 @@
+<body>>
+    <style>
+        #card {
+                float: right;
+            }
+    </style>
+    
+    <header>
+        <h1>PostUp Cards</h1>
+            <nav>
+                <button id="Enter">Login</button>
+                <button id="Enter">Signup</button>
+            </nav>
+    </header>
+  
+    <div id="search">
+        <button id="submit" onclick="playerInformation()">Search</button>
+        <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
+    </div>
+
+    <div id="card-landscape" style="width: 600px; float: left;">
+        <ul></ul>
+    </div>
+
+    <div class="controls" id="generate">
+        <ul>
+            <li><button id="new-card">Clear</button></li>
+            <li><button id="save-card">Save</button></li>
+            <li><button id="VDeck">Deck</button></li>
+            <li><button id="back">Front card</button></li>
+        </ul>
+    </div>
+        
+    <footer>
+        <p id="giphy">Powered by Giphy</p>
+        <p id="credits">Team Awesome Team</p>
+    </footer>
+</body>
+
+<script src="/assets/js/playerInfo.js"></script>
+<script>
+    $("#VDeck").on("click", function() {
+        console.log("working");
+        location.replace("http://localhost:8000/deckview");
+    });
+
+    $("#back").on("click", function() {
+        console.log("working");
+        location.replace("http://localhost:8000/back");  
+    });
+</script>
+
+
+
