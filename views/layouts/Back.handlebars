@@ -17,11 +17,19 @@
         <button id="submit" onclick="playerInformation()">Search</button>
         <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
     </div>
+<<<<<<< HEAD
 
     <div id="card-landscape" style="width: 600px; float: left;">
         <ul></ul>
     </div>
 
+=======
+
+    <div id="card-landscape" style="width: 600px; float: left;">
+        <ul></ul>
+    </div>
+
+>>>>>>> d6b1527f2a8f4d748960b54f58ca83e100244aa2
     <div class="controls" id="generate">
         <ul>
             <li><button id="new-card">Clear</button></li>
@@ -39,6 +47,7 @@
 
 <script src="/assets/js/playerInfo.js"></script>
 <script>
+<<<<<<< HEAD
     
     $("#back").on("click", function() {
         console.log("working");
@@ -56,5 +65,18 @@ $("#save-card").click(function(){
   });
 });
 </script>
+=======
+    $("#VDeck").on("click", function() {
+        console.log("working");
+        location.replace("http://localhost:8000/deckview");
+    });
+
+    $("#back").on("click", function() {
+        console.log("working");
+        location.replace("http://localhost:8000/back");  
+    });
+</script>
+
+>>>>>>> d6b1527f2a8f4d748960b54f58ca83e100244aa2
 
 
