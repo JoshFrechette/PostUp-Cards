@@ -1,26 +1,29 @@
-
-    <body>
-        <header>
-            <nav>
-                <button id="Entering">Login</button>
-                <button id="Entering">Signup</button>
-                
-            </nav>
-        </header>
-        <div class="container">
-            <p>Welcome, one and all to PostUp Cards! The latest cryptocurrency craze. Tired of paying for your stuff with things like MONEY and EFFORT?
-               Well no longer! Generate some digital trading cards and trade them for real goods and services. Then let us know how you did it. We're stumped. 
-            </p>
-        </div>
-        <footer>
-            <p id="giphy">Powered by Giphy</p>
-            <p id="credits">Team Awesome Team</p>
-        </footer>
-    </body>
-     <script>
-       $("#Entering").on("click", function() {
+<body>
+    <header>
+        <nav>
+            <button id="login">Login</button>
+            <button id="signup">Signup</button>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <p>Welcome, one and all to PostUp Cards! The latest cryptocurrency craze. Tired of paying for your stuff with things like MONEY and EFFORT?
+            Well no longer! Generate some digital trading cards and trade them for real goods and services. Then let us know how you did it. We're stumped. 
+        </p>
+    </div>
+     <footer>
+        <p id="giphy">Powered by Giphy</p>
+        <p id="credits">Team Awesome Team</p>
+    </footer>
+</body>
+<script>
+    $("#login").on("click", function() {
         console.log("working")
         location.replace("http://localhost:8000/login");
-        
-  });
-  </script>
+    });
+
+    $("#signup").on("click", function() {
+        console.log("working");
+        location.replace("http://localhost:8000/signup");
+    });
+</script>

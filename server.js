@@ -33,6 +33,10 @@ app.get("/login", function(req, res) {
   res.render(path.join(__dirname, "./views/layouts/login"));
 });
 
+app.get("/signup", function(req, res) {
+  res.render(path.join(__dirname, "./views/layouts/signup"));
+});
+
 app.get("/deckview", function(req, res) {
     res.render(path.join(__dirname, "./views/layouts/Deck"));
   });
