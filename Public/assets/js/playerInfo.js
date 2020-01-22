@@ -25,10 +25,7 @@ let NBAPlayerGif = (player) => {
 
         
         $("#card").append("<img src=" + gifs.data[0].images.original.url + ">");
-<<<<<<< HEAD
-=======
         NBAPlayerInfo(player);
->>>>>>> master
     })
  
     // let isrc = gifs.data[0].images.original.url;
@@ -84,13 +81,9 @@ let NBAPlayerInfo = (player) => {
 
 }
 
-<<<<<<< HEAD
-let playerStatastics = (playerID) => {
-=======
 
 
 function playerStatastics(playerID) {
->>>>>>> master
     let d = new Date();
     let currentSeason = d.getUTCFullYear();
     // console.log(currentSeason);
@@ -206,18 +199,6 @@ function playerStatastics(playerID) {
     // allSeasonStats(currentSeason, playerID);
 }
 
-<<<<<<< HEAD
-let allSeasonStats = (currentSeason, playerID) => {
-    let i = 0;
-    do {
-        i += 1;
-        multiple = multiple + 1;
-        currentSeason = currentSeason - 1;
-        seasonStats(currentSeason, playerID);
-    } while (i < 5);
-
-}
-=======
 // let allSeasonStats = (currentSeason,playerID) => {
 //     let i = 0;
 //     do {
@@ -226,7 +207,6 @@ let allSeasonStats = (currentSeason, playerID) => {
 //         seasonStats(currentSeason, playerID);
 //     } while (i<5);
 //     }
->>>>>>> master
 
 
 let seasonStats = (currentSeason, playerID) => {
@@ -238,39 +218,20 @@ let seasonStats = (currentSeason, playerID) => {
         method: "GET"
     }).then(function (avgData) {
         let seasonAvg = avgData;
-<<<<<<< HEAD
-=======
         console.log(seasonAvg);
     //Create the JSON for every season
-    let plrAvgStats = {
->>>>>>> master
+    // let plrAvgStats = {
 
-        //Create the JSON for every season
-        let plrAvgStats = {
+    //     //Create the JSON for every season
+    //     let plrAvgStats = {
 
-<<<<<<< HEAD
-            Season: currentSeason,
-            FG_Made_Avg: seasonAvg.data.fgm,
-            FG_Att_Avg: seasonAvg.data.fga,
-            Three_Pts_Made_Avg: seasonAvg.data.fg3m,
-            Three_Pts_Att_Avg: seasonAvg.data.fg3a,
-            FT_Made_Avg: seasonAvg.data.ftm,
-            FT_Att_Avg: seasonAvg.data.fta,
-            Off_Reb_Avg: seasonAvg.data.oreb,
-            Def_Reb_Avg: seasonAvg.data.dreb,
-            Asst_Avg: seasonAvg.data.ast,
-            Stl_Avg: seasonAvg.data.stl,
-            Blk_Avg: seasonAvg.data.blk,
-            Pts_Avg: seasonAvg.data.pts
-=======
-    }
-    avgStats.push(plrAvgStats);
+    // }
+    // avgStats.push(plrAvgStats);
    
 // console.log(avgStats);
 
->>>>>>> master
 
-        }
+        // }
         avgStats.push(plrAvgStats);
         // console.log("in function " + avgStats[0].Season);
         
