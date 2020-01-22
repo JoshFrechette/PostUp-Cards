@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         player_name: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
@@ -44,11 +44,16 @@ module.exports = function(sequelize, DataTypes) {
         },
         img_src: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
             validate: {
                 len: [1]
             }
         }
     });
+    player_base.associate = function(models) {
+        // player_base.hasMany(models.player_current, models.player_avg, {
+        //     onDelete: "cascade"
+        // });
+    };
     return player_base;
 };

@@ -1,7 +1,11 @@
 var mysql      = require('mysql');
 
 var connection = mysql.createConnection({
+<<<<<<< HEAD
+  host     : 'JAWSDB_URL',
+=======
   host     : 'localhost',
+>>>>>>> master
   user     : 'root',
   password : 'Itsoverkamo000',
   database : 'postup_cards'
