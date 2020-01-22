@@ -1,16 +1,13 @@
 <body>
-    <header>
-        <nav>
-            <button id="login">Login</button>
-            <button id="signup">Signup</button>
-        </nav>
-    </header>
+    
     
     <div class="container">
         <p>Welcome, one and all to PostUp Cards! The latest cryptocurrency craze. Tired of paying for your stuff with things like MONEY and EFFORT?
             Well no longer! Generate some digital trading cards and trade them for real goods and services. Then let us know how you did it. We're stumped. 
         </p>
+        
     </div>
+    <button id ="create-button">Create Card</button>
      <footer>
         <p id="giphy">Powered by Giphy</p>
         <p id="credits">Team Awesome Team</p>
@@ -19,11 +16,14 @@
 <script>
     $("#login").on("click", function() {
         console.log("working")
-        location.replace("http://localhost:8000/login");
+        location.replace("/login");
     });
-
+$("#create-button").on("click", function() {
+        console.log("working")
+        location.replace("/create");
+    });
     $("#signup").on("click", function() {
         console.log("working");
-        location.replace("http://localhost:8000/signup");
+        location.replace("/signup");
     });
 </script>

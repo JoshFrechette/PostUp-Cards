@@ -1,11 +1,5 @@
 <body>
-    <header>
-        <h1>PostUp Cards</h1>
-            <nav>
-                <button id="login">Login</button>
-                <button id="signup">Signup</button>
-            </nav>
-    </header>
+    
     
     <div class="container">
         <h2>Sign Up</h2>
@@ -27,16 +21,16 @@
 <script>
     $("#Enter").on("click", function() {
         console.log("working");
-        location.replace("http://localhost:8000/create");
+        location.replace("/create");
     });
 
     $("#login").on("click", function() {
         console.log("working")
-        location.replace("http://localhost:8000/login");
+        location.replace("/login");
     });
 
     $("#signup").on("click", function() {
         console.log("working");
-        location.replace("http://localhost:8000/signup");
+        location.replace("/signup");
     });
 </script>

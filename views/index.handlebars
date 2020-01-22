@@ -5,25 +5,22 @@
         }
     </style>
     
-    <header>
-        <h1>PostUp Cards</h1>
-        <nav>
-            <button id="login">Login</button>
-            <button id="signup">Signup</button>
-        </nav>
-    </header>
-    <div id="search">
-        <button id ="submit">Submit</button>
-        <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
     
-        <div id="card"></div>
+    <div id="search">
+        <button id="new-card">clear</button>
+        <button id ="submit">Search</button>
+        <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
+        
+    
+       
     </div>
-
+    <div id="card"></div>
     <div class="controls" id="generate">
         <ul>
-            <li><button id="new-card">clear</button></li>
-            <li><button id="save-card">Save</button></li>
-            <li><button id="VDeck">Deck</button></li>
+            
+            <li><button id="save-card"><span> Save Card </span></button></li>
+            <li><button id="VDeck"><span> Deck View </span></button></li>
+            {{!-- <li><button id="back">Back card</button></li> --}}
         </ul>
     </div>
         
@@ -37,8 +34,9 @@
 <script>
     $("#VDeck").on("click", function() {
         console.log("working")
-        location.replace("http://localhost:8000/deck");
+        location.replace("/deck");
     });
+
    $("#submit").on("click", function() {
         console.log("working")
         playerInformation();

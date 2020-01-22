@@ -17,11 +17,27 @@
         <button id="submit" onclick="playerInformation()">Search</button>
         <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
     </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+    <div id="card-landscape" style="width: 600px; float: left;">
+        <ul></ul>
+    </div>
+
+=======
+
+    <div id="card-landscape" style="width: 600px; float: left;">
+        <ul></ul>
+    </div>
+
+>>>>>>> d6b1527f2a8f4d748960b54f58ca83e100244aa2
+=======
 
     <div id="card-landscape" style="width: 600px; float: left;">
      
     </div>
 
+>>>>>>> c6137379c1d5f1af88b98abb07ae0a76adb72d8b
     <div class="controls" id="generate">
         <ul>
             <li><button id="new-card">Clear</button></li>
@@ -39,6 +55,28 @@
 
 <script src="/assets/js/playerInfo.js"></script>
 <script>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    
+    $("#back").on("click", function() {
+        console.log("working");
+        location.replace("/back");  
+    });
+    $("#VDeck").click(function(){
+  $.post("demo_test.asp", function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+});
+
+$("#save-card").click(function(){
+  $.post("/api/posts/", function(data, status){
+    alert("Data: " + data + "\nStatus: " + status);
+  });
+});
+</script>
+=======
+=======
+>>>>>>> c6137379c1d5f1af88b98abb07ae0a76adb72d8b
     $("#VDeck").on("click", function() {
         console.log("working");
         location.replace("http://localhost:8000/deckview");
@@ -50,5 +88,6 @@
     });
 </script>
 
+>>>>>>> d6b1527f2a8f4d748960b54f58ca83e100244aa2
 
 
