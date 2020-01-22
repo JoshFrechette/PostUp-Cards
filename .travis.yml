@@ -12,4 +12,7 @@ deploy:
   app: postup-cards
   on:
     repo: KhalilMouna/PostUp-Cards
+    branches:
+      only:
+        - heroku_deploy
   skip_cleanup: true
