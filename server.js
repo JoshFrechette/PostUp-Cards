@@ -74,4 +74,11 @@ models.sequelize.sync().then(function() {
 
 });
 
+<<<<<<< HEAD
 
+=======
+// app.listen(PORT, function() {
+//   console.log("App listening on PORT " + `http://localhost:${PORT}/welcome`);
+
+// });
+>>>>>>> master

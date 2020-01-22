@@ -3,6 +3,7 @@ let baseStats = [];
 let stats = [];
 let avgStats = [];
 let multiple = 1;
+var shaili = [];
 
 
 let playerInformation = () => {
@@ -24,6 +25,10 @@ let NBAPlayerGif = (player) => {
 
         
         $("#card").append("<img src=" + gifs.data[0].images.original.url + ">");
+<<<<<<< HEAD
+=======
+        NBAPlayerInfo(player);
+>>>>>>> master
     })
  
     // let isrc = gifs.data[0].images.original.url;
@@ -40,11 +45,12 @@ let NBAPlayerInfo = (player) => {
         url: ballDontLie,
         method: "GET"
     }).then(function (response) {
+        $("#card").append("<div class=col id=playerName></div>");
+        $("#playerName").css({'font-family': "Impact,Charcoal,sans-serif", 'font-size': "xxx-large", 'text-align': 'center', 'color' : 'white'});
+        $("#playerName").text(response.data[0].first_name + " " + response.data[0].last_name);
+
         $("#card").append("<div class=col id=playerID></div>");
         $("#playerID").text("Player's id: " + response.data[0].id);
-
-        $("#card").append("<div class=col id=playerName></div>");
-        $("#playerName").text("Player's name: " + response.data[0].first_name + " " + response.data[0].last_name);
 
         $("#card").append("<div class=col id=playerHeight></div>");
         $("#playerHeight").text("Player's height: " + response.data[0].height_feet + " ft");
@@ -78,7 +84,13 @@ let NBAPlayerInfo = (player) => {
 
 }
 
+<<<<<<< HEAD
 let playerStatastics = (playerID) => {
+=======
+
+
+function playerStatastics(playerID) {
+>>>>>>> master
     let d = new Date();
     let currentSeason = d.getUTCFullYear();
     // console.log(currentSeason);
@@ -141,11 +153,7 @@ let playerStatastics = (playerID) => {
         }
         stats.push(plyrData);
 
-
         $("#card").append("<div class=col id=playeStatsseason></div>");
-
-        $("#card-landscape").append("<div class=col id=playeStatsseason></div>");
-
         $("#playeStatsseason").text("Season: " + stats[0].Season + " FG_Made: " + stats[0].FG_Made + " FG_Att: " + stats[0].FG_Att + " Three_Pts_Made: " + stats[0].Three_Pts_Made + " Three_Pts_Att: " + stats[0].Three_Pts_Att +
             " FT Made: " + stats[0].FT_Made + " FT Att: " + stats[0].FT_Att + " Off Reb: " + stats[0].Off_Reb + " Def Reb: " + stats[0].Def_Reb + " Asst: " + stats[0].Asst + " Stl: " + stats[0].Stl + " Blk: " + stats[0].Blk + " Pts: " + stats[0].Pts + " AVG: " + stats[0].AVG);
 
@@ -194,10 +202,11 @@ let playerStatastics = (playerID) => {
 
 
     })
-    // seasonStats(currentSeason, playerID)
-    allSeasonStats(currentSeason, playerID);
+    seasonStats(currentSeason, playerID);
+    // allSeasonStats(currentSeason, playerID);
 }
 
+<<<<<<< HEAD
 let allSeasonStats = (currentSeason, playerID) => {
     let i = 0;
     do {
@@ -208,21 +217,38 @@ let allSeasonStats = (currentSeason, playerID) => {
     } while (i < 5);
 
 }
+=======
+// let allSeasonStats = (currentSeason,playerID) => {
+//     let i = 0;
+//     do {
+//         i += 1;
+//         currentSeason = currentSeason - 1;
+//         seasonStats(currentSeason, playerID);
+//     } while (i<5);
+//     }
+>>>>>>> master
 
 
 let seasonStats = (currentSeason, playerID) => {
-    // let avgStats = [];
-    // currentSeason = currentSeason - 1;
+    let avgStats = [];
+    currentSeason = currentSeason - 1;
     var playerStats = "https://cors-anywhere.herokuapp.com/https://www.balldontlie.io/api/v1/season_averages?season=" + currentSeason + "&player_ids[]=" + playerID;
     $.ajax({
         url: playerStats,
         method: "GET"
     }).then(function (avgData) {
         let seasonAvg = avgData;
+<<<<<<< HEAD
+=======
+        console.log(seasonAvg);
+    //Create the JSON for every season
+    let plrAvgStats = {
+>>>>>>> master
 
         //Create the JSON for every season
         let plrAvgStats = {
 
+<<<<<<< HEAD
             Season: currentSeason,
             FG_Made_Avg: seasonAvg.data.fgm,
             FG_Att_Avg: seasonAvg.data.fga,
@@ -236,6 +262,13 @@ let seasonStats = (currentSeason, playerID) => {
             Stl_Avg: seasonAvg.data.stl,
             Blk_Avg: seasonAvg.data.blk,
             Pts_Avg: seasonAvg.data.pts
+=======
+    }
+    avgStats.push(plrAvgStats);
+   
+// console.log(avgStats);
+
+>>>>>>> master
 
         }
         avgStats.push(plrAvgStats);

@@ -6,7 +6,14 @@
     <title>PostUp Cards</title>
     <script src="https://code.jquery.com/jquery.js"></script>
   </head>
+
   <style>
+    textarea {
+  float: left;
+  width: 300px;
+  height: 50px;
+}
+    
     body {
       background-image: url("assets/basketball-net.jpg");
       font-family: sans-serif;
@@ -36,6 +43,28 @@
       float: right;
       margin: 10px 20px;
     }
+    #login{
+      background-color: rgb(33, 48, 102);
+      color: white;
+      font-size: 18px;
+      padding: 5px;
+      text-decoration: none;
+    }
+    #signup{
+      background-color: rgb(33, 48, 102);
+      color: white;
+      font-size: 18px;
+      padding: 5px;
+      text-decoration: none;
+    }
+    #signup hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+    #login hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
 
     nav a {
       background-color: rgb(33, 48, 102);
@@ -56,6 +85,13 @@
       bottom: 0;
       width: 100%;
     }
+    #col {
+      padding-top: 1rem;
+    }
+    .plyrAvgSeason, .playeStatsseason {
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
 
     .container {
       width: 50%;
@@ -74,10 +110,15 @@
     }
 
     #card {
-      margin: 50px;
+      color: white;
+      margin: 100px;
       float: right;
-      width: 40%;
+      width: 400px;
+      height: 600px;
       background-color: rgb(33, 48, 102);
+      position: fixed;
+      right: 0px;
+      
     }
 
     #card-controls {
@@ -85,7 +126,18 @@
       text-align: center;
     }
 
-    .controls button {
+    
+
+    #new-card{
+      width: 100px;
+      height: 50px;
+      font-size: 15pt;
+      color: white;
+      background-color: rgb(33, 48, 102);
+      border: none;
+
+    }
+      #submit{
       width: 100px;
       height: 50px;
       font-size: 15pt;
@@ -93,25 +145,105 @@
       color: white;
       background-color: rgb(33, 48, 102);
       border: none;
-    }
 
+    }
+    #submit:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+    #new-card:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+    #create-button{
+      display: inline-block;
+  border-radius: 4px;
+  background-color: #1e5bf4;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 400px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+
+    }
+#create-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#create-button:hover span {
+  padding-right: 25px;
+}
+
+#create-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+
+    .controls button {
+      width: 300px;
+      height: 150px;
+      font-size: 30pt;
+      margin: 25px 10px;
+      color: white;
+      background-color: rgb(33, 48, 102);
+      border: none;
+    }
     .controls button:hover {
       cursor: pointer;
       background-color: rgb(73, 100, 196);
     }
+.controls button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
+.controls button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.controls button:hover span {
+  padding-right: 25px;
+}
+
+.controls button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
     #generate {
-      margin: 50px;
-      float: right;
+      margin: 200px;
+      float: left;
       width: 40%;
       text-align: center;
+      right: 400px;
+      
     }
 
     #search {
-      margin: 50px;
-      float: right;
+      padding-top: 40px;
+      margin: 70px;
+      float: left;
       width: 40%;
       background-color: rgb(33, 48, 102);
+      position:absolute;
     }
 
     #deck {
@@ -206,9 +338,19 @@
       margin: 5px 10px 5px 20px;
       float: right;
       margin: 10px 20px;
+      
     }
   </style>
   <body>
+    <header>
+      <a href="/create">
+        <img src="/assets/images/PostUpCards-01.png" width="80" height="70" alt="logo"></a>
+        <nav>
+            
+            <button id="login">Login</button>
+            <button id="signup">Signup</button>
+        </nav>
+    </header>
     {{{body}}}
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
