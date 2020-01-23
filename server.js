@@ -29,10 +29,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 //PostUp routes
-
 app.use('/api-routes', require('./routes/api-routes'));
-// Nav Routes
 
+// Nav Routes
 app.get("/", function(req, res) {
   res.render(path.join(__dirname, "./views/layouts/welcome"));
 });
