@@ -1,9 +1,15 @@
 const Sequelize = require('sequelize');
 
 module.exports = new Sequelize('postup_cards', 'root', '', {
-  host: 'localhost',
-  dialect: 'mysql',
+  use_env_variable: "JAWSDB_URL",
+
+  database: "postup_cards",
+
+  dialect: "mysql",
   operatorsAliases: false,
+  // host: 'localhost',
+  // dialect: 'mysql',
+  // operatorsAliases: false,
 
   pool: {
     max: 5,

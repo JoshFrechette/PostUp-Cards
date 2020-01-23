@@ -1,18 +1,26 @@
 language: node_js
 node_js:
   - stable
-script: 'true'
+script: true
 npm: true
 cache:
   directories:
-  - node_modules
+    - node_modules
 deploy:
   provider: heroku
-  api_key: 93153f01-2860-4cc4-94e9-5ca6a33122b7
-  app: postup-cards
+  api_key: f69d7cc9-eda3-4fc1-80b9-983369e2a471
+  app: 
+    name: postup-cards
   on:
     repo: KhalilMouna/PostUp-Cards
-    branches:
-      only:
-        - heroku_deploy
   skip_cleanup: true
+# * info from re-authenticating *
+# Creating OAuth Authorization... done
+# Client:      <none>
+# ID:          f69d7cc9-eda3-4fc1-80b9-983369e2a471
+# Description: Long-lived user authorization
+# Scope:       global
+# Token:       6192768a-4b70-48c7-a551-33163d38c7cb
+# Updated at:  Thu Jan 23 2020 17:24:24 GMT-0500 (Eastern Standard Time) (less than a minute ago)
+
+# old api key: 93153f01-2860-4cc4-94e9-5ca6a33122b7
