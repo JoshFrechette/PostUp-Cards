@@ -13,6 +13,9 @@ deploy:
     name: postup-cards
   on:
     repo: KhalilMouna/PostUp-Cards
+    branches:
+      only:
+        - heroku_deploy
   skip_cleanup: true
 
 # * info from re-authenticating *
