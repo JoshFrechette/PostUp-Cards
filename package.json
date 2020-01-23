@@ -31,5 +31,8 @@
   "bugs": {
     "url": "https://github.com/KhalilMouna/PostUp-Cards/issues"
   },
+  "engines": {
+    "node": "10.x"
+  },
   "homepage": "https://github.com/KhalilMouna/PostUp-Cards#readme"
 }

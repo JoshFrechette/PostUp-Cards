@@ -20,7 +20,8 @@
 
     "database": "postup_cards",
 
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "operatorsAliases": false
 
   }
 }
