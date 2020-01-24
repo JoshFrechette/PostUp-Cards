@@ -9,7 +9,7 @@ cache:
 deploy:
 on: master
   app: postup-cards
-  api_key: f69d7cc9-eda3-4fc1-80b9-983369e2a471
+  api_key: 93153f01-2860-4cc4-94e9-5ca6a33122b7
   provider: heroku
 
 skip_cleanup: true
