@@ -7,9 +7,10 @@ cache:
   directories:
     - node_modules
 deploy:
-on: master
+  on: 
+    branch: master
   app: postup-cards
-  api_key: 93153f01-2860-4cc4-94e9-5ca6a33122b7
+  api_key: 6192768a-4b70-48c7-a551-33163d38c7cb
   provider: heroku
 
 skip_cleanup: true
