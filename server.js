@@ -73,4 +73,4 @@ app.get("/back", function(req, res) {
 
 // });
 
-server.listen(process.env.PORT || port)
+app.listen(process.env.PORT || port)
