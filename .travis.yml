@@ -9,10 +9,12 @@ cache:
 deploy:
   provider: heroku
   api_key: f69d7cc9-eda3-4fc1-80b9-983369e2a471
-  app: 
+  app: postup-cards
+  on:
+    repo: KhalilMouna/PostUp-Cards
+    branch: master
     env: production
-    name: postup-cards
-    on: master
+
 skip_cleanup: true
 
 # * info from re-authenticating *
