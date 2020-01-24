@@ -11,12 +11,8 @@ deploy:
   api_key: f69d7cc9-eda3-4fc1-80b9-983369e2a471
   app: 
     name: postup-cards
-  on:
-    repo: KhalilMouna/PostUp-Cards
-    branches: 
-      only:
-        - master
-  skip_cleanup: true
+    on: master
+skip_cleanup: true
 
 # * info from re-authenticating *
 # Creating OAuth Authorization... done
