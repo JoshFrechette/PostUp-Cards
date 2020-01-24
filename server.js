@@ -66,9 +66,11 @@ app.get("/back", function(req, res) {
   // require("./routes/card-api-routes.js")(app);
 
 // Starts the server to begin listening
-models.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-  });
+// models.sequelize.sync().then(function() {
+//   app.listen(PORT, function() {
+//     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+//   });
 
-});
+// });
+
+server.listen(process.env.PORT || port)
