@@ -13,7 +13,11 @@ deploy:
     name: postup-cards
   on:
     repo: KhalilMouna/PostUp-Cards
+    branches: 
+      only:
+        - master
   skip_cleanup: true
+
 # * info from re-authenticating *
 # Creating OAuth Authorization... done
 # Client:      <none>
