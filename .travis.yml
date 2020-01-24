@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - stable
-script: true
+script: 'true'
 npm: true
 cache:
   directories:
