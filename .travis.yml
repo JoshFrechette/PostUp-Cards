@@ -10,6 +10,7 @@ deploy:
   provider: heroku
   api_key: f69d7cc9-eda3-4fc1-80b9-983369e2a471
   app: 
+    env: production
     name: postup-cards
     on: master
 skip_cleanup: true
