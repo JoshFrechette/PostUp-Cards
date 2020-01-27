@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize('postup_cards', 'root', '', {
+module.exports = new Sequelize('postup_cards', 'root', 'Itsoverkamo000', {
   use_env_variable: "JAWSDB_URL",
 
   database: "postup_cards",

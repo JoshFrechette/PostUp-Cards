@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/assets/css/style.css">     
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PostUp Cards</title>
     <script src="https://code.jquery.com/jquery.js"></script>
   </head>
@@ -15,7 +15,7 @@
 }
     
     body {
-      background-image: url("assets/basketball-net.jpg");
+      background-image: url("assets/images/basketball-net.jpg");
       font-family: sans-serif;
     }
 
@@ -115,10 +115,11 @@
       float: right;
       width: 400px;
       height: 600px;
-      background-color: rgb(33, 48, 102);
-      position: fixed;
+      background-color: rgb(41, 59, 126);
+      border: 5px solid rgb(11, 13, 46);
+      border-radius: 5px;
       right: 0px;
-      
+      clip: rect(0px,400px,600px,0px);
     }
 
     #card-controls {
@@ -168,6 +169,7 @@
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+  animation: createmove 5s;
 
     }
 #create-button span:after {
@@ -199,6 +201,7 @@
       color: white;
       background-color: rgb(33, 48, 102);
       border: none;
+      animation: frontleft 5s;
     }
     .controls button:hover {
       cursor: pointer;
@@ -229,11 +232,13 @@
   right: 0;
 }
     #generate {
-      margin: 200px;
+      margin: 80px;
       float: left;
       width: 40%;
       text-align: center;
-      right: 400px;
+      right: 200px;
+      
+      
       
     }
 
@@ -243,7 +248,23 @@
       float: left;
       width: 40%;
       background-color: rgb(33, 48, 102);
-      position:absolute;
+      position: relative;
+      animation: mymove 5s;
+      
+
+    }
+     @keyframes createmove {
+  from {left: 100px;opacity: 0.5;}
+  to {left: 0px;opacity: 1;}
+    }
+    @keyframes mymove {
+  from {left: 100px;opacity: 0.5;}
+  to {left: 0px;opacity: 1;}
+    }
+   
+    @keyframes frontleft {
+  from {left: 0px;opacity: 0;}
+  to {left: 100px;opacity: 1;}
     }
 
     #deck {
@@ -304,7 +325,7 @@
       cursor: pointer;
       background-color: rgb(73, 100, 196);
     }
-
+  
     #player-pic {
       width: 50%;
       height: 50%;
@@ -338,8 +359,23 @@
       margin: 5px 10px 5px 20px;
       float: right;
       margin: 10px 20px;
+
+      
       
     }
+
+
+    @media screen and (max-width: 480px) {
+    #search {width: 100%; float: left;}
+    #main {width: 100%;margin-left: 216px;}
+    #card {width: 100%;margin-left: 216px;}
+    #deck{width: 100%;}
+    #deck-controls-next{width: 100%;}
+    #deck-controls-prev{width: 100%;}
+    #container {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+}
   </style>
   <body>
     <header>
