@@ -4,27 +4,23 @@
             float: right;
         }
     </style>
-    
-    
+
     <div id="search">
         <button id="new-card">clear</button>
-        <button id ="submit">Search</button>
-        <textarea id="SearchPlayer" value = "SearchPlayer" placeholder="Search Player"></textarea>
-        
-    
-       
+        <button id="submit">Search</button>
+        <textarea id="SearchPlayer" value="SearchPlayer" placeholder="Search Player"></textarea>
     </div>
-    
-    <div id="card" ></div>
+
+    <div id="card"></div>
+
     <div class="controls" id="generate">
         <ul>
-            
             <li><button id="save-card"><span> Save Card </span></button></li>
             <li><button id="VDeck"><span> Deck View </span></button></li>
             {{!-- <li><button id="back">Back card</button></li> --}}
         </ul>
     </div>
-  </div>      
+    
     <footer>
         <p id="giphy">Powered by Giphy</p>
         <p id="credits">Team Awesome Team</p>
@@ -33,19 +29,18 @@
 
 <script src="/assets/js/playerInfo.js"></script>
 <script>
-    $("#VDeck").on("click", function() {
+    $("#VDeck").on("click", function () {
         console.log("working")
         location.replace("/deck");
     });
 
-   $("#submit").on("click", function() {
+    $("#submit").on("click", function () {
         console.log("working")
         playerInformation();
-          $("#SearchPlayer").val('');
+        $("#SearchPlayer").val('');
     });
-     $("#new-card").on("click", function() {
+    $("#new-card").on("click", function () {
         console.log("working")
         $("#card").empty();
-
     });
-  </script>
+</script>
