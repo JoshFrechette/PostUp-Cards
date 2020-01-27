@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PostUp Cards</title>
     <script src="https://code.jquery.com/jquery.js"></script>
   </head>
@@ -168,6 +169,7 @@
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+  animation: createmove 5s;
 
     }
 #create-button span:after {
@@ -250,6 +252,10 @@
       animation: mymove 5s;
       
 
+    }
+     @keyframes createmove {
+  from {left: 100px;opacity: 0.5;}
+  to {left: 0px;opacity: 1;}
     }
     @keyframes mymove {
   from {left: 100px;opacity: 0.5;}
@@ -360,9 +366,9 @@
 
 
     @media screen and (max-width: 480px) {
-    #search {width: 200px; float: left;}
-    #main {margin-left: 216px;}
-    #card {margin-left: 216px;}
+    #search {width: 100%; float: left;}
+    #main {width: 100%;margin-left: 216px;}
+    #card {width: 100%;margin-left: 216px;}
     #container {
   align-self: auto | flex-start | flex-end | center | baseline | stretch;
 }
