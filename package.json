@@ -29,10 +29,10 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/KhalilMouna/PostUp-Cards/issues"
+    "url": "https://github.com/TwistedPixels/PostUp-Cards/issues"
   },
   "engines": {
     "node": "10.x"
   },
-  "homepage": "https://github.com/KhalilMouna/PostUp-Cards#readme"
+  "homepage": "https://github.com/TwistedPixels/PostUp-Cards#readme"
 }
