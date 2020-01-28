@@ -25,7 +25,7 @@ let NBAPlayerGif = (player) => {
 
         
         $("#card").append("<div class=col id=gif></div>");
-        $("#gif").append("<img src=" + gifs.data[0].images.original.url + ">").css({'width': '400px'});
+        $("#gif").append("<img src=" + gifs.data[0].images.original.url + ">");
         NBAPlayerInfo(player);
     })
  
