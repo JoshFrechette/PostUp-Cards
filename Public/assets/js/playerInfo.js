@@ -12,7 +12,7 @@ let playerInformation = () => {
 };
 
 let NBAPlayerGif = (player) => {
-    var gifs = "http://api.giphy.com/v1/gifs/search?q=" + player + "&api_key=NOrybviPafhsVNwUf5V1x96NAM664s7W&limit=5";
+    var gifs = "https://api.giphy.com/v1/gifs/search?q=" + player + "&api_key=NOrybviPafhsVNwUf5V1x96NAM664s7W&limit=5";
     $.ajax({
         url: gifs,
         method: "GET"
