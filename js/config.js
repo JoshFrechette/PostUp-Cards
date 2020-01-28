@@ -3,7 +3,7 @@ var mysql      = require('mysql');
 var connection = mysql.createConnection({
   host     : 'JAWSDB_URL',
   user     : 'root',
-  password : 'Itsoverkamo000',
+  password : '',
   database : 'postup_cards'
 });
 connection.connect(function(err){
