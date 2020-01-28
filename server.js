@@ -16,9 +16,9 @@ app.use(express.static("Public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
-//PostUp routes
+//PostUp routes (have all api routes bundled later on)
 app.use('/api-routes', require('./routes/api-routes'));
-
+require("./routes/player_base-api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 // Nav Routes
 // app.get("/", function(req, res) {
@@ -55,8 +55,8 @@ require("./routes/html-routes.js")(app);
 
 // Starts the server to begin listening
 
-models.sequelize.sync().then(function() {
-  app.listen(process.env.PORT || PORT, function() {
+models.sequelize.sync({}).then(function() {
+  app.listen(PORT, function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 

@@ -54,10 +54,11 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
-    player_base.associate = function(models) {
+    player_base.sync();
+    // player_base.associate = function(models) {
         // player_base.hasMany(models.player_current, models.player_avg, {
         //     onDelete: "cascade"
         // });
-    };
+    // };
     return player_base;
 };

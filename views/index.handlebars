@@ -39,6 +39,12 @@
         playerInformation();
         $("#SearchPlayer").val('');
     });
+
+        $("#save-card").on("click", function () {
+        console.log("card info sent to db")
+        statToDb();
+    });
+
     $("#new-card").on("click", function () {
         console.log("working")
         $("#card").empty();
