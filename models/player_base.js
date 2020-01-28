@@ -1,3 +1,7 @@
+//Dependencies
+var Sequelize = require("sequelize");
+var sequelize = require("../config/database.js");
+
 module.exports = function(sequelize, DataTypes) {
     var player_base = sequelize.define("player_base", {
         player_id: {
