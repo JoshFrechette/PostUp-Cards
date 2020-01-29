@@ -2,6 +2,10 @@ var express = require("express");
 var path = require("path");
 const exphbs = require("express-handlebars");
 
+
+//Database
+const sequelize = require('./config/database');
+
 var app = express();
 var PORT = process.env.PORT || 8000;
 
@@ -17,8 +21,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 //PostUp routes (have all api routes bundled later on)
-app.use('/api-routes', require('./routes/api-routes'));
-require("./routes/player_base-api-routes.js")(app);
+// app.use('/api-routes', require('./routes/api-routes'));
+require("./routes/routes")(app);
 require("./routes/html-routes.js")(app);
 // Nav Routes
 // app.get("/", function(req, res) {
@@ -55,11 +59,11 @@ require("./routes/html-routes.js")(app);
 
 // Starts the server to begin listening
 
-models.sequelize.sync({}).then(function() {
-  app.listen(PORT, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-  });
+// models.sequelize.sync({ force: true}).then(function() {
+//   app.listen(PORT, function() {
+//     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+//   });
 
-});
+// });
 
-// app.listen(process.env.PORT || PORT)
+app.listen(process.env.PORT || PORT)
