@@ -4,7 +4,7 @@ var Sequelize = require("sequelize");
 
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
-  
+
   connection.connect();
 
 connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
@@ -27,6 +27,11 @@ connection.end();
     }
   })
 };
+
+sequelize.authenticate()
+  .then(() => console.log('Database connected...'))
+  .catch(err => console.log('Error: ' + err))
+
 
 module.exports = sequelize;
 

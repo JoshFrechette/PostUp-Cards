@@ -1,4 +1,5 @@
-module.exports = function(sequelize, DataTypes) {
+'use strict'
+module.exports = (sequelize, DataTypes) =>  {
     var player_avg = sequelize.define("player_avg", {
         season: {
             type: DataTypes.INTEGER,
@@ -99,12 +100,8 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
-// player_avg.associate = function(models) {
-//     player_avg.belongsTo(models.player_base, {
-//         foreignKey: {
-//             allowNull: false
-//         }
-//         });
-// };
+    player_avg.associate = function (models) {
+
+    }
     return player_avg;
 };

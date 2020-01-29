@@ -65,6 +65,8 @@ let NBAPlayerInfo = (player) => {
         $("#playercity").text("Player's city: " + response.data[0].team.city);
 
         var playerID = response.data[0].id;
+        // event.preventDefault();
+
         let playerInfo = {
             player_id: response.data[0].id,
             player_name: response.data[0].first_name + " " + response.data[0].last_name,
@@ -75,20 +77,15 @@ let NBAPlayerInfo = (player) => {
     
         }
 
-        console.log(playerInfo)
-        $.post("/api/player_base", playerInfo)
-        .then(function(data) {
-            console.log(data);
-        })
+     
         // console.log(playerInfo.player_id + " and " + baseStats)
         // playerInfo += imgSrc;
         baseStats.push(playerInfo);
-        console.log("baseStats is " + baseStats[0].player_id) //format to get info JF
+        // console.log("baseStats is " + baseStats[0].player_id) //format to get info JF
         playerStatastics(playerID);
-        return baseStats;
-
+        
     })
-
+    return playerInfo;
 }
 
 
@@ -228,7 +225,7 @@ let seasonStats = (currentSeason, playerID) => {
         method: "GET"
     }).then(function (avgData) {
         let seasonAvg = avgData;
-        console.log(seasonAvg);
+        // console.log(seasonAvg);
     //Create the JSON for every season
     // let plrAvgStats = {
 
@@ -242,7 +239,7 @@ let seasonStats = (currentSeason, playerID) => {
 
 
         // }
-        avgStats.push(plrAvgStats);
+        avgStats.push(seasonAvg);
         console.log("in function " + avgStats[0].Season);
         
 
@@ -300,20 +297,12 @@ let seasonStats = (currentSeason, playerID) => {
     // console.log("AvgStats " + avgStats);
 }
 
-// let statToDb = (stats, baseStats, avgStats) => {
-//     console.log(baseStats)
-//     var newPlayer_Base = {
-//         player_id: baseStats[0].player_id,
-//         player_name: baseStats[0].player_name, 
-//         player_height: baseStats[0].player_height,
-//         player_weight: baseStats[0].player_weight,
-//         player_team: baseStats[0].player_team,
-//         player_city: baseStats[0].player_city,
-//         img_src: baseStats[0].img_src
-//     };
-//     console.log(newPlayer_Base)
-//     $.post("/api/player_base", newPlayer_Base)
-//     .then(function(data) {
-//         console.log(data);
-//     })
-// }
+let statToDb = (stats, baseStats, avgStats) => {
+    // console.log(playerInfo[0].player_id)
+    $.post("/api/base", baseStats)
+    .then(function(data) {
+        console.log(data);
+    })
+}
+
+// exports.NBAPlayerInfo = NBAPlayerInfo;
