@@ -1,10 +1,21 @@
 const express = require('express');
-const Sequelize = require('sequelize');
+// const Sequelize = require('sequelize');
 const router = express.Router();
 const db = require('../config/database');
-const PostUp = require('../models/index');
-const base = require('../models/player_base');
-const models = require('../models');
+// const PostUp = require('../models/index');
+const player_base = require('../models/player_base');
+// const models = require('../models');
+
+router.get('/', function(req, res) {
+    console.log(player_base);
+        const base = player_base.findAll();
+        // .then(base => {
+
+            console.log(base);
+        //     res.sendStatus(200);
+        // })
+        // .catch(err => console.log(err));
+    })
 
 // app.get("/api/posts", function(req, res) {
 //     var query = {};
@@ -18,30 +29,29 @@ const models = require('../models');
 //       res.json(dbPost);
 //     });
 //   });
-module.exports = function(app) {
 
-app.post("/api/player_base", function(req, res) {
-    const data = {
-                player_id:237,
-                player_name: "Lebron James",
-                player_height:6,
-                player_weight:250,
-                player_team:"Los Angeles Lakers", 
-                player_city: "Los Angeles"
-            }
+// app.post("/api/player_base", function(req, res) {
+//     const data = {
+//                 player_id:237,
+//                 player_name: "Lebron James",
+//                 player_height:6,
+//                 player_weight:250,
+//                 player_team:"Los Angeles Lakers", 
+//                 player_city: "Los Angeles"
+//             }
         
-            let = {player_id, player_name, player_height, player_weight,player_team, player_city } = data;
+//             let = {player_id, player_name, player_height, player_weight,player_team, player_city } = data;
             
-    base.create({
-                player_id,
-                player_name,
-                player_height,
-                player_weight,
-                player_team,
-                player_city
-            }).then(base => res.redirect('/api-routes'))
-        })
-    }
+//     base.create({
+//                 player_id,
+//                 player_name,
+//                 player_height,
+//                 player_weight,
+//                 player_team,
+//                 player_city
+//             }).then(base => res.redirect('/api-routes'))
+//         })
+    
 
  
 
@@ -93,3 +103,4 @@ app.post("/api/player_base", function(req, res) {
 //     .catch(err => console.log(err));
 // });
 
+module.exports = router;

@@ -19,8 +19,28 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/api/player_base", function (req, res) {
-    PlayerBase.player_base.create(baseStats).then(function (PlayerBaseplayer_base) {
+  app.post("/api/player_base", function (playerInfo, res) {
+    console.log("anything")
+    const data = {
+      //Test dummy data
+      player_id: 246,
+      player_name: "Lebron James",
+      player_height: 6,
+      player_weight: 230,
+      player_team: "Los Angeles Lakers",
+      player_city: "Los Angeles"
+    }
+    // console.log(playerInfo)
+    // Insert into table
+    PlayerBase.player_base.create({
+      player_id,
+      player_name,
+      player_height,
+      player_weight,
+      player_team,
+      player_city
+    })
+    .then(function (PlayerBaseplayer_base) {
       res.json(PlayerBaseplayer_base);
     });
   });
