@@ -99,12 +99,12 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
-player_avg.associate = function(models) {
-    player_avg.belongsTo(models.player_base, {
-        foreignKey: {
-            allowNull: false
-        }
-        });
-};
+// player_avg.associate = function(models) {
+//     player_avg.belongsTo(models.player_base, {
+//         foreignKey: {
+//             allowNull: false
+//         }
+//         });
+// };
     return player_avg;
 };

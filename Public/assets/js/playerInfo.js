@@ -1,3 +1,6 @@
+//Dependencies 
+// var models = require("../models");
+
 //Empty arrays to hold the harvested data in the propper for for the front-end
 let baseStats = [];
 let stats = [];
@@ -26,7 +29,6 @@ let NBAPlayerGif = (player) => {
         
         $("#card").append("<div class=col id=gif></div>");
         $("#gif").append("<img src=" + gifs.data[0].images.original.url + " id=gif>");
-        NBAPlayerInfo(player);
     })
  
     // let isrc = gifs.data[0].images.original.url;
@@ -72,11 +74,18 @@ let NBAPlayerInfo = (player) => {
             player_city:response.data[0].team.city
     
         }
+
+        console.log(playerInfo)
+        $.post("/api/player_base", playerInfo)
+        .then(function(data) {
+            console.log(data);
+        })
         // console.log(playerInfo.player_id + " and " + baseStats)
         // playerInfo += imgSrc;
         baseStats.push(playerInfo);
-        // console.log("baseStats is " + baseStats[0].player_id) //format to get info JF
+        console.log("baseStats is " + baseStats[0].player_id) //format to get info JF
         playerStatastics(playerID);
+        return baseStats;
 
     })
 
@@ -146,7 +155,7 @@ function playerStatastics(playerID) {
 
         }
         stats.push(plyrData);
-
+        console.log(stats[0].FG_Made)
         $("#card").append("<div class=col id=playeStatsseason></div>");
         $("#playeStatsseason").text("Season: " + stats[0].Season + " FG_Made: " + stats[0].FG_Made + " FG_Att: " + stats[0].FG_Att + " Three_Pts_Made: " + stats[0].Three_Pts_Made + " Three_Pts_Att: " + stats[0].Three_Pts_Att +
             " FT Made: " + stats[0].FT_Made + " FT Att: " + stats[0].FT_Att + " Off Reb: " + stats[0].Off_Reb + " Def Reb: " + stats[0].Def_Reb + " Asst: " + stats[0].Asst + " Stl: " + stats[0].Stl + " Blk: " + stats[0].Blk + " Pts: " + stats[0].Pts + " AVG: " + stats[0].AVG);
@@ -234,7 +243,7 @@ let seasonStats = (currentSeason, playerID) => {
 
         // }
         avgStats.push(plrAvgStats);
-        // console.log("in function " + avgStats[0].Season);
+        console.log("in function " + avgStats[0].Season);
         
 
         $("#card").append("<div class=col id=plyrAvgSeason></div>");
@@ -290,3 +299,21 @@ let seasonStats = (currentSeason, playerID) => {
     })
     // console.log("AvgStats " + avgStats);
 }
+
+// let statToDb = (stats, baseStats, avgStats) => {
+//     console.log(baseStats)
+//     var newPlayer_Base = {
+//         player_id: baseStats[0].player_id,
+//         player_name: baseStats[0].player_name, 
+//         player_height: baseStats[0].player_height,
+//         player_weight: baseStats[0].player_weight,
+//         player_team: baseStats[0].player_team,
+//         player_city: baseStats[0].player_city,
+//         img_src: baseStats[0].img_src
+//     };
+//     console.log(newPlayer_Base)
+//     $.post("/api/player_base", newPlayer_Base)
+//     .then(function(data) {
+//         console.log(data);
+//     })
+// }
