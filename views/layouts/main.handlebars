@@ -1,456 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostUp Cards</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PostUp Cards</title>
-  <script src="https://code.jquery.com/jquery.js"></script>
-</head>
-
-<style>
-  textarea {
-    float: left;
-    width: 300px;
-    height: 50px;
-  }
-
-  body {
-    background-image: url("assets/images/basketball-net.jpg");
-    font-family: sans-serif;
-  }
-
-  header {
-    background-color: rgb(46, 46, 46);
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-
-  h1 {
-    color: white;
-    text-align: left;
-    display: inline-block;
-    margin: 5px 10px 5px 20px;
-  }
-
-  h2 {
-    color: white;
-    text-align: center;
-    padding: 10px;
-  }
-
-  nav {
-    float: right;
-    margin: 10px 20px;
-  }
-
-  #gif {
-    width: 400px;
-  }
-
-  #login {
-    background-color: rgb(33, 48, 102);
-    color: white;
-    font-size: 18px;
-    padding: 5px;
-    text-decoration: none;
-  }
-
-  #signup {
-    background-color: rgb(33, 48, 102);
-    color: white;
-    font-size: 18px;
-    padding: 5px;
-    text-decoration: none;
-  }
-
-  #signup hover {
-    cursor: pointer;
-    background-color: rgb(73, 100, 196);
-  }
-
-  #login hover {
-    cursor: pointer;
-    background-color: rgb(73, 100, 196);
-  }
-
-  nav a {
-    background-color: rgb(33, 48, 102);
-    color: white;
-    font-size: 18px;
-    padding: 5px;
-    text-decoration: none;
-  }
-
-  nav a:hover {
-    cursor: pointer;
-    background-color: rgb(73, 100, 196);
-  }
-
-  footer {
-    background-color: rgb(46, 46, 46);
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-  }
-
-  #col {
-    padding-top: 1rem;
-  }
-
-  .plyrAvgSeason,
-  .playeStatsseason {
-    margin-top: 1rem;
-    padding-top: 1rem;
-  }
-
-  .container {
-    width: 50%;
-    height: 200px;
-    margin: 100px auto;
-    color: white;
-    background-color: rgb(33, 48, 102);
-  }
-
-  .container p {
-    padding: 10px;
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  #card {
-    color: white;
-    margin: 100px;
-    float: right;
-    width: 400px;
-    height: 600px;
-    background-color: rgb(41, 59, 126);
-    border: 5px solid rgb(11, 13, 46);
-    border-radius: 5px;
-    right: 0px;
-    clip: rect(0px, 400px, 600px, 0px);
-  }
-
-  #card-controls {
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  #new-card {
-    width: 100px;
-    height: 50px;
-    font-size: 15pt;
-    color: white;
-    background-color: rgb(33, 48, 102);
-    border: none;
-
-  }
-
-  #submit {
-    width: 100px;
-    height: 50px;
-    font-size: 15pt;
-    margin: 25px 10px;
-    color: white;
-    background-color: rgb(33, 48, 102);
-    border: none;
-
-  }
-
-  #submit:hover {
-    cursor: pointer;
-    background-color: rgb(73, 100, 196);
-  }
-
-  #new-card:hover {
-    cursor: pointer;
-    background-color: rgb(73, 100, 196);
-  }
-
-  #create-button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #1e5bf4;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 400px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-    animation: createmove 5s;
-
-  }
-
-  #create-button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-
-  #create-button:hover span {
-    padding-right: 25px;
-  }
-
-  #create-button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
-
-
-
-
-  .controls button {
-    width: 300px;
-    height: 150px;
-    font-size: 30pt;
-    margin: 25px 10px;
-    color: white;
-    background-color: rgb(33, 48, 102);
-    border: none;
-    animation: frontleft 5s;
-  }
-
-  .controls button:hover {
-    cursor: pointer;
-    background-color: rgb(73, 100, 196);
-  }
-
-  .controls button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-
-  .controls button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-
-  .controls button:hover span {
-    padding-right: 25px;
-  }
-
-  .controls button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
-
-  #generate {
-    margin: 80px;
-    float: left;
-    width: 40%;
-    text-align: center;
-    right: 200px;
-
-
-
-  }
-
-  #search {
-    padding-top: 40px;
-    margin: 70px;
-    float: left;
-    width: 40%;
-    background-color: rgb(33, 48, 102);
-    position: relative;
-    animation: mymove 5s;
-
-
-  }
-
-  {{!-- @keyframes createmove {
-    from {
-      left: 100px;
-      opacity: 0.5;
+  <style>
+    textarea {
+  float: left;
+  width: 595px;
+  height: 100px;
+}
+    
+    body {
+      background-image: url("assets/images/basketball-net.jpg");
+      font-family: sans-serif;
     }
 
-    to {
-      left: 0px;
-      opacity: 1;
-    }
-  }
-
-  @keyframes mymove {
-    from {
-      left: 100px;
-      opacity: 0.5;
-    }
-
-    to {
-      left: 0px;
-      opacity: 1;
-    }
-  }
-
-  @keyframes frontleft {
-    from {
-      left: 0px;
-      opacity: 0;
-    }
-
-    to {
-      left: 100px;
-      opacity: 1;
-    }
-  } --}}
-
-  #deck {
-    margin: 50px auto;
-    width: 60%;
-    text-align: center;
-  }
-
-  #deck img {
-    width: 30%;
-    height: auto;
-  }
-
-  #deck img:hover {
-    border: 1px solid rgb(46, 46, 46);
-  }
-
-  #deck-controls-prev {
-    width: 200px;
-    height: 100px;
-    float: left;
-    text-align: center;
-  }
-
-  #deck-controls-next {
-    width: 200px;
-    height: 100px;
-    float: right;
-    text-align: center;
-  }
-
-  #deck-controls-prev button {
-    width: 200px;
-    height: 100px;
-    font-size: 25pt;
-    margin: 50px 5px;
-    color: white;
-    background-color: rgb(33, 48, 102);
-    border: none;
-  }
-
-  #deck-controls-next button {
-    width: 200px;
-    height: 100px;
-    font-size: 25pt;
-    margin: 50px 5px;
-    color: white;
-    background-color: rgb(33, 48, 102);
-    border: none;
-  }
-
-  #deck-controls-prev button:hover {
-    cursor: pointer;
-    background-color: rgb(73, 100, 196);
-  }
-
-  #deck-controls-next button:hover {
-    cursor: pointer;
-    background-color: rgb(73, 100, 196);
-  }
-
-  #player-pic {
-    width: 50%;
-    height: 50%;
-    display: block;
-    margin: 25px auto;
-    border: solid 2px white;
-  }
-
-  ul {
-    color: white;
-    list-style-type: none;
-  }
-
-  #giphy {
-    color: white;
-    text-align: left;
-    display: inline-block;
-    margin: 5px 10px 5px 20px;
-  }
-
-  #card-landscape {
-    margin: 50px;
-    float: right;
-    width: 600px;
-    height: 400px;
-    background-color: rgb(33, 48, 102);
-  }
-
-  #credits {
-    color: white;
-    margin: 5px 10px 5px 20px;
-    float: right;
-    margin: 10px 20px;
-
-
-
-  }
-
-
-  @media screen and (max-width: 480px) {
-    #search {
+    header {
+      background-color: rgb(46, 46, 46);
+      position: absolute;
+      top: 0;
       width: 100%;
-      float: left;
     }
 
-    #main {
+    h1 {
+      color: white;
+      text-align: left;
+      display: inline-block;
+      margin: 5px 10px 5px 20px;
+    }
+
+    h2 {
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    nav {
+      float: right;
+      margin: 10px 20px;
+    }
+    #login{
+      background-color: rgb(33, 48, 102);
+      color: white;
+      font-size: 18px;
+      padding: 5px;
+      text-decoration: none;
+    }
+    #signup{
+      background-color: rgb(33, 48, 102);
+      color: white;
+      font-size: 18px;
+      padding: 5px;
+      text-decoration: none;
+    }
+    #signup hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+    #login hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+
+    nav a {
+      background-color: rgb(33, 48, 102);
+      color: white;
+      font-size: 18px;
+      padding: 5px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+
+    footer {
+      background-color: rgb(46, 46, 46);
+      position: fixed;
+      bottom: 0;
       width: 100%;
-      margin-left: 216px;
+    }
+    #col {
+      padding-top: 1rem;
+    }
+    .plyrAvgSeason, .playeStatsseason {
+      margin-top: 1rem;
+      padding-top: 1rem;
     }
 
+    .container {
+      width: 50%;
+      height: 200px;
+      margin: 100px auto;
+      color: white;
+      background-color: rgb(33, 48, 102);
+    }
+
+    .container p {
+      padding: 10px;
+    }
+
+    .center {
+      text-align: center;
+    }
+    #cardMain{
+      color: white;
+      margin: 100px;
+      float: right;
+      width: 400px;
+      height: 600px;
+      background-color: rgb(41, 59, 126);
+      border: 5px solid rgb(11, 13, 46);
+      border-radius: 5px;
+      right: 0px;
+      clip: rect(0px,300px,600px,0px);
+
+    }
     #card {
-      width: 100%;
-      margin-left: 216px;
+      color: white;
+      float: right;
+      width: 391px;
+      height: 350px;
+      background-color: rgb(70, 86, 146);
+      border: 5px solid rgb(11, 13, 46);
+      border-radius: 5px;
+      right: 0px;
+      clip: rect(0px,300px,600px,0px);
+    }
+
+    #card-controls {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    
+
+    #new-card{
+      width: 100px;
+      height: 50px;
+      font-size: 15pt;
+      color: white;
+      background-color: rgb(33, 48, 102);
+      border: none;
+      position: relative;
+
+    }
+      #submit{
+      width: 100px;
+      height: 50px;
+      font-size: 15pt;
+      margin: 25px 10px;
+      color: white;
+      background-color: rgb(33, 48, 102);
+      border: none;
+      position: relative;
+
+    }
+    #submit:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+    #new-card:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+    #create-button{
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #1e5bf4;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px;
+      width: 400px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+      animation: createmove 5s;
+
+    }
+#create-button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#create-button:hover span {
+  padding-right: 25px;
+}
+
+#create-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
+
+    .controls button {
+      width: 600px;
+      height: 100px;
+      font-size: 30pt;
+      margin: 25px 10px;
+      color: white;
+      background-color: rgb(33, 48, 102);
+      border: none;
+      animation: frontleft 5s;
+
+      border: 5px solid rgb(11, 13, 46);
+      
+      
+    }
+    .controls button:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+.controls button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.controls button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.controls button:hover span {
+  padding-right: 25px;
+}
+
+.controls button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+    #generate {
+      margin: 20px;
+      float: left;
+      width: 40%;
+      text-align: center;
+      
+      
+      
+      
+    }
+
+    #search {
+      padding-top: 40px;
+      margin: 70px;
+      float: left;
+      
+      background-color: rgb(33, 48, 102);
+      position: relative;
+      animation: mymove 5s;
+      width: 600px;
+      border: 5px solid rgb(11, 13, 46);
+
+    }
+
+    #submit{
+      border: 5px solid rgb(11, 13, 46);
+      font-size: 30pt;
+      width: 250px;
+      height: 100px;
+      margin: 25px 23px;
+    }
+    #new-card{
+      border: 5px solid rgb(11, 13, 46);
+      font-size: 30pt;
+      width: 250px;
+      height: 100px;
+      margin: 25px 23px;
     }
 
     #deck {
-      width: 100%;
+      margin: 50px auto;
+      width: 60%;
+      text-align: center;
+      border: 5px solid rgb(11, 13, 46);
     }
 
-    #deck-controls-next {
-      width: 100%;
+    #deck img {
+      width: 30%;
+      height: auto;
+    }
+
+    #deck img:hover {
+      border: 1px solid rgb(46, 46, 46);
     }
 
     #deck-controls-prev {
-      width: 100%;
+      width: 200px;
+      height: 100px;
+      float: left;
+      text-align: center;
     }
 
+    #deck-controls-next {
+      width: 200px;
+      height: 100px;
+      float: right;
+      text-align: center;
+    }
+
+    #deck-controls-prev button {
+      width: 200px;
+      height: 100px;
+      font-size: 25pt;
+      margin: 50px 5px;
+      color: white;
+      background-color: rgb(33, 48, 102);
+      border: none;
+    }
+
+    #deck-controls-next button {
+      width: 200px;
+      height: 100px;
+      font-size: 25pt;
+      margin: 50px 5px;
+      color: white;
+      background-color: rgb(33, 48, 102);
+      border: none;
+    }
+
+    #deck-controls-prev button:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+
+    #deck-controls-next button:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+  
+    #player-pic {
+      width: 50%;
+      height: 50%;
+      display: block;
+      margin: 25px auto;
+      border: solid 2px white;
+    }
+
+    ul {
+      color: white;
+      list-style-type: none;
+    }
+
+    #giphy {
+      color: white;
+      text-align: left;
+      display: inline-block;
+      margin: 5px 10px 5px 20px;
+    }
+
+    #card-landscape {
+      margin: 50px;
+      float: right;
+      width: 600px;
+      height: 400px;
+      background-color: rgb(33, 48, 102);
+    }
+
+    #credits {
+      color: white;
+      margin: 5px 10px 5px 20px;
+      float: right;
+      margin: 10px 20px;
+
+      
+      
+    }
+
+
+    @media screen and (max-width: 480px) {
+    #search {width: 100%; float: left;}
+    #main {width: 100%;margin-left: 216px;}
+    #card {width: 100%;margin-left: 216px;}
+    #deck{width: 100%;}
+    #deck-controls-next{width: 100%;}
+    #deck-controls-prev{width: 100%;}
     #container {
-      align-self: auto | flex-start | flex-end | center | baseline | stretch;
-    }
-  }
-</style>
-
-<body>
-  <header>
-    <a href="/create">
-      <img src="/assets/images/PostUpCards-01.png" width="80" height="70" alt="logo"></a>
-    <nav>
-      <button id="login">Login</button>
-      <button id="signup">Signup</button>
-    </nav>
-  </header>
-  {{{body}}}
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+}
+  </style>
+  <body>
+    <header>
+      <a href="/create">
+        <img src="/assets/images/PostUpCards-01.png" width="80" height="70" alt="logo"></a>
+        <nav>
+            
+            <button id="login">Login</button>
+            <button id="signup">Signup</button>
+        </nav>
+    </header>
+    {{{body}}}
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </html>
