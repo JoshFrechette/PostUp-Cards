@@ -27,4 +27,30 @@ As a kid, I used to love collecting sports cards. You could look at your favouri
 # Get Started
 -----------------------------------------
 
+![PostUp Cards App](Public/assets/images/PostUpCards_Project2)
 
+# Deployment
+
+Heroku
+https://postup-cards.herokuapp.com/
+
+GitHub
+https://github.com/TwistedPixels/PostUp-Cards.git
+
+# Team
+
+* Shaili Shah
+    - Role: API calls
+    - Portfolio:
+
+* Gavin Wimalachandran 
+    - Role: Front End - Handlebars.js, 
+    - Portfolio: 
+
+* Khalil Mouna
+    - Role: Deployment and Testing, 
+    - Portfolio:
+
+* Josh Fréchette
+    - Role: Project Manager, Sequelize and Database functions
+    - Portfolio: joshfdesign.ca
