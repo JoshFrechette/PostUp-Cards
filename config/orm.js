@@ -1,3 +1,5 @@
+// Just in case I need to revert to MySQL technique
+
 var connection = require("../config/database.js");
 
 function printQuestionMarks(num) {

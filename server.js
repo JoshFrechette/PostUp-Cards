@@ -59,11 +59,11 @@ require("./routes/html-routes.js")(app);
 
 // Starts the server to begin listening
 
-// models.sequelize.sync({ force: true}).then(function() {
-//   app.listen(PORT, function() {
-//     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-//   });
+models.sequelize.sync({ force: true}).then(function() {
+  app.listen(PORT, function() {
+    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+  });
 
-// });
+});
 
 app.listen(process.env.PORT || PORT)

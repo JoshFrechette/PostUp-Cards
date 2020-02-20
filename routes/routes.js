@@ -1,6 +1,6 @@
-var db = require("../models");
-var baseStats = require("../Public/assets/js/playerInfo");
-var $ = require("jquery");
+var db = require("../models"); // Need more precise models?
+var PlayerBase = require("../models/player_base.js");
+// var $ = require("jquery");
 
 module.exports = function(app){
     app.get('/login', function(req, res){
@@ -25,25 +25,26 @@ module.exports = function(app){
             title: 'express welcome'
         });
     });
-    app.post('/api/base', function(baseStats, res){
-        console.log(baseStats[0])
-        db.playerbase.create({
-            player_id: 246,
-            player_name: "Lebron James",
-            player_height: 6,
-            player_weight: 230,
-            player_team: "Los Angeles Lakers",
-            player_city: "Los Angeles"
+    app.post("/api/new", function (req, res) {
+        console.log("anything")
+        console.log(req.body)
+
+        // Insert into table
+        PlayerBase.player_base.create({
+          player_id: req.body.playerID,
+          player_name: req.body.playerName,
+          player_height: req.body.playerHeight,
+          player_weight: req.body.playerWeight,
+          player_team: req.body.playerTeam,
+          player_city: req.body.playerCity
         })
-        
-        .then(function(dbplayerbase) {
-            // console.log(dbplayerbase)
-            res.json(dbplayerbase)
-        })
-        // res.render('create', {
-        //     title: 'express create'
+        .then(function (res) {
+          res.end();
+        });
+        // .then(function (PlayerBaseplayer_base) {
+        //   res.json(PlayerBaseplayer_base);
         // });
-    });
+      });
     //other routes..
 }
 // console.log(`player array: ${baseStats.NBAPlayerInfo()}`);

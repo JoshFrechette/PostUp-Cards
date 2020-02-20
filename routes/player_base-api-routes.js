@@ -19,29 +19,33 @@ module.exports = function (app) {
     });
   });
 
-  app.post("/api/player_base", function (playerInfo, res) {
+  app.post("/api/player_base", function (req, res) {
     console.log("anything")
-    const data = {
-      //Test dummy data
-      player_id: 246,
-      player_name: "Lebron James",
-      player_height: 6,
-      player_weight: 230,
-      player_team: "Los Angeles Lakers",
-      player_city: "Los Angeles"
-    }
+    console.log(req.body)
+    // const data = {
+    //   //Test dummy data
+    //   player_id: 246,
+    //   player_name: "Lebron James",
+    //   player_height: 6,
+    //   player_weight: 230,
+    //   player_team: "Los Angeles Lakers",
+    //   player_city: "Los Angeles"
+    // }
     // console.log(playerInfo)
     // Insert into table
     PlayerBase.player_base.create({
-      player_id,
-      player_name,
-      player_height,
-      player_weight,
-      player_team,
-      player_city
+      player_id: req.body.playerID,
+      player_name: req.body.playerName,
+      player_height: req.body.playerHeight,
+      player_weight: req.body.playerweight,
+      player_team: req.body.playerteam,
+      player_city: req.body.playercity
     })
-    .then(function (PlayerBaseplayer_base) {
-      res.json(PlayerBaseplayer_base);
+    .then(function (res) {
+      res.end();
     });
+    // .then(function (PlayerBaseplayer_base) {
+    //   res.json(PlayerBaseplayer_base);
+    // });
   });
 }

@@ -1,10 +1,10 @@
 //Dependencies
-var mysql = require("mysql");
+// var mysql = require("mysql");
 var Sequelize = require("sequelize");
 var sequelize = require("../config/database.js");
 
-module.exports = function(sequelize, DataTypes) {
-    var playerbase = sequelize.define("playerbase", {
+// module.exports = function(sequelize, DataTypes) {
+    var Playerbase = sequelize.define("playerbase", {
         player_id: {
             type: Sequelize.INTEGER,
             allowNull: false,
@@ -55,11 +55,15 @@ module.exports = function(sequelize, DataTypes) {
             }
         }
     });
-    // player_base.sync();
-    // player_base.associate = function(models) {
+    // Code to be revisited once main functionality is achieved
+    // Player_base.sync();
+    // Player_base.associate = function(models) {
         // player_base.hasMany(models.player_current, models.player_avg, {
         //     onDelete: "cascade"
         // });
     // };
-    return playerbase;
-};
+
+// };
+Playerbase.sync();
+
+module.exports = Playerbase;
