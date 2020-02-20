@@ -1,4 +1,4 @@
-var connection = require('../js/config.js');
+var connection = require('../config/database.js');
 
 module.exports.authenticate=function(req,res){
 
