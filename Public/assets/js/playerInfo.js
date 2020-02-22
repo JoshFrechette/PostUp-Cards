@@ -20,13 +20,6 @@ let NBAPlayerGif = (player) => {
         url: gifs,
         method: "GET"
     }).then(function (gifs) {
-        // console.log(gifs.data[0].images.original.url)
-        // let isrc = gifs.data[0].images.original.url;
-        // let imgSrc = {
-        //     img_src: isrc
-        // } 
-
-        
         $("#card").append("<div class=col id=gif></div>");
         $("#gif").append("<img src=" + gifs.data[0].images.original.url + " id=gif>");
     })
@@ -50,13 +43,16 @@ let NBAPlayerInfo = (player) => {
         $("#playerName").text(response.data[0].first_name + " " + response.data[0].last_name);
 
         $("#card").append("<div class=col id=playerID></div>");
-        $("#playerID").text("Player's id: " + response.data[0].id);
+        // $("#playerID").text("Player's id: " + response.data[0].id);
+        $("#playerID").text(response.data[0].id);
 
         $("#card").append("<div class=col id=playerHeight></div>");
-        $("#playerHeight").text("Player's height: " + response.data[0].height_feet + " ft");
+        // $("#playerHeight").text("Player's height: " + response.data[0].height_feet + " ft");
+        $("#playerHeight").text(response.data[0].height_feet);
 
         $("#card").append("<div class=col id=playerweight></div>");
-        $("#playerweight").text("Player's weight: " + response.data[0].weight_pounds + " lbs");
+        // $("#playerweight").text("Player's weight: " + response.data[0].weight_pounds + " lbs");
+        $("#playerweight").text(response.data[0].weight_pounds);
 
         $("#card").append("<div class=col id=playerteam></div>");
         $("#playerteam").text("Player's team: " + response.data[0].team.full_name);
@@ -77,7 +73,6 @@ let NBAPlayerInfo = (player) => {
     
         }
 
-     
         // console.log(playerInfo.player_id + " and " + baseStats)
         // playerInfo += imgSrc;
         baseStats.push(playerInfo);
@@ -85,7 +80,6 @@ let NBAPlayerInfo = (player) => {
         playerStatastics(playerID);
         
     })
-    return playerInfo;
 }
 
 
@@ -152,7 +146,6 @@ function playerStatastics(playerID) {
 
         }
         stats.push(plyrData);
-        console.log(stats[0].FG_Made)
         $("#card").append("<div class=col id=playeStatsseason></div>");
         $("#playeStatsseason").text("Season: " + stats[0].Season + " FG_Made: " + stats[0].FG_Made + " FG_Att: " + stats[0].FG_Att + " Three_Pts_Made: " + stats[0].Three_Pts_Made + " Three_Pts_Att: " + stats[0].Three_Pts_Att +
             " FT Made: " + stats[0].FT_Made + " FT Att: " + stats[0].FT_Att + " Off Reb: " + stats[0].Off_Reb + " Def Reb: " + stats[0].Def_Reb + " Asst: " + stats[0].Asst + " Stl: " + stats[0].Stl + " Blk: " + stats[0].Blk + " Pts: " + stats[0].Pts + " AVG: " + stats[0].AVG);
@@ -240,9 +233,7 @@ let seasonStats = (currentSeason, playerID) => {
 
         // }
         avgStats.push(seasonAvg);
-        console.log("in function " + avgStats[0].Season);
-        
-
+    
         $("#card").append("<div class=col id=plyrAvgSeason></div>");
 
         $("#card-landscape").append("<div class=col id=plyrAvgSeason></div>");
@@ -296,13 +287,3 @@ let seasonStats = (currentSeason, playerID) => {
     })
     // console.log("AvgStats " + avgStats);
 }
-
-let statToDb = (stats, baseStats, avgStats) => {
-    // console.log(playerInfo[0].player_id)
-    $.post("/api/base", baseStats)
-    .then(function(data) {
-        console.log(data);
-    })
-}
-
-// exports.NBAPlayerInfo = NBAPlayerInfo;

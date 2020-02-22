@@ -10,7 +10,7 @@ var app = express();
 var PORT = process.env.PORT || 8000;
 
 // For syncing models
-var models = require("./models");
+var models = require("./models/player_base");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -59,11 +59,13 @@ require("./routes/html-routes.js")(app);
 
 // Starts the server to begin listening
 
-models.sequelize.sync({ force: true}).then(function() {
-  app.listen(PORT, function() {
-    console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
-  });
+// models.sequelize.sync({ force: true}).then(function() {
+//   app.listen(PORT, function() {
+//     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
+//   });
 
-});
+// });
 
-app.listen(process.env.PORT || PORT)
+app.listen(process.env.PORT || PORT, function() {
+  console.log("listening on port " + PORT)
+})
