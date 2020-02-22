@@ -27,7 +27,8 @@
     </footer>
 </body>
 
-<script src="/assets/js/playerInfo.js"></script>
+<script type="text/javascript" src="/assets/js/playerInfo.js"></script>
+<script type="text/javascript" src="/assets/js/cms.js"></script>
 <script>
     $("#VDeck").on("click", function () {
         console.log("working")
@@ -38,11 +39,6 @@
         console.log("working")
         playerInformation();
         $("#SearchPlayer").val('');
-    });
-
-        $("#save-card").on("click", function () {
-        console.log("card info sent to db")
-        statToDb();
     });
 
     $("#new-card").on("click", function () {

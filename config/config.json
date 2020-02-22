@@ -5,15 +5,16 @@
     "database": "postup_cards",
     "host": "127.0.0.1",
     "dialect": "mysql",
-    "operatorsAliases": false
+    "compilerOptions": {
+      "target": "es6"
+  }
   },
   "test": {
     "username": "root",
     "password": "",
     "database": "postup_cards",
     "host": "127.0.0.1",
-    "dialect": "mysql",
-    "operatorsAliases": false
+    "dialect": "mysql"
   },
   "production": {
     "use_env_variable": "JAWSDB_URL",

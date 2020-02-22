@@ -1,26 +1,18 @@
-$(document).ready(function () {
-    var bodyInput = $("#body");
-    var playerId = $("#playerID");
-    var allInput = $("#playeStatsseason");
-    var cardSave = $("#generate");
-    $(cardSave).on("click", function handleCardSave(event) {
-        event.preventDefault();
-        console.log("Submit working?")
+$("#save-card").on("click", function(event) {
+    console.log("save button clicked")
+    event.preventDefault();
+    var newCard = {
+        
+        playerID: $("#playerID").text().trim(),
+        playerName: $("#playerName").text().trim(),
+        playerHeight: $("#playerHeight").text().trim(),
+        playerWeight: $("#playerweight").text().trim(),
+        playerTeam: $("#playerteam").text().trim(),
+        playerCity: $("#playercity").text().trim(),
+        playerGIF: $("#plyr_gif").attr('src').trim()
+    };
+    console.log("CMS, newCard ");
+    console.log(newCard);
 
-        var newCardBase = {
-            player_id: playerId.val().trim()
-
-        };
-        console.log(newCardBase);
-
-        submitCard(newCardBase)
-
-    });
-
-   
-
-let submitCard = (Post) => {
-    $.post("/api/posts/", Post)
-    
- }
-});
+    $.post("/api/new", newCard)  
+})
