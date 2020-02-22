@@ -21,7 +21,7 @@ let NBAPlayerGif = (player) => {
         method: "GET"
     }).then(function (gifs) {
         $("#card").append("<div class=col id=gif></div>");
-        $("#gif").append("<img src=" + gifs.data[0].images.original.url + " id=gif>");
+        $("#gif").append("<img src=" + gifs.data[0].images.original.url + " id=plyr_gif>");
     })
  
     // let isrc = gifs.data[0].images.original.url;

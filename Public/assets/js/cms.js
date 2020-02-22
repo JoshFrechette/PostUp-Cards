@@ -8,9 +8,11 @@ $("#save-card").on("click", function(event) {
         playerHeight: $("#playerHeight").text().trim(),
         playerWeight: $("#playerweight").text().trim(),
         playerTeam: $("#playerteam").text().trim(),
-        playerCity: $("#playercity").text().trim()
+        playerCity: $("#playercity").text().trim(),
+        playerGIF: $("#plyr_gif").attr('src').trim()
     };
-    console.log("CMS, newCard " + newCard.playerID);
+    console.log("CMS, newCard ");
+    console.log(newCard);
 
     $.post("/api/new", newCard)  
 })

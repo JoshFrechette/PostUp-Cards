@@ -31,31 +31,28 @@ module.exports = function(app){
             res.json(results);
         })
     })
-    app.post("/api/new", function (req, res) {
-        console.log("anything")
+    //add a new card
+    app.post("/api/new", function(req, res) {
+        console.log("body from front end")
         console.log(req.body)
 
         // Insert into table
-        // PlayerBase.create({
-        //   player_id: req.body.playerID,
-        //   player_name: req.body.playerName,
-        //   player_height: req.body.playerHeight,
-        //   player_weight: req.body.playerWeight,
-        //   player_team: req.body.playerTeam,
-        //   player_city: req.body.playerCity
-        // })
         PlayerBase.create({
-            player_id: 222,
-            player_name: "req.body.playerName",
-            player_height: 5,
-            player_weight: "6",
-            player_team: "req.body.playerTeam",
-            player_city: "req.body.playerCity"
-          })
-          console.log(PlayerBase);
-        // .then(function (PlayerBaseplayer_base) {
-        //   res.json(PlayerBaseplayer_base);
+          player_id: req.body.playerID,
+          player_name: req.body.playerName,
+          player_height: req.body.playerHeight,
+          player_weight: req.body.playerWeight,
+          player_team: req.body.playerTeam,
+          player_city: req.body.playerCity,
+          img_src: req.body.playerGIF,
+        })
+        // .then(function (PlayerBase) {
+        //   res.json(PlayerBase);
         // });
+        .then(function(results) {
+            res.end();
+        })
+
       });
     //other routes..
 }

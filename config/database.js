@@ -26,6 +26,7 @@ if (process.env.JAWSDB_URL) {
       idle: 10000
     }
   })
+  console.log("sequelize connected");
 };
 
 // sequelize.authenticate()
