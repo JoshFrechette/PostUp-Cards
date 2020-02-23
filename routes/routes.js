@@ -25,9 +25,16 @@ module.exports = function(app){
             title: 'express welcome'
         });
     });
+    // work inprogress, route to get individual card data from deckcard/deckview click event => need to have route identify by id
+    // app.get("/api/:id", function(req, res) {
+    //     player_bases.findAll({}).then(function(results) {
+    //         res.json(results);
+    //     })
+    // })
 
     app.get("/api/all", function(req, res) {
-        player_bases.findAll({}).then(function(results) {
+        PlayerBase.findAll({}).then(function(results) {
+            console.log(results)
             res.json(results);
         })
     })

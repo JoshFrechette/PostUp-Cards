@@ -1,4 +1,4 @@
-/* h1{
+/* /* h1{
     color: #FFFFFF;
   }
   body {
@@ -103,185 +103,239 @@
     opacity: 1;
     right: 0;} */ 
 
-    textarea {
-
-      float: left;
-      width: 595px;
-      height: 100px;
+    .container {
+      /* display: flex; */
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: center;
     }
         
-        body {
-          background-image: url("../images/basketball-net.jpg");
-          font-family: sans-serif;
-        }
+    body {
+      background-image: url("../images/basketball-net.jpg")!important;
+      font-family: sans-serif;
+    }
+
+    .row {
+      margin-top: 1rem;
+    }
+
+    header {
+      background-color: rgb(46, 46, 46);
+      position: relative;
+      top: 0;
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+
+    nav {
+      float: right;
+      margin: 1rem 1rem 1rem 1rem;
+    }
+
+    #logo {
+      margin: 1rem 1rem 1rem 1rem;
+    }
+
+    #login{
+      background-color: rgb(33, 48, 102);
+      color: white;
+      font-size: 18px;
+      padding: 5px;
+      text-decoration: none;
+    }
+
+    #signup{
+      background-color: rgb(33, 48, 102);
+      color: white;
+      font-size: 18px;
+      padding: 5px;
+      text-decoration: none;
+    }
+
+    #signup hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+
+    #login hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+
+    nav a {
+      background-color: rgb(33, 48, 102);
+      color: white;
+      font-size: 18px;
+      padding: 5px;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+
+    footer {
+      background-color: rgb(46, 46, 46);
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    h1 {
+      color: white;
+      text-align: left;
+      display: inline-block;
+      margin: 5px 10px 5px 20px;
+    }
+
+    h2 {
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    ul {
+      list-style-type: none !important;
+    }
+
+    .col {
+      padding-top: 1rem;
+    }
+
+    #search {
+      /* padding-top: 40px;
+      margin: 70px; */
+      flex-shrink: 1;
+      float: left;        
+      background-color: gainsboro;
+      /* position: relative;  */
+      animation: mymove 5s;
+      max-width: 250px;
+      min-height: 600px;
+      /* border: 5px solid rgb(11, 13, 46); */
+    }
+
+    textarea {
+      float: left;
+      min-width: 200px;
+      min-height: 50px; 
+    }
+
+    #clear #submit #VDeck #save-card button{
+      
+      width: 100px !important;
+      height: 50px;
+      font-size: 15pt;
+      color: white !important;
+      background-color: rgb(33, 48, 102)!important;
+      border: none;
+      position: relative;
+    }
+
+    .deckview {
+      background-color: white;
+    }
+
+    #cardMain{
+      color: white;
+      margin-left: 1rem;
+      padding: 1rem;
+      float: left;
+      width: 400px;
+      height: 600px;
+      background-color: gainsboro;
+      border: 2px solid rgb(11, 13, 46);
+      border-radius: 5px;
+      right: 0px;
+      clip: rect(0px,300px,600px,0px);
+      position: relative;
+    }
+
+    .stats {
+      display: inline-block;
+      color: black;
+      position: absolute;
+      bottom: 0;
+    }
+
+    #playerName {
+      font-family: Impact sans-serif;
+      font-size: xx-large;
+      font-weight: bold;
+      text-align: center;
+      color : black;
+    }
+
+    #playerID {
+      font-weight: bold;
+      text-align: center;
+      color: black;
+    }
+
+    .plyrAvgSeason, .playeStatsseason {
+      margin-top: 1rem;
+      padding-top: 1rem;
+    }
     
-        header {
-          background-color: rgb(46, 46, 46);
-          position: absolute;
-          top: 0;
-          width: 100%;
-        }
-    
-        h1 {
-          color: white;
-          text-align: left;
-          display: inline-block;
-          margin: 5px 10px 5px 20px;
-        }
-    
-        h2 {
-          color: white;
-          text-align: center;
-          padding: 10px;
-        }
-    
-        nav {
-          float: right;
-          margin: 10px 20px;
-        }
-        #login{
-          background-color: rgb(33, 48, 102);
-          color: white;
-          font-size: 18px;
-          padding: 5px;
-          text-decoration: none;
-        }
-        #signup{
-          background-color: rgb(33, 48, 102);
-          color: white;
-          font-size: 18px;
-          padding: 5px;
-          text-decoration: none;
-        }
-        #signup hover {
-          cursor: pointer;
-          background-color: rgb(73, 100, 196);
-        }
-        #login hover {
-          cursor: pointer;
-          background-color: rgb(73, 100, 196);
-        }
-    
-        nav a {
-          background-color: rgb(33, 48, 102);
-          color: white;
-          font-size: 18px;
-          padding: 5px;
-          text-decoration: none;
-        }
-    
-        nav a:hover {
-          cursor: pointer;
-          background-color: rgb(73, 100, 196);
-        }
-    
-        footer {
-          background-color: rgb(46, 46, 46);
-          position: fixed;
-          bottom: 0;
-          width: 100%;
-        }
-        #col {
-          padding-top: 1rem;
-        }
-        .plyrAvgSeason, .playeStatsseason {
-          margin-top: 1rem;
-          padding-top: 1rem;
-        }
-    
-        .container {
-          width: 50%;
-          height: 200px;
-          margin: 100px auto;
-          color: white;
-          background-color: rgb(33, 48, 102);
-        }
-    
-        .container p {
-          padding: 10px;
-        }
-    
-        .center {
-          text-align: center;
-        }
-        #cardMain{
-          color: white;
-          margin: 100px;
-          float: right;
-          width: 400px;
-          height: 600px;
-          background-color: rgb(41, 59, 126);
-          border: 5px solid rgb(11, 13, 46);
-          border-radius: 5px;
-          right: 0px;
-          clip: rect(0px,300px,600px,0px);
-    
-        }
-        #card {
-          color: white;
-          float: right;
-          width: 391px;
-          height: 350px;
-          background-color: rgb(70, 86, 146);
-          border: 5px solid rgb(11, 13, 46);
-          border-radius: 5px;
-          right: 0px;
-          clip: rect(0px,300px,600px,0px);
-        }
-    
-        #card-controls {
-          margin: 0 auto;
-          text-align: center;
-        }
-    
-        
-    
-        #new-card{
-          width: 100px;
-          height: 50px;
-          font-size: 15pt;
-          color: white;
-          background-color: rgb(33, 48, 102);
-          border: none;
-          position: relative;
-    
-        }
-          #submit{
-          width: 100px;
-          height: 50px;
-          font-size: 15pt;
-          margin: 25px 10px;
-          color: white;
-          background-color: rgb(33, 48, 102);
-          border: none;
-          position: relative;
-    
-        }
-        #submit:hover {
-          cursor: pointer;
-          background-color: rgb(73, 100, 196);
-        }
-        #new-card:hover {
-          cursor: pointer;
-          background-color: rgb(73, 100, 196);
-        }
-        #create-button{
-          display: inline-block;
-          border-radius: 4px;
-          background-color: #1e5bf4;
-          border: none;
-          color: #FFFFFF;
-          text-align: center;
-          font-size: 28px;
-          padding: 20px;
-          width: 400px;
-          transition: all 0.5s;
-          cursor: pointer;
-          margin: 5px;
-          animation: createmove 5s;
-    
-        }
-    #create-button span:after {
+    .welcome {
+      width: 50%;
+      height: 200px;
+      margin: 100px auto;
+      color: white;
+      background-color: rgb(33, 48, 102);
+    } 
+
+    .welcome p {
+      padding: 10px;
+    }
+
+      .center {
+      text-align: center;
+    } 
+
+    /* #card-controls {
+      margin: 0 auto;
+      text-align: center;
+    } */
+
+      /* #submit{
+      width: 100px;
+      height: 50px;
+      font-size: 15pt;
+      margin: 25px 10px;
+      color: white;
+      background-color: rgb(33, 48, 102);
+      border: none;
+      position: relative;
+
+    }
+    #submit:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+    #new-card:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }  */
+
+    /* #create-button {
+      display: inline-block;
+      border-radius: 4px;
+      background-color: #1e5bf4;
+      border: none;
+      color: #FFFFFF;
+      text-align: center;
+      font-size: 28px;
+      padding: 20px;
+      width: 400px;
+      transition: all 0.5s;
+      cursor: pointer;
+      margin: 5px;
+      animation: createmove 5s;
+    } */
+
+    /* #create-button span:after {
       content: '\00bb';
       position: absolute;
       opacity: 0;
@@ -297,12 +351,8 @@
     #create-button:hover span:after {
       opacity: 1;
       right: 0;
-    }
-    
-    
-    
-    
-        .controls button {
+    }  */
+        /* .controls button {
           width: 600px;
           height: 100px;
           font-size: 30pt;
@@ -315,7 +365,7 @@
           border: 5px solid rgb(11, 13, 46);
           
           
-        }
+        } */
         .controls button:hover {
           cursor: pointer;
           background-color: rgb(73, 100, 196);
@@ -344,27 +394,17 @@
       opacity: 1;
       right: 0;
     }
-        #generate {
-          margin: 20px;
-          float: left;
-          width: 40%;
-          text-align: center; 
-        }
+
+    #generate {
+      margin: 20px;
+      float: left;
+      width: 40%;
+      text-align: center; 
+    }
     
-        #search {
-          padding-top: 40px;
-          margin: 70px;
-          float: left;
-          
-          background-color: rgb(33, 48, 102);
-          position: relative;
-          animation: mymove 5s;
-          width: 600px;
-          border: 5px solid rgb(11, 13, 46);
+
     
-        }
-    
-        #submit{
+        /* #submit{
           border: 5px solid rgb(11, 13, 46);
           font-size: 30pt;
           width: 250px;
@@ -377,7 +417,7 @@
           width: 250px;
           height: 100px;
           margin: 25px 23px;
-        }
+        } */
     
         #deck {
           margin: 50px auto;
@@ -391,7 +431,7 @@
           height: auto;
         }
     
-        #deck img:hover {
+        /* #deck img:hover {
           border: 1px solid rgb(46, 46, 46);
         }
     
@@ -437,7 +477,7 @@
         #deck-controls-next button:hover {
           cursor: pointer;
           background-color: rgb(73, 100, 196);
-        }
+        } */
       
         #player-pic {
           width: 50%;
@@ -471,10 +511,7 @@
           color: white;
           margin: 5px 10px 5px 20px;
           float: right;
-          margin: 10px 20px;
-    
-          
-          
+          margin: 10px 20px;          
         }
     
     
@@ -485,8 +522,9 @@
         #deck{width: 100%;}
         #deck-controls-next{width: 100%;}
         #deck-controls-prev{width: 100%;}
-        /* #container {
+        
+       /* #container {
           align-self: auto | flex-start | flex-end | center | baseline | stretch;
-    } */
+    }  */
   }
-    
+     

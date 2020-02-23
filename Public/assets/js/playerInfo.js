@@ -20,7 +20,7 @@ let NBAPlayerGif = (player) => {
         url: gifs,
         method: "GET"
     }).then(function (gifs) {
-        $("#card").append("<div class=col id=gif></div>");
+        // $("#cardMain").append("<div class=col id=gif></div>");
         $("#gif").append("<img src=" + gifs.data[0].images.original.url + " id=plyr_gif>");
     })
  
@@ -38,27 +38,18 @@ let NBAPlayerInfo = (player) => {
         url: ballDontLie,
         method: "GET"
     }).then(function (response) {
-        $("#card").append("<div class=col id=playerName></div>");
-        $("#playerName").css({'font-family': "Impact,Charcoal,sans-serif", 'font-size': "xxx-large", 'text-align': 'center', 'color' : 'white'});
-        $("#playerName").text(response.data[0].first_name + " " + response.data[0].last_name);
+       
+        $("#playerName").html(response.data[0].first_name + " " + response.data[0].last_name);
 
-        $("#card").append("<div class=col id=playerID></div>");
-        // $("#playerID").text("Player's id: " + response.data[0].id);
-        $("#playerID").text(response.data[0].id);
+        $("#playerID").html(response.data[0].id);
 
-        $("#card").append("<div class=col id=playerHeight></div>");
-        // $("#playerHeight").text("Player's height: " + response.data[0].height_feet + " ft");
-        $("#playerHeight").text(response.data[0].height_feet);
+        $("#playerHeight").html(response.data[0].height_feet);
 
-        $("#card").append("<div class=col id=playerweight></div>");
-        // $("#playerweight").text("Player's weight: " + response.data[0].weight_pounds + " lbs");
-        $("#playerweight").text(response.data[0].weight_pounds);
+        $("#playerweight").html(response.data[0].weight_pounds);
 
-        $("#card").append("<div class=col id=playerteam></div>");
-        $("#playerteam").text("Player's team: " + response.data[0].team.full_name);
+        $("#playerteam").html(response.data[0].team.full_name);
 
-        $("#card").append("<div class=col id=playercity></div>");
-        $("#playercity").text("Player's city: " + response.data[0].team.city);
+        $("#playercity").html(response.data[0].team.city);
 
         var playerID = response.data[0].id;
         // event.preventDefault();
