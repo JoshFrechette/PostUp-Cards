@@ -1,18 +1,37 @@
 <body>
-    <div class="container">
-        <div class="center">
-            <p>Welcome, one and all to PostUp Cards! The latest cryptocurrency craze. Tired of paying for your stuff with
-                things like MONEY and EFFORT?
-                Well no longer! Generate some digital trading cards and trade them for real goods and services. Then let us
-                know how you did it. We're stumped.
-            </p>
-            <button id="create-button">Create Card</button>
+    <header>
+        <a href="/create">
+        <img src="/assets/images/PostUpCards-01.png" width="80" height="70" alt="logo" id="logo"></a>
+        <nav>           
+            <button id="login">Login</button>
+            <button id="signup">Signup</button>
+        </nav>
+    </header>
+
+    <div class="container welcome">
+        <div class="row">
+            <div class="col-md center">
+                    <p>Welcome, one and all to PostUp Cards! The latest cryptocurrency craze. Tired of paying for your stuff with
+                        things like MONEY and EFFORT?
+                        Well no longer! Generate some digital trading cards and trade them for real goods and services. Then let us
+                        know how you did it. We're stumped.
+                    </p>
+            </div>
         </div>
+        <div class="row">
+            <div class="col-md">
+                <button class="button expanded primary" id="create-button">Create Card</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p id="giphy">Powered by Giphy</p>
         <p id="credits">Team Awesome Team</p>
     </footer>
 </body>
+<script type="text/javascript" src="/assets/js/playerInfo.js"></script>
+<script type="text/javascript" src="/assets/js/cms.js"></script>
 <script>
     $("#login").on("click", function () {
         console.log("working")
