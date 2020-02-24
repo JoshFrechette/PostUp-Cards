@@ -17,12 +17,7 @@
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "username": "root",
-    "password": "",
-    "database": "postup_cards",
-    "dialect": "mysql",
-    "operatorsAliases": false
+     "use_env_variable": "JAWSDB_URL"
 
   }
 }

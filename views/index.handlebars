@@ -21,20 +21,20 @@
                         {{!-- <li><button id="back">Back card</button></li> --}}
                     </ul>
                     <hr>
-                    <h5>Deck View</h5>
-                    <div class="deckview">
-                        <ul>
-                            {{#each playerbases}}
-                            {{> cards/deckcard-block}}
-                            {{/each}}
-                        </ul>
-                    </div>
+                    {{!-- <h5>Deck View</h5> --}}
 
-
+                    <button class="button expanded primary" id="VDeck">View/Refresh Deck</button>
+                        <div class="deckview">
+                            <ul class="list decklist ">
+                                {{#each deckcard}}
+                                {{> cards/deckcard-block}}
+                                {{/each}}
+                            </ul>
+                        </div>
             </div>
         </div>
 
-        <div class="col-md">
+        <div class="col-8-md">
             {{> cards/card-block}}
         </div>
 
@@ -52,13 +52,14 @@
 <script>
     $("#VDeck").on("click", function () {
         console.log("deck view working")
-        location.replace("/deck");
+
     });
 
     $("#submit").on("click", function () {
         console.log("submit working")
         playerInformation();
         $("#SearchPlayer").val('');
+        $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
     });
 
     $("#clear").on("click", function () {

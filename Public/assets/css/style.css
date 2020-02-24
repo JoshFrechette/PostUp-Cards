@@ -195,6 +195,10 @@
       padding: 10px;
     }
 
+    h5 {
+      text-align: center;
+    }
+
     ul {
       list-style-type: none !important;
     }
@@ -215,26 +219,35 @@
       min-height: 600px;
       /* border: 5px solid rgb(11, 13, 46); */
     }
-
-    textarea {
+    textarea #clear #submit #VDeck #save-card button .deckview{
       float: left;
       min-width: 200px;
       min-height: 50px; 
     }
-
-    #clear #submit #VDeck #save-card button{
-      
-      width: 100px !important;
-      height: 50px;
+    #clear #submit #VDeck #save-card button { 
+      /* width: 100px !important;
+      height: 50px; */
       font-size: 15pt;
       color: white !important;
       background-color: rgb(33, 48, 102)!important;
       border: none;
-      position: relative;
+      /* position: relative; */
     }
-
     .deckview {
+      font-size: small;
+      padding: 0.5rem;
       background-color: white;
+      float: left;
+    }
+    .deckcard {
+      float: right;
+      color: white;
+      background-color: navy;
+      margin-left: 1px;
+      padding: .2rem;
+    }
+    .CardDeckItem {
+      display: inline;
     }
 
     #cardMain{
@@ -251,14 +264,18 @@
       clip: rect(0px,300px,600px,0px);
       position: relative;
     }
-
+    #giphy {
+      color: white;
+      text-align: left;
+      display: inline-block;
+      margin: 5px 10px 5px 20px;
+    }
     .stats {
       display: inline-block;
       color: black;
       position: absolute;
       bottom: 0;
     }
-
     #playerName {
       font-family: Impact sans-serif;
       font-size: xx-large;
@@ -266,7 +283,6 @@
       text-align: center;
       color : black;
     }
-
     #playerID {
       font-weight: bold;
       text-align: center;
@@ -285,13 +301,11 @@
       color: white;
       background-color: rgb(33, 48, 102);
     } 
-
     .welcome p {
       padding: 10px;
     }
-
-      .center {
-      text-align: center;
+    .center {
+    text-align: center;
     } 
 
     /* #card-controls {
@@ -366,10 +380,11 @@
           
           
         } */
-        .controls button:hover {
-          cursor: pointer;
-          background-color: rgb(73, 100, 196);
-        }
+    /* .controls button:hover {
+      cursor: pointer;
+      background-color: rgb(73, 100, 196);
+    }
+
     .controls button span {
       cursor: pointer;
       display: inline-block;
@@ -393,13 +408,14 @@
     .controls button:hover span:after {
       opacity: 1;
       right: 0;
-    }
+    } */
 
     #generate {
+      color: black;
       margin: 20px;
       float: left;
-      width: 40%;
-      text-align: center; 
+      width: 80%;
+      /* text-align: center;  */
     }
     
 
@@ -488,16 +504,11 @@
         }
     
         ul {
-          color: white;
+          /* color: white; */
           list-style-type: none;
         }
     
-        #giphy {
-          color: white;
-          text-align: left;
-          display: inline-block;
-          margin: 5px 10px 5px 20px;
-        }
+
     
         #card-landscape {
           margin: 50px;

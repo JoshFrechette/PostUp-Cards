@@ -4,13 +4,13 @@ const exphbs = require("express-handlebars");
 
 
 //Database
-const sequelize = require('./config/database');
+
 
 var app = express();
 var PORT = process.env.PORT || 8000;
 
 // For syncing models
-var models = require("./models/player_base");
+// var models = require("./models/player_base");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -66,6 +66,9 @@ require("./routes/html-routes.js")(app);
 
 // });
 
-app.listen(process.env.PORT || PORT, function() {
-  console.log("listening on port " + PORT)
+var db = require("./models")
+db.sequelize.sync().then(function(){
+  app.listen(process.env.PORT || PORT, function() {
+    console.log("listening on port " + PORT)
+  })
 })
