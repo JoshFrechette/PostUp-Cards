@@ -1,6 +1,6 @@
 //Dependencies 
 // var models = require("../models");
-let axios = require('axios');
+// let axios = require('axios');
 
 //Empty arrays to hold the harvested data in the propper for for the front-end
 let baseStats = [];
@@ -63,7 +63,7 @@ let NBAPlayerInfo = (player) => {
         // playerInfo += imgSrc;
         baseStats.push(playerInfo);
         // console.log("baseStats is " + baseStats[0].player_id) //format to get info JF
-        playerStatistics(playerID);
+        // playerStatistics(playerID);
         
     })
 }
