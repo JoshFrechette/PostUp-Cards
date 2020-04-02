@@ -1,6 +1,9 @@
+let savedDeck=[];
+
 $("#save-card").on("click", function (event) {
   console.log("save button clicked")
   event.preventDefault();
+  //
   var newCard = {
 
     playerID: $("#playerID").text().trim(),
@@ -17,13 +20,15 @@ $("#save-card").on("click", function (event) {
   $.post("/api/new", newCard)
 });
 
-$("#VDeck").on("click", function (event){
+$("#VDeck").on("click", function (event) {
   event.preventDefault();
   deckLoad();
 });
 
 let deckLoad = () => {
   $.get("/api/playerbase", function (data) {
+    console.log(data)
+    savedDeck.push(data)
 
     if (data.length !== 0) {
       $(".decklist").empty()
@@ -38,7 +43,7 @@ let deckLoad = () => {
   })
 };
 
-$(".decklist").on("click", ".deckcard", function(event) {
+$(".decklist").on("click", ".deckcard", function (event) {
   console.log("player button clicked")
   event.preventDefault();
   $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
@@ -47,21 +52,25 @@ $(".decklist").on("click", ".deckcard", function(event) {
   console.log(id)
 
 
-  $.get("/api/playerbase/" + id, function(data) {
+  $.get("/api/playerbase/" + id, function (data) {
     console.log(data)
-  $("#gif").append("<img src=" + data.img_src + " id=plyr_gif>");
+    $("#gif").append("<img src=" + data.img_src + " id=plyr_gif>");
 
-  $("#playerName").html(data.player_name);
+    $("#playerName").html(data.player_name);
 
-  $("#playerID").html(data.player_id);
+    $("#playerID").html(data.player_id);
 
-  $("#playerHeight").html(data.player_height);
+    $("#playerHeight").html(data.player_height);
 
-  $("#playerweight").html(data.player_weight);
+    $("#playerweight").html(data.player_weight);
 
-  $("#playerteam").html(data.player_team);
+    $("#playerteam").html(data.player_team);
 
-  $("#playercity").html(data.player_city);
+    $("#playercity").html(data.player_city);
 
   })
+
+  // Enter code to get player season info here
 });
+
+deckLoad();
