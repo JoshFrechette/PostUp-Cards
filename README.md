@@ -45,7 +45,7 @@ https://github.com/TwistedPixels/PostUp-Cards.git
 
 * Gavin Wimalachandran 
     - Role: Front End - Handlebars.js, 
-    - Portfolio: 
+    - Portfolio: https://gavin-wimalachandran.netlify.com
 
 * Khalil Mouna
     - Role: Deployment and Testing, 
