@@ -1,10 +1,11 @@
-# PostUp-Cards
+<h1 align="center">PostUp Cards</h1>
+<p align="center">Virtual Card Collecting Fun!</p>
 --------------------------------------
 
 
 # Pitch
 --------------------------------------
-PostUp Cards lets the user build their own deck of virtual NBA player cards that they can access anytime.
+PostUp Cards lets the user build their own deck of virtual NBA player cards that they can access online.
 
 # User Story
 --------------------------------------
@@ -12,12 +13,12 @@ As a kid, I used to love collecting sports cards. You could look at your favouri
 
 # Built With
 ---------------------------------------
-* CSS, JavaScript
+* HTML5, CSS3, JavaScript
 * Handlebars
 * Node
 * Express
 * MySql
-* Sequalize
+* Sequelize
 
 # API used
 ----------------------------------------
@@ -27,7 +28,7 @@ As a kid, I used to love collecting sports cards. You could look at your favouri
 # Get Started
 -----------------------------------------
 
-![PostUp Cards App](Public/assets/images/PostUpCards_Project2)
+![PostUp Cards App](./Public/assets/images/PostUpCards.gif)
 
 # Deployment
 
@@ -35,7 +36,7 @@ Heroku
 https://postup-cards.herokuapp.com/
 
 GitHub
-https://github.com/TwistedPixels/PostUp-Cards.git
+https://github.com/JoshFrechette/PostUp-Cards.git
 
 # Team
 
@@ -53,4 +54,4 @@ https://github.com/TwistedPixels/PostUp-Cards.git
 
 * Josh Fréchette
     - Role: Project Manager, Sequelize and Database functions
-    - Portfolio: joshfdesign.ca
+    - Portfolio: https://joshfdesign-react-portfolio.herokuapp.com/
