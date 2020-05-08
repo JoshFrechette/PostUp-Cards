@@ -25,7 +25,11 @@ As a kid, I used to love collecting sports cards. You could look at your favouri
 * Ball Don't Lie
 * Giphy
 
-# Get Started
+# User Directions
+-----------------------------------------
+    * 
+
+# Preview
 -----------------------------------------
 
 ![PostUp Cards App](./Public/assets/images/PostUpCards.gif)
