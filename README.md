@@ -27,9 +27,9 @@ As a kid, I used to love collecting sports cards. You could look at your favouri
 
 # Get Started
 -----------------------------------------
-<img align="center">
+
 ![PostUp Cards App](./Public/assets/images/PostUpCards.gif)
-</img>
+
 
 # Deployment
 
