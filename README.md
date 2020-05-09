@@ -11,6 +11,15 @@ PostUp Cards lets the user build their own deck of virtual NBA player cards that
 --------------------------------------
 As a kid, I used to love collecting sports cards. You could look at your favourite players stats quickly and have that info close at hand. However, a card collection takes space and is hard to keep with you at all times. What if you could create a digital form of sports cards made to your specific request?
 
+# Overview
+---------------------------------------
+
+This application uses [balldontlie API](https://www.balldontlie.io/#introduction) to retrieve the selected player's season stats and [giphy API](https://developers.giphy.com/docs/api/) to post a GIF of that player on the virtual card. The user's cards are then saved in their deck via an SQL database.
+
+# User Directions
+-----------------------------------------
+    * The user 
+
 # Built With
 ---------------------------------------
 * HTML5, CSS3, JavaScript
