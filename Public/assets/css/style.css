@@ -1,541 +1,261 @@
-/* /* h1{
-    color: #FFFFFF;
-  }
-  body {
-    background-image: url("assets/397682.jpg");
-  }
-  #mainSection {
-    border-radius: 25px;
-    background: rgb(42, 149, 176);
-    padding: 10px;
-    width: 400px;
-    height: 850px;
-    opacity: 50%;
-    outline-color: blue;
-    outline-width: 10px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }
-/*submit button*/
-  /* #ViewDeck {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #152CA9;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    float: right;
-    margin: 5px;
-    
-  }
-  #ViewDeck span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  #ViewDeck span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  #ViewDeck:hover span {
-    padding-right: 25px;
-  }
-  #ViewDeck:hover span:after {
-    opacity: 1;
-    right: 0;}
+.container {
+/* display: flex; */
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: center;
+}
 
-  #card{
-    
-  box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-  }
-  /*submit button*/
-  /*#submit {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #152ca9;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-  }
-  
-  #submit span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-  #submit span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-  #submit:hover span {
-    padding-right: 25px;
-  }
-  
-  #submit:hover span:after {
-    opacity: 1;
-    right: 0;} */ 
+body {
+background-image: url("../images/basketball-net.jpg")!important;
+font-family: sans-serif;
+}
 
-    .container {
-      /* display: flex; */
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: center;
-    }
-        
-    body {
-      background-image: url("../images/basketball-net.jpg")!important;
-      font-family: sans-serif;
-    }
+.row {
+margin-top: 1rem;
+}
 
-    .row {
-      margin-top: 1rem;
-    }
+header {
+background-color: rgb(46, 46, 46);
+position: relative;
+top: 0;
+margin-bottom: 1rem;
+width: 100%;
+}
 
-    header {
-      background-color: rgb(46, 46, 46);
-      position: relative;
-      top: 0;
-      margin-bottom: 1rem;
-      width: 100%;
-    }
+nav {
+float: right;
+margin: 1rem 1rem 1rem 1rem;
+}
 
-    nav {
-      float: right;
-      margin: 1rem 1rem 1rem 1rem;
-    }
+#logo {
+margin: 1rem 1rem 1rem 1rem;
+}
 
-    #logo {
-      margin: 1rem 1rem 1rem 1rem;
-    }
+#login{
+background-color: rgb(33, 48, 102);
+color: white;
+font-size: 18px;
+padding: 5px;
+text-decoration: none;
+}
 
-    #login{
-      background-color: rgb(33, 48, 102);
-      color: white;
-      font-size: 18px;
-      padding: 5px;
-      text-decoration: none;
-    }
+#signup{
+background-color: rgb(33, 48, 102);
+color: white;
+font-size: 18px;
+padding: 5px;
+text-decoration: none;
+}
 
-    #signup{
-      background-color: rgb(33, 48, 102);
-      color: white;
-      font-size: 18px;
-      padding: 5px;
-      text-decoration: none;
-    }
+#signup hover {
+cursor: pointer;
+background-color: rgb(73, 100, 196);
+}
 
-    #signup hover {
-      cursor: pointer;
-      background-color: rgb(73, 100, 196);
-    }
+#login hover {
+cursor: pointer;
+background-color: rgb(73, 100, 196);
+}
 
-    #login hover {
-      cursor: pointer;
-      background-color: rgb(73, 100, 196);
-    }
+nav a {
+background-color: rgb(33, 48, 102);
+color: white;
+font-size: 18px;
+padding: 5px;
+text-decoration: none;
+}
 
-    nav a {
-      background-color: rgb(33, 48, 102);
-      color: white;
-      font-size: 18px;
-      padding: 5px;
-      text-decoration: none;
-    }
+nav a:hover {
+cursor: pointer;
+background-color: rgb(73, 100, 196);
+}
 
-    nav a:hover {
-      cursor: pointer;
-      background-color: rgb(73, 100, 196);
-    }
+footer {
+background-color: rgb(46, 46, 46);
+position: fixed;
+bottom: 0;
+width: 100%;
+}
 
-    footer {
-      background-color: rgb(46, 46, 46);
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
+h1 {
+color: white;
+text-align: left;
+display: inline-block;
+margin: 5px 10px 5px 20px;
+}
 
-    h1 {
-      color: white;
-      text-align: left;
-      display: inline-block;
-      margin: 5px 10px 5px 20px;
-    }
+h2 {
+color: white;
+text-align: center;
+padding: 10px;
+}
 
-    h2 {
-      color: white;
-      text-align: center;
-      padding: 10px;
-    }
+h5 {
+text-align: center;
+}
 
-    h5 {
-      text-align: center;
-    }
+ul {
+list-style-type: none !important;
+}
 
-    ul {
-      list-style-type: none !important;
-    }
+.col {
+padding-top: 1rem;
+}
 
-    .col {
-      padding-top: 1rem;
-    }
+#search {
+/* padding-top: 40px;
+margin: 70px; */
+flex-shrink: 1;
+float: left;        
+background-color: gainsboro;
+/* position: relative;  */
+animation: mymove 5s;
+max-width: 250px;
+min-height: 600px;
+/* border: 5px solid rgb(11, 13, 46); */
+}
+textarea #clear #submit #VDeck #save-card button .deckview{
+float: left;
+min-width: 200px;
+min-height: 50px; 
+}
+#clear #submit #VDeck #save-card button { 
+/* width: 100px !important;
+height: 50px; */
+font-size: 15pt;
+color: white !important;
+background-color: rgb(33, 48, 102)!important;
+border: none;
+/* position: relative; */
+}
+.deckview {
+font-size: small;
+padding: 0.5rem;
+background-color: white;
+float: left;
+}
+.deckcard {
+float: right;
+color: white;
+background-color: navy;
+margin-left: 1px;
+padding: .2rem;
+}
+.CardDeckItem {
+display: inline;
+}
 
-    #search {
-      /* padding-top: 40px;
-      margin: 70px; */
-      flex-shrink: 1;
-      float: left;        
-      background-color: gainsboro;
-      /* position: relative;  */
-      animation: mymove 5s;
-      max-width: 250px;
-      min-height: 600px;
-      /* border: 5px solid rgb(11, 13, 46); */
-    }
-    textarea #clear #submit #VDeck #save-card button .deckview{
-      float: left;
-      min-width: 200px;
-      min-height: 50px; 
-    }
-    #clear #submit #VDeck #save-card button { 
-      /* width: 100px !important;
-      height: 50px; */
-      font-size: 15pt;
-      color: white !important;
-      background-color: rgb(33, 48, 102)!important;
-      border: none;
-      /* position: relative; */
-    }
-    .deckview {
-      font-size: small;
-      padding: 0.5rem;
-      background-color: white;
-      float: left;
-    }
-    .deckcard {
-      float: right;
-      color: white;
-      background-color: navy;
-      margin-left: 1px;
-      padding: .2rem;
-    }
-    .CardDeckItem {
-      display: inline;
-    }
+#cardMain{
+color: white;
+margin-left: 1rem;
+padding: 1rem;
+float: left;
+width: 400px;
+height: 600px;
+background-color: gainsboro;
+border: 2px solid rgb(11, 13, 46);
+border-radius: 5px;
+right: 0px;
+clip: rect(0px,300px,600px,0px);
+position: relative;
+}
+#giphy {
+color: white;
+text-align: left;
+display: inline-block;
+margin: 5px 10px 5px 20px;
+}
+.stats {
+display: inline-block;
+color: black;
+position: absolute;
+bottom: 0;
+}
+#playerName {
+font-family: Impact sans-serif;
+font-size: xx-large;
+font-weight: bold;
+text-align: center;
+color : black;
+}
+#playerID {
+font-weight: bold;
+text-align: center;
+color: black;
+}
 
-    #cardMain{
-      color: white;
-      margin-left: 1rem;
-      padding: 1rem;
-      float: left;
-      width: 400px;
-      height: 600px;
-      background-color: gainsboro;
-      border: 2px solid rgb(11, 13, 46);
-      border-radius: 5px;
-      right: 0px;
-      clip: rect(0px,300px,600px,0px);
-      position: relative;
-    }
-    #giphy {
-      color: white;
-      text-align: left;
-      display: inline-block;
-      margin: 5px 10px 5px 20px;
-    }
-    .stats {
-      display: inline-block;
-      color: black;
-      position: absolute;
-      bottom: 0;
-    }
-    #playerName {
-      font-family: Impact sans-serif;
-      font-size: xx-large;
-      font-weight: bold;
-      text-align: center;
-      color : black;
-    }
-    #playerID {
-      font-weight: bold;
-      text-align: center;
-      color: black;
-    }
+.plyrAvgSeason, .playeStatsseason {
+margin-top: 1rem;
+padding-top: 1rem;
+}
 
-    .plyrAvgSeason, .playeStatsseason {
-      margin-top: 1rem;
-      padding-top: 1rem;
-    }
-    
-    .welcome {
-      width: 50%;
-      height: 200px;
-      margin: 100px auto;
-      color: white;
-      background-color: rgb(33, 48, 102);
-    } 
-    .welcome p {
-      padding: 10px;
-    }
-    .center {
-    text-align: center;
-    } 
+.welcome {
+width: 50%;
+height: 200px;
+margin: 100px auto;
+color: white;
+background-color: rgb(33, 48, 102);
+} 
+.welcome p {
+padding: 10px;
+}
+.center {
+text-align: center;
+} 
 
-    /* #card-controls {
-      margin: 0 auto;
-      text-align: center;
-    } */
+#generate {
+color: black;
+margin: 20px;
+float: left;
+width: 80%;
+/* text-align: center;  */
+}
 
-      /* #submit{
-      width: 100px;
-      height: 50px;
-      font-size: 15pt;
-      margin: 25px 10px;
-      color: white;
-      background-color: rgb(33, 48, 102);
-      border: none;
-      position: relative;
+#deck {
+  margin: 50px auto;
+  width: 60%;
+  text-align: center;
+  border: 5px solid rgb(11, 13, 46);
+}
 
-    }
-    #submit:hover {
-      cursor: pointer;
-      background-color: rgb(73, 100, 196);
-    }
-    #new-card:hover {
-      cursor: pointer;
-      background-color: rgb(73, 100, 196);
-    }  */
+#deck img {
+  width: 30%;
+  height: auto;
+}
 
-    /* #create-button {
-      display: inline-block;
-      border-radius: 4px;
-      background-color: #1e5bf4;
-      border: none;
-      color: #FFFFFF;
-      text-align: center;
-      font-size: 28px;
-      padding: 20px;
-      width: 400px;
-      transition: all 0.5s;
-      cursor: pointer;
-      margin: 5px;
-      animation: createmove 5s;
-    } */
+#player-pic {
+  width: 50%;
+  height: 50%;
+  display: block;
+  margin: 25px auto;
+  border: solid 2px white;
+}
 
-    /* #create-button span:after {
-      content: '\00bb';
-      position: absolute;
-      opacity: 0;
-      top: 0;
-      right: -20px;
-      transition: 0.5s;
-    }
-    
-    #create-button:hover span {
-      padding-right: 25px;
-    }
-    
-    #create-button:hover span:after {
-      opacity: 1;
-      right: 0;
-    }  */
-        /* .controls button {
-          width: 600px;
-          height: 100px;
-          font-size: 30pt;
-          margin: 25px 10px;
-          color: white;
-          background-color: rgb(33, 48, 102);
-          border: none;
-          animation: frontleft 5s;
-    
-          border: 5px solid rgb(11, 13, 46);
-          
-          
-        } */
-    /* .controls button:hover {
-      cursor: pointer;
-      background-color: rgb(73, 100, 196);
-    }
+ul {
+  /* color: white; */
+  list-style-type: none;
+}
 
-    .controls button span {
-      cursor: pointer;
-      display: inline-block;
-      position: relative;
-      transition: 0.5s;
-    }
-    
-    .controls button span:after {
-      content: '\00bb';
-      position: absolute;
-      opacity: 0;
-      top: 0;
-      right: -20px;
-      transition: 0.5s;
-    }
-    
-    .controls button:hover span {
-      padding-right: 25px;
-    }
-    
-    .controls button:hover span:after {
-      opacity: 1;
-      right: 0;
-    } */
+#card-landscape {
+  margin: 50px;
+  float: right;
+  width: 600px;
+  height: 400px;
+  background-color: rgb(33, 48, 102);
+}
 
-    #generate {
-      color: black;
-      margin: 20px;
-      float: left;
-      width: 80%;
-      /* text-align: center;  */
-    }
-    
+#credits {
+  color: white;
+  margin: 5px 10px 5px 20px;
+  float: right;
+  margin: 10px 20px;          
+}
 
-    
-        /* #submit{
-          border: 5px solid rgb(11, 13, 46);
-          font-size: 30pt;
-          width: 250px;
-          height: 100px;
-          margin: 25px 23px;
-        }
-        #new-card{
-          border: 5px solid rgb(11, 13, 46);
-          font-size: 30pt;
-          width: 250px;
-          height: 100px;
-          margin: 25px 23px;
-        } */
-    
-        #deck {
-          margin: 50px auto;
-          width: 60%;
-          text-align: center;
-          border: 5px solid rgb(11, 13, 46);
-        }
-    
-        #deck img {
-          width: 30%;
-          height: auto;
-        }
-    
-        /* #deck img:hover {
-          border: 1px solid rgb(46, 46, 46);
-        }
-    
-        #deck-controls-prev {
-          width: 200px;
-          height: 100px;
-          float: left;
-          text-align: center;
-        }
-    
-        #deck-controls-next {
-          width: 200px;
-          height: 100px;
-          float: right;
-          text-align: center;
-        }
-    
-        #deck-controls-prev button {
-          width: 200px;
-          height: 100px;
-          font-size: 25pt;
-          margin: 50px 5px;
-          color: white;
-          background-color: rgb(33, 48, 102);
-          border: none;
-        }
-    
-        #deck-controls-next button {
-          width: 200px;
-          height: 100px;
-          font-size: 25pt;
-          margin: 50px 5px;
-          color: white;
-          background-color: rgb(33, 48, 102);
-          border: none;
-        }
-    
-        #deck-controls-prev button:hover {
-          cursor: pointer;
-          background-color: rgb(73, 100, 196);
-        }
-    
-        #deck-controls-next button:hover {
-          cursor: pointer;
-          background-color: rgb(73, 100, 196);
-        } */
-      
-        #player-pic {
-          width: 50%;
-          height: 50%;
-          display: block;
-          margin: 25px auto;
-          border: solid 2px white;
-        }
-    
-        ul {
-          /* color: white; */
-          list-style-type: none;
-        }
-    
-
-    
-        #card-landscape {
-          margin: 50px;
-          float: right;
-          width: 600px;
-          height: 400px;
-          background-color: rgb(33, 48, 102);
-        }
-    
-        #credits {
-          color: white;
-          margin: 5px 10px 5px 20px;
-          float: right;
-          margin: 10px 20px;          
-        }
-    
-    
-        @media screen and (max-width: 480px) {
-        #search {width: 100%; float: left;}
-        #main {width: 100%;margin-left: 216px;}
-        #card {width: 100%;margin-left: 216px;}
-        #deck{width: 100%;}
-        #deck-controls-next{width: 100%;}
-        #deck-controls-prev{width: 100%;}
-        
-       /* #container {
-          align-self: auto | flex-start | flex-end | center | baseline | stretch;
-    }  */
-  }
-     
+@media screen and (max-width: 480px) {
+#search {width: 100%; float: left;}
+#main {width: 100%;margin-left: 216px;}
+#card {width: 100%;margin-left: 216px;}
+#deck{width: 100%;}
+#deck-controls-next{width: 100%;}
+#deck-controls-prev{width: 100%;}
+}
