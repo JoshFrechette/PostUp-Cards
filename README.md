@@ -18,25 +18,24 @@ This application uses [balldontlie API](https://www.balldontlie.io/#introduction
 
 # User Directions
 -----------------------------------------
-    * The user 
+* The user enters the desired player's name in the search box and clicks on search.
+* The user then decides whether to add the card to their "Deck" by clicking on "Save Card" or clicking on "Clear" to clear card field and start a new search.
+* The user clicks on "View/Refresh Deck" in order to view their "Deck" and to reload the "Deck" when a new card is added.
 
 # Built With
 ---------------------------------------
 * HTML5, CSS3, JavaScript
+* Foundation.css
 * Handlebars
 * Node
 * Express
 * MySql
 * Sequelize
 
-# API used
+# APIs used
 ----------------------------------------
 * Ball Don't Lie
 * Giphy
-
-# User Directions
------------------------------------------
-    * 
 
 # Preview
 -----------------------------------------
