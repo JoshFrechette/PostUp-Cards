@@ -1,7 +1,7 @@
 //Dependencies 
 // var models = require("../models");
 // let axios = require('axios');
-
+// import { deckLoad } from '/deckLoad.js';
 //Empty arrays to hold the harvested data in the propper for for the front-end
 let baseStats = [];
 let stats = [];
@@ -129,7 +129,6 @@ function playerStatistics(playerID) {
             Blk: blk,
             Pts: pts,
             AVG: avg
-
         }
 
         $("#playerName").html(response.data[0].first_name + " " + response.data[0].last_name);
@@ -287,3 +286,5 @@ let seasonStats = (currentSeason, playerID) => {
     })
     // console.log("AvgStats " + avgStats);
 }
+
+playerInformation()

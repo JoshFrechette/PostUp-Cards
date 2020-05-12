@@ -55,20 +55,28 @@
 <script type="text/javascript" src="/assets/js/playerInfo.js"></script>
 <script type="text/javascript" src="/assets/js/cms.js"></script>
 <script>
-    $("#VDeck").on("click", function () {
-        console.log("deck view working")
-
-    });
-
     $("#submit").on("click", function () {
-        console.log("submit working")
         playerInformation();
         $("#SearchPlayer").val('');
         $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
     });
 
     $("#clear").on("click", function () {
-        console.log("clear working")
-        $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
+        cardClear();
     });
 </script>
+
+{{!-- <script>
+    $("#VDeck").on("click", function () {
+    });
+
+    $("#submit").on("click", function () {
+        playerInformation();
+        $("#SearchPlayer").val('');
+        $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
+    });
+
+    $("#clear").on("click", function () {
+        $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
+    });
+</script> --}}
