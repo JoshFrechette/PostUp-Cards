@@ -288,3 +288,5 @@ let seasonStats = (currentSeason, playerID) => {
 }
 
 playerInformation()
+
+export { playerInformation , NBAPlayerGif, NBAPlayerInfo, playerStatistics, seasonStats};

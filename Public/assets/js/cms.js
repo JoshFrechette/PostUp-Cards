@@ -1,4 +1,21 @@
+import { playerInformation , NBAPlayerGif, NBAPlayerInfo, playerStatistics, seasonStats} from "./playerInfo.js";
+import { deckLoad } from "./deckLoad.js";
+
 let savedDeck = [];
+let baseStats = [];
+let stats = [];
+
+console.log( playerInformation())
+
+$("#submit").on("click", function () {
+  playerInformation();
+  $("#SearchPlayer").val('');
+  $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
+});
+
+$("#clear").on("click", function () {
+  cardClear();
+});
 
 $("#save-card").on("click", function (event) {
   event.preventDefault();
@@ -29,7 +46,7 @@ $("#save-card").on("click", function (event) {
         // console.log(userDeck[n].player_id)
       }
     }
-    // deckLoad()
+
   }
 });
 
@@ -85,33 +102,33 @@ let newCard = () => {
 
 $("#VDeck").on("click", function (event) {
   event.preventDefault();
-  deckLoad();
+deckLoad()
 });
 
 let cardClear = () => {
   $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
 };
 
-let deckLoad = () => {
-  savedDeck=[];
-  $.get("/api/playerbase", function (data) {
-    console.log("deckload data being loaded from db", data)
-    savedDeck = data;
-    // savedDeck.push(data)
-    console.log("deckload", savedDeck)
-    if (data.length !== 0) {
-      $(".decklist").empty()
-      for (const i in data) {
-        var cardItem = $("<li class='CardDeckItem'>");
-        cardItem.append("<p>" + data[i].player_name + "<button data-id='" + data[i].id + "' class='deckcard' id='deckcard'> View Card </button></p>");
+// let deckLoad = () => {
+//   savedDeck=[];
+//   $.get("/api/playerbase", function (data) {
+//     console.log("deckload data being loaded from db", data)
+//     savedDeck = data;
+//     // savedDeck.push(data)
+//     console.log("deckload", savedDeck)
+//     if (data.length !== 0) {
+//       $(".decklist").empty()
+//       for (const i in data) {
+//         var cardItem = $("<li class='CardDeckItem'>");
+//         cardItem.append("<p>" + data[i].player_name + "<button data-id='" + data[i].id + "' class='deckcard' id='deckcard'> View Card </button></p>");
 
-        $(".decklist").prepend(cardItem);
-      }
-    }
-  })
-  console.log(savedDeck)
-  return savedDeck
-};
+//         $(".decklist").prepend(cardItem);
+//       }
+//     }
+//   })
+//   console.log(savedDeck)
+//   return savedDeck
+// };
 
 $(".decklist").on("click", ".deckcard", function (event) {
   event.preventDefault();
@@ -139,4 +156,5 @@ $(".decklist").on("click", ".deckcard", function (event) {
 
   // Enter code to get player season info here
 });
- deckLoad();
+playerInformation()
+deckLoad()
