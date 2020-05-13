@@ -19,7 +19,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 //PostUp routes (have all api routes bundled later on)
-// app.use('/api-routes', require('./routes/api-routes'));
+
 require("./controller/routes")(app);
 require("./controller/html-routes.js")(app);
 

@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
             // }
         },
         player_height: {
-            type: DataTypes.INTEGER
+            type: DataTypes.STRING
             // allowNull: false,
             // validate: {
             //     len: [1]

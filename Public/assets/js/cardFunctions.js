@@ -15,8 +15,25 @@ let deckLoad = () => {
       }
     }
   })
-  console.log(savedDeck)
   return savedDeck
 }
 
-export { deckLoad };
+let newCard = () => {
+  var newCard = {
+
+    playerID: $("#playerID").text().trim(),
+    playerName: $("#playerName").text().trim(),
+    playerHeight: $("#playerHeight").text().trim(),
+    playerWeight: $("#playerweight").text().trim(),
+    playerTeam: $("#playerteam").text().trim(),
+    playerCity: $("#playercity").text().trim(),
+    playerGIF: $("#plyr_gif").attr('src').trim()
+  };
+  $.post("/api/new", newCard)
+}
+
+let cardClear = () => {
+  $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
+}
+
+export { deckLoad, newCard, cardClear };

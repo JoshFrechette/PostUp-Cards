@@ -1,3 +1,3 @@
 -- insert users here
 
-insert into users ( name ) values (`${name}`)
+insert into users ( name ) values (name)

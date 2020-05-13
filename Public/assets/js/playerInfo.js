@@ -1,14 +1,10 @@
 //Dependencies 
-// var models = require("../models");
 // let axios = require('axios');
-// import { deckLoad } from '/deckLoad.js';
 //Empty arrays to hold the harvested data in the propper for for the front-end
 let baseStats = [];
 let stats = [];
 let avgStats = [];
 let multiple = 1;
-var shaili = [];
-
 
 let playerInformation = () => {
     var player = $("#SearchPlayer").val();
@@ -33,12 +29,12 @@ let NBAPlayerInfo = (player) => {
         url: ballDontLie,
         method: "GET"
     }).then(function (response) {
-       
+
         $("#playerName").html(response.data[0].first_name + " " + response.data[0].last_name);
 
         $("#playerID").html(response.data[0].id);
 
-        $("#playerHeight").html(response.data[0].height_feet);
+        $("#playerHeight").html(response.data[0].height_feet + "'" + response.data[0].height_inches + "\"");
 
         $("#playerweight").html(response.data[0].weight_pounds);
 
@@ -52,23 +48,23 @@ let NBAPlayerInfo = (player) => {
         let playerInfo = {
             player_id: response.data[0].id,
             player_name: response.data[0].first_name + " " + response.data[0].last_name,
-            player_height: response.data[0].height_feet,
+            player_height: response.data[0].height_feet + "\'" + response.data[0].height_inches + "\"",
             player_weight: response.data[0].weight_pounds,
-            player_team: response.data[0].team.full_name, 
-            player_city:response.data[0].team.city
-    
+            player_team: response.data[0].team.full_name,
+            player_city: response.data[0].team.city
+
         }
 
         // console.log(playerInfo.player_id + " and " + baseStats)
         // playerInfo += imgSrc;
         baseStats.push(playerInfo);
+        console.log("baseStats", baseStats)
         // console.log("baseStats is " + baseStats[0].player_id) //format to get info JF
         // playerStatistics(playerID);
-        
+        return playerID;
+
     })
 }
-
-
 
 function playerStatistics(playerID) {
     let d = new Date();
@@ -131,17 +127,17 @@ function playerStatistics(playerID) {
             AVG: avg
         }
 
-        $("#playerName").html(response.data[0].first_name + " " + response.data[0].last_name);
+        // $("#playerName").html(response.data[0].first_name + " " + response.data[0].last_name);
 
-        $("#playerID").html(response.data[0].id);
+        // $("#playerID").html(response.data[0].id);
 
-        $("#playerHeight").html(response.data[0].height_feet);
+        // $("#playerHeight").html(response.data[0].height_feet);
 
-        $("#playerweight").html(response.data[0].weight_pounds);
+        // $("#playerweight").html(response.data[0].weight_pounds);
 
-        $("#playerteam").html(response.data[0].team.full_name);
+        // $("#playerteam").html(response.data[0].team.full_name);
 
-        $("#playercity").html(response.data[0].team.city);
+        // $("#playercity").html(response.data[0].team.city);
 
 
         stats.push(plyrData);
@@ -218,21 +214,21 @@ let seasonStats = (currentSeason, playerID) => {
     }).then(function (avgData) {
         let seasonAvg = avgData;
         // console.log(seasonAvg);
-    //Create the JSON for every season
-    // let plrAvgStats = {
+        //Create the JSON for every season
+        // let plrAvgStats = {
 
-    //     //Create the JSON for every season
-    //     let plrAvgStats = {
+        //     //Create the JSON for every season
+        //     let plrAvgStats = {
 
-    // }
-    // avgStats.push(plrAvgStats);
-   
-// console.log(avgStats);
+        // }
+        // avgStats.push(plrAvgStats);
+
+        // console.log(avgStats);
 
 
         // }
         avgStats.push(seasonAvg);
-    
+
         $("#card").append("<div class=col id=plyrAvgSeason></div>");
 
         $("#card-landscape").append("<div class=col id=plyrAvgSeason></div>");
@@ -287,6 +283,4 @@ let seasonStats = (currentSeason, playerID) => {
     // console.log("AvgStats " + avgStats);
 }
 
-playerInformation()
-
-export { playerInformation , NBAPlayerGif, NBAPlayerInfo, playerStatistics, seasonStats};
+export { playerInformation, NBAPlayerGif, NBAPlayerInfo, playerStatistics, seasonStats };
