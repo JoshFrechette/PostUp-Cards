@@ -15,6 +15,13 @@ module.exports = function (sequelize, DataTypes) {
             //     len: [1]
             // }
         },
+        player_pos: {
+            type: DataTypes.STRING
+            // allowNull: true,
+            // validate: {
+            //     len: [1]
+            // }
+        },
         player_height: {
             type: DataTypes.STRING
             // allowNull: false,

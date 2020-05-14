@@ -1,15 +1,12 @@
 import { playerInformation , NBAPlayerGif, NBAPlayerInfo, playerStatistics, seasonStats} from "./playerInfo.js";
-import { deckLoad, newCard, cardClear} from "./cardFunctions.js";
-
-let savedDeck = [];
-let baseStats = [];
-let stats = [];
+import { deckLoad, newCard, cardClear, noCardRepeat} from "./cardFunctions.js";
+import { logoSelect } from "./logoSelect.js";
 
 $("#submit").on("click", function () {
   playerInformation();
   $("#SearchPlayer").val('');
-  $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
-
+  $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
+  deckLoad();
 });
 
 $("#clear").on("click", function () {
@@ -18,46 +15,13 @@ $("#clear").on("click", function () {
 
 $("#save-card").on("click", function (event) {
   event.preventDefault();
-  let plyrID = $("#playerID").text().trim();
-  let userDeck = savedDeck;
-  // console.log(plyrID)
-  console.log(userDeck)
-  if (userDeck.length === 0) {
-
-    newCard();
-    console.log("card is saved")
-
-  } else { 
-    for (const n of userDeck) {
-      console.log(n)
-      console.log("save-card is thinking...", userDeck)
-      console.log(userDeck[n].player_id)
-
-       if (userDeck[n].player_id !== plyrID) {
-        newCard();
-        console.log("card is saved")
-      } else {
-        console.log("card save fail.")
-        // console.log(userDeck[n].player_id)
-        alert("You already have this card in your deck!");
-        $("#SearchPlayer").empty()
-        cardClear();
-        // console.log(userDeck[n].player_id)
-      }
-    }
-  }
-  deckLoad();
+  let plyrID = Number($("#playerID").text().trim());
+  noCardRepeat(plyrID);
 });
-
-$("#VDeck").on("click", function (event) {
-  event.preventDefault();
-deckLoad()
-});
-
 
 $(".decklist").on("click", ".deckcard", function (event) {
   event.preventDefault();
-  $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
+  $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
 
   var id = $(this).attr("data-id")
 
@@ -66,6 +30,8 @@ $(".decklist").on("click", ".deckcard", function (event) {
     $("#gif").append("<img src=" + data.img_src + " id=plyr_gif>");
 
     $("#playerName").html(data.player_name);
+
+    $("#playerPos").html(data.player_pos);
 
     $("#playerID").html(data.player_id);
 

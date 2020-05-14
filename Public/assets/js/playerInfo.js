@@ -1,3 +1,5 @@
+import { logoSelect } from "./logoSelect.js";
+
 //Dependencies 
 // let axios = require('axios');
 //Empty arrays to hold the harvested data in the propper for for the front-end
@@ -17,7 +19,7 @@ let NBAPlayerGif = (player) => {
         url: gifs,
         method: "GET"
     }).then(function (gifs) {
-        // $("#cardMain").append("<div class=col id=gif></div>");
+        console.log(gifs.data[0].images.original.url)
         $("#gif").append("<img src=" + gifs.data[0].images.original.url + " id=plyr_gif>");
     })
     NBAPlayerInfo(player);
@@ -30,9 +32,13 @@ let NBAPlayerInfo = (player) => {
         method: "GET"
     }).then(function (response) {
 
+        console.log(logoSelect(response.data[0].team.full_name))
+
         $("#playerName").html(response.data[0].first_name + " " + response.data[0].last_name);
 
         $("#playerID").html(response.data[0].id);
+
+        $("#playerPos").html(response.data[0].position);
 
         $("#playerHeight").html(response.data[0].height_feet + "'" + response.data[0].height_inches + "\"");
 
@@ -42,27 +48,12 @@ let NBAPlayerInfo = (player) => {
 
         $("#playercity").html(response.data[0].team.city);
 
+        $("#teamLogo").append("<img src=./assets/images/Logos/" + logoSelect(response.data[0].team.full_name) + " id=logo");
+
         var playerID = response.data[0].id;
         // event.preventDefault();
-
-        let playerInfo = {
-            player_id: response.data[0].id,
-            player_name: response.data[0].first_name + " " + response.data[0].last_name,
-            player_height: response.data[0].height_feet + "\'" + response.data[0].height_inches + "\"",
-            player_weight: response.data[0].weight_pounds,
-            player_team: response.data[0].team.full_name,
-            player_city: response.data[0].team.city
-
-        }
-
-        // console.log(playerInfo.player_id + " and " + baseStats)
-        // playerInfo += imgSrc;
-        baseStats.push(playerInfo);
-        console.log("baseStats", baseStats)
-        // console.log("baseStats is " + baseStats[0].player_id) //format to get info JF
         // playerStatistics(playerID);
         return playerID;
-
     })
 }
 
