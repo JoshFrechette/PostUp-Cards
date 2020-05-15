@@ -1,7 +1,7 @@
 import { logoSelect } from "./logoSelect.js";
 
 //Dependencies 
-// let axios = require('axios');
+let axios = require('axios');
 //Empty arrays to hold the harvested data in the propper for for the front-end
 let baseStats = [];
 let stats = [];
@@ -19,7 +19,7 @@ let NBAPlayerGif = (player) => {
         url: gifs,
         method: "GET"
     }).then(function (gifs) {
-        console.log(gifs.data[0].images.original.url)
+        console.log("incoming gifs", gifs)
         $("#gif").append("<img src=" + gifs.data[0].images.original.url + " id=plyr_gif>");
     })
     NBAPlayerInfo(player);
@@ -31,8 +31,9 @@ let NBAPlayerInfo = (player) => {
         url: ballDontLie,
         method: "GET"
     }).then(function (response) {
-
-        console.log(logoSelect(response.data[0].team.full_name))
+        console.log(response.data[0].team.full_name);
+        let teamLogoURL = logoSelect(response.data[0].team.full_name);
+        console.log(teamLogoURL)
 
         $("#playerName").html(response.data[0].first_name + " " + response.data[0].last_name);
 
@@ -48,14 +49,29 @@ let NBAPlayerInfo = (player) => {
 
         $("#playercity").html(response.data[0].team.city);
 
-        $("#teamLogo").append("<img src=./assets/images/Logos/" + logoSelect(response.data[0].team.full_name) + " id=logo");
+        $("#teamLogo").append("<img src=" + teamLogoURL + " id=nbaLogo>");
 
         var playerID = response.data[0].id;
+
+        // postLogo(response.data[0].team.full_name)
         // event.preventDefault();
         // playerStatistics(playerID);
         return playerID;
     })
 }
+
+// let postLogo = (teamName) => {
+
+// console.log(teamName);
+// let teamURL = "https://content.sportslogos.net/logos/6/220/full/9168_atlanta_hawks-primary-2016.png";
+//     $.ajax({
+//         url: teamURL,
+//         method: "GET"
+//     }).then(function (response) {
+//    console.log(response)
+//         $("#teamLogo").append("<img src=./assets/images/Logos/" + logoSelect(response) + " id=logo");
+//     })
+// }
 
 function playerStatistics(playerID) {
     let d = new Date();

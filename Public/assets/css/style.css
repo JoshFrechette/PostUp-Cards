@@ -141,8 +141,13 @@ background-color: navy;
 margin-left: 1px;
 padding: .2rem;
 }
+
 .CardDeckItem {
 display: inline;
+}
+
+.card-divider {
+  text-align: center!important;
 }
 
 #cardMain{
@@ -165,23 +170,39 @@ text-align: left;
 display: inline-block;
 margin: 5px 10px 5px 20px;
 }
+
+.PlyrName {
+  background-color: white;
+}
 .stats {
+text-align: center;
 display: inline-block;
 color: black;
 position: absolute;
 bottom: 0;
+margin:0;
+}
+.statline {
+  margin: 0;
 }
 #playerName {
 font-family: Impact sans-serif;
 font-size: xx-large;
 font-weight: bold;
-text-align: center;
+padding-left:2rem;
+/* text-align: center; */
+float: left;
 color : black;
 }
 #playerID {
 font-weight: bold;
 text-align: center;
 color: black;
+}
+
+#nbaLogo {
+  height: 4rem;
+  float: right;
 }
 
 .plyrAvgSeason, .playeStatsseason {
@@ -223,9 +244,8 @@ width: 80%;
   height: auto;
 }
 
-#player-pic {
-  width: 50%;
-  height: 50%;
+#plyr_gif {
+  width: 100%;
   display: block;
   margin: 25px auto;
   border: solid 2px white;

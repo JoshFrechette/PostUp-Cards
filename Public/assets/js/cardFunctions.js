@@ -11,7 +11,6 @@ let deckLoad = () => {
       }
     }
   })
-  console.log("deck loaded")
 }
 
 let newCard = () => {
@@ -38,7 +37,6 @@ let noCardRepeat = (plyrID) => {
       for (const n in data) {
         if (data[n].player_id === plyrID) {
           alert("You already have this card in your deck!");
-          // console.log("card save failed", plyrID, "and", data[n].player_id)
           $("#SearchPlayer").empty();
           cardClear();
           break;
