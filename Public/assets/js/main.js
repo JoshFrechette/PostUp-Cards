@@ -48,8 +48,32 @@ $(".decklist").on("click", ".deckcard", function (event) {
     $("#teamLogo").append("<img src=" + teamLogoURL + " id=nbaLogo>");
 
   })
-
   // Enter code to get player season info here
+  $.get("/api/playerstats/" + id, function (data) {
+
+    $("#playerStatsSeason").html(data.season);
+
+    $("#playerStatsTeam").html(data.player_team);
+
+    $("#playerGP").html(data.player_gp);
+
+    $("#playerFGPer").html(data.player_fg);
+
+    $("#playerFTPer").html(data.player_ft);
+
+    $("#playerReb").html(data.player_reb);
+
+    $("#playerAst").html(data.player_ast);
+
+    $("#playerStl").html(data.player_stl);
+
+    $("#playerBlk").html(data.player_blk);
+
+    $("#playerPts").html(data.player_pts);
+
+    $("#playerAvg").html(data.player_avg);
+
+  })
 });
 
 deckLoad()

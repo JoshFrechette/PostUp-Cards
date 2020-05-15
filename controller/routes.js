@@ -39,18 +39,35 @@ module.exports = function (app) {
     })
   });
 
+  app.get("/api/playerstats", function (req, res) {
+    db.Playerstats.findAll().then(function (results) {
+      res.json(results);
+    })
+  });
+
   // work inprogress, route to get individual card data from deckcard/deckview click event => need to have route identify by id
   app.get("/api/playerbase/:id", function (req, res) {
     var id = req.params.id
-    console.log("this id " + id)
+    // console.log("this id " + id)
     db.Playerbase.findOne({
       where: {
-        id: id
+        player_id: id
       }
     }).then(function (results) {
       res.json(results);
     })
   });
+
+    app.get("/api/playerstats/:id", function (req, res) {
+      var id = req.params.id
+      db.Playerstats.findOne({
+        where: {
+          player_id: id
+        }
+      }).then(function (results) {
+        res.json(results);
+      })
+    });
 
   // Get all the card data (name only, really, to present in deckview)
   app.get("/api/all", function (req, res) {
@@ -74,6 +91,20 @@ module.exports = function (app) {
       player_team: req.body.playerTeam,
       player_city: req.body.playerCity,
       img_src: req.body.playerGIF,
+    }),
+    db.Playerstats.create({
+      player_id: req.body.playerID,
+      season: req.body.playerStatsSeason,
+      player_team: req.body.playerStatsTeam,
+      player_gp: req.body.playerGP,
+      player_fg: req.body.playerFGPer,
+      player_ft: req.body.playerFTPer,
+      player_reb: req.body.playerReb,
+      player_ast: req.body.playerAst,
+      player_stl: req.body.playerStl,
+      player_blk: req.body.playerBlk,
+      player_pts: req.body.playerPts,
+      player_avg: req.body.playerAvg,
     })
       // .then(function (PlayerBase) {
       //   res.json(PlayerBase);

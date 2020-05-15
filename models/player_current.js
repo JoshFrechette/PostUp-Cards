@@ -1,102 +1,88 @@
 module.exports = function(sequelize, DataTypes) {
-    var player_current = sequelize.define("player_current", {
+    var Playerstats = sequelize.define("Playerstats", {
+        player_id: {
+            type: DataTypes.INTEGER
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
+        },
         season: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [4]
-            }
+            // allowNull: false,
+            // validate: {
+            //     len: [4]
+            // }
         },
-        fgm: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+        player_team: {
+            type: DataTypes.STRING,
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
         },
-        fga: {
+        player_gp: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
         },
-        fg3m: {
+        player_fg: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
         },
-        fg3a: {
+        player_ft: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
         },
-        ftm: {
+        player_reb: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
         },
-        fta: {
+        player_ast: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
         },
-        oreb: {
+        player_stl: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
         },
-        dreb: {
+       player_blk: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
         },
-        ast: {
+        player_pts: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
         },
-        stl: {
+        player_avg: {
             type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        blk: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        pts: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
-        },
-        avg: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            // allowNull: false,
+            // validate: {
+            //     len: [1]
+            // }
         }
     });
     // player_current.associate = function(models) {
@@ -106,5 +92,5 @@ module.exports = function(sequelize, DataTypes) {
     //         }
     //         });
     // };
-    return player_current;
+    return Playerstats;
 };

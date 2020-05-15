@@ -5,7 +5,7 @@ let deckLoad = () => {
       $(".decklist").empty()
       for (const i in data) {
         var cardItem = $("<li class='CardDeckItem'>");
-        cardItem.append("<p>" + data[i].player_name + "<button data-id='" + data[i].id + "' class='deckcard' id='deckcard'> View Card </button></p>");
+        cardItem.append("<p>" + data[i].player_name + "<button data-id='" + data[i].player_id + "' class='deckcard' id='deckcard'> View Card </button></p>");
 
         $(".decklist").prepend(cardItem);
       }
@@ -15,7 +15,7 @@ let deckLoad = () => {
 
 let newCard = () => {
   var newCard = {
-
+// Info from front of card
     playerID: $("#playerID").text().trim(),
     playerName: $("#playerName").text().trim(),
     playerPos: $("#playerPos").text().trim(),
@@ -23,7 +23,19 @@ let newCard = () => {
     playerWeight: $("#playerweight").text().trim(),
     playerTeam: $("#playerteam").text().trim(),
     playerCity: $("#playercity").text().trim(),
-    playerGIF: $("#plyr_gif").attr('src').trim()
+    playerGIF: $("#plyr_gif").attr('src').trim(),
+//info from back of card
+    playerStatsSeason: $("#playerStatsSeason").text().trim(),
+    playerStatsTeam: $("#playerStatsTeam").text().trim(),
+    playerGP: $("#playerGP").text().trim(),
+    playerFGPer: $("#playerFGPer").text().trim(),
+    playerFTPer: $("#playerFTPer").text().trim(),
+    playerReb: $("#playerReb").text().trim(),
+    playerAst: $("#playerAst").text().trim(),
+    playerStl: $("#playerStl").text().trim(),
+    playerBlk: $("#playerBlk").text().trim(),
+    playerPts: $("#playerPts").text().trim(),
+    playerAvg: $("#playerAvg").text().trim()
   };
   $.post("/api/new", newCard)
   deckLoad();
@@ -48,7 +60,7 @@ let noCardRepeat = (plyrID) => {
 }
 
 let cardClear = () => {
-  $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
+  $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo, #playerStatsSeason, #playerStatsTeam, #playerGP, #playerFGPer, #playerFTPer, #playerReb, #playerAst, #playerStl, #playerBlk, #playerPts, #playerAvg").html("");
 }
 
 export { deckLoad, newCard, cardClear, noCardRepeat };

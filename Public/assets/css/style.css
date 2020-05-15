@@ -171,16 +171,14 @@ position: relative;
   height: 400px;
 }
 
-.PlyrName {
-  background-color: white!important;
-}
+
+
 #giphy {
 color: white;
 text-align: left;
 display: inline-block;
 margin: 5px 10px 5px 20px;
 }
-
 
 .bio {
 text-align: center;
@@ -213,6 +211,18 @@ color: black;
   float: right;
 }
 
+/* #nbaLogo, #playername {
+  position: absolute;
+  top:50%;
+} */
+
+.PlyrName {
+  background-color: white;
+  height: 5rem;
+  /* position: fixed;
+  top:50%; */
+}
+
 .plyrAvgSeason, .playeStatsseason {
 margin-top: 1rem;
 padding-top: 1rem;
@@ -222,6 +232,7 @@ padding-top: 1rem;
 table-layout: fixed;
 color: black;
 font-size: small;
+text-align: center;
 }
 
 .welcome {

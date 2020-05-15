@@ -17,7 +17,6 @@ let NBAPlayerGif = (player) => {
         url: gifs,
         method: "GET"
     }).then(function (gifs) {
-        console.log("incoming gifs", gifs)
         $("#gif").append("<img src=" + gifs.data[0].images.original.url + " id=plyr_gif>");
     })
     NBAPlayerInfo(player);
@@ -122,75 +121,75 @@ function playerStatistics(playerID) {
         }
         console.log(stats.last)
 
-        $("#playerStatsSeason").text(stats.Season);
+        $("#playerStatsSeason").html(stats.Season);
 
-        $("#playerStatsTeam").text(playerStats.data[stats.last].team.name);
+        $("#playerStatsTeam").html(playerStats.data[stats.last].team.name);
 
-        $("#playerGP").text(playerStats.data.length - 1);
+        $("#playerGP").html(playerStats.data.length - 1);
 
-        $("#playerFGPer").text(stats.FGPer);
+        $("#playerFGPer").html(stats.FGPer);
 
-        $("#playerFTPer").text(stats.FTPer);
+        $("#playerFTPer").html(stats.FTPer);
 
-        $("#playerReb").text(stats.Reb);
+        $("#playerReb").html(stats.Reb);
 
-        $("#playerAst").text(stats.Ast);
+        $("#playerAst").html(stats.Ast);
 
-        $("#playerStl").text(stats.Stl);
+        $("#playerStl").html(stats.Stl);
 
-        $("#playerBlk").text(stats.Blk);
+        $("#playerBlk").html(stats.Blk);
 
-        $("#playerPts").text(stats.Pts);
+        $("#playerPts").html(stats.Pts);
 
-        $("#playerAvg").text(stats.AVG);
+        $("#playerAvg").html(stats.AVG);
 
         //Original code for reference/re-use
         // $("#card").append("<div class=col id=playeStatsseason></div>");
-        // $("#playeStatsseason").text("Season: " + stats[0].Season + " FG_Made: " + stats[0].FG_Made + " FG_Att: " + stats[0].FG_Att + " Three_Pts_Made: " + stats[0].Three_Pts_Made + " Three_Pts_Att: " + stats[0].Three_Pts_Att +
+        // $("#playeStatsseason").html("Season: " + stats[0].Season + " FG_Made: " + stats[0].FG_Made + " FG_Att: " + stats[0].FG_Att + " Three_Pts_Made: " + stats[0].Three_Pts_Made + " Three_Pts_Att: " + stats[0].Three_Pts_Att +
         //     " FT Made: " + stats[0].FT_Made + " FT Att: " + stats[0].FT_Att + " Off Reb: " + stats[0].Off_Reb + " Def Reb: " + stats[0].Def_Reb + " Asst: " + stats[0].Asst + " Stl: " + stats[0].Stl + " Blk: " + stats[0].Blk + " Pts: " + stats[0].Pts + " AVG: " + stats[0].AVG);
 
 
         // $("#card").append("<div class=col id=playeStatsseason></div>");
-        // $("#playeStatsseason").text("Season: " + stats[0].Season);
+        // $("#playeStatsseason").html("Season: " + stats[0].Season);
 
         // $("#card").append("<div class=col id=playeStatsfgm></div>");
-        // $("#playeStatsfgm").text("FG_Made: " + stats[0].FG_Made);
+        // $("#playeStatsfgm").html("FG_Made: " + stats[0].FG_Made);
 
         // $("#card").append("<div class=col id=playeStatsfga></div>");
-        // $("#playeStatsfga").text("FG_Att: " + stats[0].FG_Att);
+        // $("#playeStatsfga").html("FG_Att: " + stats[0].FG_Att);
 
         // $("#card").append("<div class=col id=playeStatsfg3m></div>");
-        // $("#playeStatsfg3m").text("Three_Pts_Made: " + stats[0].Three_Pts_Made);
+        // $("#playeStatsfg3m").html("Three_Pts_Made: " + stats[0].Three_Pts_Made);
 
         // $("#card").append("<div class=col id=playeStatsfg3a></div>");
-        // $("#playeStatsfg3a").text("Three_Pts_Att: " + stats[0].Three_Pts_Att);
+        // $("#playeStatsfg3a").html("Three_Pts_Att: " + stats[0].Three_Pts_Att);
 
         // $("#card").append("<div class=col id=playeStatsftm></div>");
-        // $("#playeStatsftm").text("FT_Made: " + stats[0].FT_Made);
+        // $("#playeStatsftm").html("FT_Made: " + stats[0].FT_Made);
 
         // $("#card").append("<div class=col id=playeStatsfta></div>");
-        // $("#playeStatsfta").text("FT_Att: " + stats[0].FT_Att);
+        // $("#playeStatsfta").html("FT_Att: " + stats[0].FT_Att);
 
         // $("#card").append("<div class=col id=playeStatsoreb></div>");
-        // $("#playeStatsoreb").text("Off_Reb: " + stats[0].Off_Reb);
+        // $("#playeStatsoreb").html("Off_Reb: " + stats[0].Off_Reb);
 
         // $("#card").append("<div class=col id=playeStatsdreb></div>");
-        // $("#playeStatsdreb").text("Def_Reb: " + stats[0].Def_Reb);
+        // $("#playeStatsdreb").html("Def_Reb: " + stats[0].Def_Reb);
 
         // $("#card").append("<div class=col id=playeStatsast></div>");
-        // $("#playeStatsast").text("Asst: " + stats[0].Asst);
+        // $("#playeStatsast").html("Asst: " + stats[0].Asst);
 
         // $("#card").append("<div class=col id=playeStatsstl></div>");
-        // $("#playeStatsstl").text("Stl: " + stats[0].Stl);
+        // $("#playeStatsstl").html("Stl: " + stats[0].Stl);
 
         // $("#card").append("<div class=col id=playeStatsblk></div>");
-        // $("#playeStatsblk").text("Blk: " + stats[0].Blk);
+        // $("#playeStatsblk").html("Blk: " + stats[0].Blk);
 
         // $("#card").append("<div class=col id=playeStatspts></div>");
-        // $("#playeStatspts").text("Pts: " + stats[0].Pts);
+        // $("#playeStatspts").html("Pts: " + stats[0].Pts);
 
         // $("#card").append("<div class=col id=playeStatsavg></div>");
-        // $("#playeStatsavg").text("AVG: " + stats[0].AVG);
+        // $("#playeStatsavg").html("AVG: " + stats[0].AVG);
 
 
     })
@@ -236,51 +235,51 @@ let seasonStats = (currentSeason, playerID) => {
 
         $("#card-landscape").append("<div class=col id=plyrAvgSeason></div>");
 
-        $("#plyrAvgSeason").text(" Season: " + currentSeason + " FG Made AVG: " + seasonAvg.data[0].fgm + " FG Att AVG: " + seasonAvg.data[0].fga + " Three Pts Made AVG: " + seasonAvg.data[0].fg3m +
+        $("#plyrAvgSeason").html(" Season: " + currentSeason + " FG Made AVG: " + seasonAvg.data[0].fgm + " FG Att AVG: " + seasonAvg.data[0].fga + " Three Pts Made AVG: " + seasonAvg.data[0].fg3m +
             " Three Pts Att AVG: " + seasonAvg.data[0].fg3a + " FT Made AVG: " + seasonAvg.data[0].ftm + " FT Att AVG: " + seasonAvg.data[0].fta + " Off Reb AVG: " + seasonAvg.data[0].oreb + " Def Reb AVG: " + seasonAvg.data[0].dreb
             + " Asst AVG: " + seasonAvg.data[0].ast + " Stl AVG: " + seasonAvg.data[0].stl + " Blk AVG: " + seasonAvg.data[0].blk + " Pts AVG: " + seasonAvg.data[0].pts);
 
         // $("#card").append("<div class=col id=plyrAvgSeason></div>");
-        //     $("#plyrAvgSeason").text("Season: " + currentSeason);
+        //     $("#plyrAvgSeason").html("Season: " + currentSeason);
 
         //     $("#card").append("<div class=col id=plyrAvgFgm></div>");
-        //     $("#plyrAvgFgm").text("FG Made AVG: " + seasonAvg.data[0].fgm);
+        //     $("#plyrAvgFgm").html("FG Made AVG: " + seasonAvg.data[0].fgm);
 
         //     $("#card").append("<div class=col id=plyrAvgFga></div>");
-        //     $("#plyrAvgFga").text("FG Att AVG: " + seasonAvg.data[0].fga);
+        //     $("#plyrAvgFga").html("FG Att AVG: " + seasonAvg.data[0].fga);
 
         //     $("#card").append("<div class=col id=plyrAvgFg3m></div>");
-        //     $("#plyrAvgFg3m").text("Three Pts Made AVG: " + seasonAvg.data[0].fg3m);
+        //     $("#plyrAvgFg3m").html("Three Pts Made AVG: " + seasonAvg.data[0].fg3m);
 
         //     $("#card").append("<div class=col id=plyrAvgFg3a></div>");
-        //     $("#plyrAvgFg3a").text("Three Pts Att AVG: " + seasonAvg.data[0].fg3a);
+        //     $("#plyrAvgFg3a").html("Three Pts Att AVG: " + seasonAvg.data[0].fg3a);
 
         //     $("#card").append("<div class=col id=plyrAvgFtm></div>");
-        //     $("#plyrAvgFtm").text("FT Made AVG: " + seasonAvg.data[0].ftm);
+        //     $("#plyrAvgFtm").html("FT Made AVG: " + seasonAvg.data[0].ftm);
 
         //     $("#card").append("<div class=col id=plyrAvgFta></div>");
-        //     $("#plyrAvgFta").text("FT Att AVG: " + seasonAvg.data[0].fta);
+        //     $("#plyrAvgFta").html("FT Att AVG: " + seasonAvg.data[0].fta);
 
         //     $("#card").append("<div class=col id=plyrAvgOreb></div>");
-        //     $("#plyrAvgOreb").text("Off Reb AVG: " + seasonAvg.data[0].oreb);
+        //     $("#plyrAvgOreb").html("Off Reb AVG: " + seasonAvg.data[0].oreb);
 
         //     $("#card").append("<div class=col id=plyrAvgDreb></div>");
-        //     $("#plyrAvgDreb").text("Def Reb AVG: " + seasonAvg.data[0].dreb);
+        //     $("#plyrAvgDreb").html("Def Reb AVG: " + seasonAvg.data[0].dreb);
 
         //     $("#card").append("<div class=col id=plyrAvgAst></div>");
-        //     $("#plyrAvgAst").text("Asst AVG: " + seasonAvg.data[0].ast);
+        //     $("#plyrAvgAst").html("Asst AVG: " + seasonAvg.data[0].ast);
 
         //     $("#card").append("<div class=col id=plyrAvgStl></div>");
-        //     $("#plyrAvgStl").text("Stl AVG: " + seasonAvg.data[0].stl);
+        //     $("#plyrAvgStl").html("Stl AVG: " + seasonAvg.data[0].stl);
 
         //     $("#card").append("<div class=col id=plyrAvgBlk></div>");
-        //     $("#plyrAvgBlk").text("Blk AVG: " + seasonAvg.data[0].blk);
+        //     $("#plyrAvgBlk").html("Blk AVG: " + seasonAvg.data[0].blk);
 
         //     $("#card").append("<div class=col id=plyrAvgPts></div>");
-        //     $("#plyrAvgPts").text("Pts AVG: " + seasonAvg.data[0].pts);
+        //     $("#plyrAvgPts").html("Pts AVG: " + seasonAvg.data[0].pts);
 
         // $("#card").append("<div class=col id=playeStatsavg></div>");
-        // $("#playeStatsavg").text("AVG: " + stats[0].AVG);
+        // $("#playeStatsavg").html("AVG: " + stats[0].AVG);
 
     })
     // console.log("AvgStats " + avgStats);
