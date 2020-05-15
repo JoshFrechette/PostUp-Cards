@@ -218,6 +218,12 @@ margin-top: 1rem;
 padding-top: 1rem;
 }
 
+.plyrStats {
+table-layout: fixed;
+color: black;
+font-size: small;
+}
+
 .welcome {
 width: 50%;
 height: 200px;
