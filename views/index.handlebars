@@ -1,74 +1,53 @@
 <body>
     {{!-- <div class="row"> --}}
-        <header>
-            <a href="/">
+    <header>
+        <a href="/">
             <img src="/assets/images/PostUpCards-01.png" width="80" height="70" alt="logo" id="logo"></a>
-                        {{!-- nav removed until login and signup functional --}}
-            {{!-- <nav>           
+        {{!-- nav removed until login and signup functional --}}
+        {{!-- <nav>           
                 <button id="login">Login</button>
                 <button id="signup">Signup</button>
             </nav> --}}
-        </header>
+    </header>
     {{!-- </div> --}}
-<div class="container-fluid">
-    <div class= "row">
-        <div class="col-2-md" id="search">
-            <div class="controls" id="generate">
-                <textarea id="SearchPlayer" value="SearchPlayer" placeholder="Search Player"></textarea>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2-md" id="search">
+                <div class="controls" id="generate">
+                    <textarea id="SearchPlayer" value="SearchPlayer" placeholder="Search Player"></textarea>
                     <ul>
                         <li><button class="button expanded primary" id="submit">Search</button></li>
                         <li><button class="hollow button expanded primary" id="clear">Clear</button></li>
                         <li><button class="button expanded primary" id="save-card">Save Card</button></li>
-                        {{!-- <li><button id="back">Back card</button></li> --}}
+                        {{!-- <li><button class="button expanded primary" id="back">Card Back</button></li> --}}
                     </ul>
                     <hr>
-                    {{!-- <h5>Deck View</h5> --}}
+                    <h5>Deck View</h5>
 
-                    <button class="button expanded primary" id="VDeck">View/Refresh Deck</button>
-                        <div class="deckview">
-                            <ul class="list decklist ">
-                                {{#each deckcard}}
-                                {{> cards/deckcard-block}}
-                                {{/each}}
-                            </ul>
-                        </div>
+                    {{!-- <button class="button expanded primary" id="VDeck">View/Refresh Deck</button> --}}
+                    <div class="deckview">
+                        <ul class="list decklist ">
+                            {{#each deckcard}}
+                            {{> cards/deckcard-block}}
+                            {{/each}}
+                        </ul>
+                    </div>
+                </div>
             </div>
+
+            <div class="col-8-md">
+                {{> cards/card-block}}
+            </div>
+
+            <div class="col-8-md">
+                {{> cards/back-block}}
+            </div>
+
         </div>
-
-        <div class="col-8-md">
-            {{> cards/card-block}}
-        </div>
-
-        {{!-- <div class="col-8-md">
-            {{> cards/back-block}}
-        </div> --}}
-
     </div>
-</div>
-        <footer>
-            <p id="giphy">Powered by Giphy</p>
-            <p id="credits">Team Awesome Team</p>
-        </footer>
+    <footer>
+        <p id="giphy">Powered by Giphy</p>
+        <p id="credits">Team Awesome Team</p>
+    </footer>
 
 </body>
-
-<script type="text/javascript" src="/assets/js/playerInfo.js"></script>
-<script type="text/javascript" src="/assets/js/cms.js"></script>
-<script>
-    $("#VDeck").on("click", function () {
-        console.log("deck view working")
-
-    });
-
-    $("#submit").on("click", function () {
-        console.log("submit working")
-        playerInformation();
-        $("#SearchPlayer").val('');
-        $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
-    });
-
-    $("#clear").on("click", function () {
-        console.log("clear working")
-        $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity").html("");
-    });
-</script>

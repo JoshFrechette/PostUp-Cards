@@ -1,19 +1,39 @@
 {{!-- create a back of the card --}}
 
-<div class="back" id="cardMain">
+<div class="cardmain" id="cardback">
     <div class="card-divider" id="playerID"></div>
-    <div class="GIFDisplay" id="gif"></div>
-    <div class="PlyrName" id="playerName"></div>
-    <div class="TeamLogo"></div>
+    {{!-- <div class="PlyrName" id="playerName"></div> --}}
     <div class="row">
         <div class="col-md">
             <div class="stats">
-                <p>
-                    <span>Player's Height: <span id="playerHeight">?</span> ft</span>
-                    <span>Player's Weight: <span id="playerweight">?</span> lbs</span>
-                    <span>Player's Team: <span id="playerteam">?</span></span>
-                    <span>Player's City: <span id="playercity">?</span></span>
-                </p>
+                <table class="plyrStats">
+                    <tr>
+                        <th>YR</th>
+                        <th>TEAM</th>
+                        <th>GP</th>
+                        <th>FG%</th>
+                        <th>FT%</th>
+                        <th>REB</th>
+                        <th>AST</th>
+                        <th>STL</th>
+                        <th>BLK</th>
+                        <th>PTS</th>
+                        <th>AVG</th>                        
+                    </tr>
+                    <tr>
+                        <td id="playerStatsSeason"></td>
+                        <td id="playerStatsTeam"></td>
+                        <td id="playerGP"></td>
+                        <td id="playerFGPer"></td>
+                        <td id="playerFTPer"></td>
+                        <td id="playerReb"></td>
+                        <td id="playerAst"></td>
+                        <td id="playerStl"></td>
+                        <td id="playerBlk"></td>
+                        <td id="playerPts"></td>
+                        <td id="playerAvg"></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>

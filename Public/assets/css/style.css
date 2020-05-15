@@ -141,17 +141,20 @@ background-color: navy;
 margin-left: 1px;
 padding: .2rem;
 }
+
 .CardDeckItem {
 display: inline;
 }
 
-#cardMain{
+/* .card-divider {
+  text-align: center!important;
+} */
+
+.cardmain{
 color: white;
 margin-left: 1rem;
 padding: 1rem;
 float: left;
-width: 400px;
-height: 600px;
 background-color: gainsboro;
 border: 2px solid rgb(11, 13, 46);
 border-radius: 5px;
@@ -159,23 +162,42 @@ right: 0px;
 clip: rect(0px,300px,600px,0px);
 position: relative;
 }
+#cardfront {
+  width: 400px;
+  height: 600px;
+}
+#cardback {
+  width: 600px;
+  height: 400px;
+}
+
+
+
 #giphy {
 color: white;
 text-align: left;
 display: inline-block;
 margin: 5px 10px 5px 20px;
 }
-.stats {
-display: inline-block;
+
+.bio {
+text-align: center;
+/* display: inline-block; */
 color: black;
 position: absolute;
 bottom: 0;
+margin:0;
+}
+.statline {
+  margin: 0;
 }
 #playerName {
 font-family: Impact sans-serif;
 font-size: xx-large;
 font-weight: bold;
-text-align: center;
+padding-left:2rem;
+/* text-align: center; */
+float: left;
 color : black;
 }
 #playerID {
@@ -184,9 +206,33 @@ text-align: center;
 color: black;
 }
 
+#nbaLogo {
+  height: 4rem;
+  float: right;
+}
+
+/* #nbaLogo, #playername {
+  position: absolute;
+  top:50%;
+} */
+
+.PlyrName {
+  background-color: white;
+  height: 5rem;
+  /* position: fixed;
+  top:50%; */
+}
+
 .plyrAvgSeason, .playeStatsseason {
 margin-top: 1rem;
 padding-top: 1rem;
+}
+
+.plyrStats {
+table-layout: fixed;
+color: black;
+font-size: small;
+text-align: center;
 }
 
 .welcome {
@@ -223,9 +269,8 @@ width: 80%;
   height: auto;
 }
 
-#player-pic {
-  width: 50%;
-  height: 50%;
+#plyr_gif {
+  width: 100%;
   display: block;
   margin: 25px auto;
   border: solid 2px white;
@@ -236,13 +281,13 @@ ul {
   list-style-type: none;
 }
 
-#card-landscape {
+/* #card-landscape {
   margin: 50px;
   float: right;
   width: 600px;
   height: 400px;
   background-color: rgb(33, 48, 102);
-}
+} */
 
 #credits {
   color: white;
@@ -254,8 +299,9 @@ ul {
 @media screen and (max-width: 480px) {
 #search {width: 100%; float: left;}
 #main {width: 100%;margin-left: 216px;}
-#card {width: 100%;margin-left: 216px;}
+#cardmain {width: 100%;margin-left: 216px;}
 #deck{width: 100%;}
 #deck-controls-next{width: 100%;}
 #deck-controls-prev{width: 100%;}
 }
+
