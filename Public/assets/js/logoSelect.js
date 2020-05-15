@@ -96,7 +96,6 @@ let logoSelect = (playerTeam) => {
             default:
                 break;
     }
-    console.log(teamLogo)
     return teamLogo;
 }
 

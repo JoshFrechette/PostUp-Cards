@@ -1,11 +1,9 @@
+// var axios = require("axios").default;
 import { logoSelect } from "./logoSelect.js";
 
 //Dependencies 
-let axios = require('axios');
-//Empty arrays to hold the harvested data in the propper for for the front-end
-let baseStats = [];
-let stats = [];
-let avgStats = [];
+
+
 let multiple = 1;
 
 let playerInformation = () => {
@@ -31,9 +29,7 @@ let NBAPlayerInfo = (player) => {
         url: ballDontLie,
         method: "GET"
     }).then(function (response) {
-        console.log(response.data[0].team.full_name);
         let teamLogoURL = logoSelect(response.data[0].team.full_name);
-        console.log(teamLogoURL)
 
         $("#playerName").html(response.data[0].first_name + " " + response.data[0].last_name);
 
@@ -53,25 +49,10 @@ let NBAPlayerInfo = (player) => {
 
         var playerID = response.data[0].id;
 
-        // postLogo(response.data[0].team.full_name)
         // event.preventDefault();
-        // playerStatistics(playerID);
-        return playerID;
+        playerStatistics(playerID);
     })
 }
-
-// let postLogo = (teamName) => {
-
-// console.log(teamName);
-// let teamURL = "https://content.sportslogos.net/logos/6/220/full/9168_atlanta_hawks-primary-2016.png";
-//     $.ajax({
-//         url: teamURL,
-//         method: "GET"
-//     }).then(function (response) {
-//    console.log(response)
-//         $("#teamLogo").append("<img src=./assets/images/Logos/" + logoSelect(response) + " id=logo");
-//     })
-// }
 
 function playerStatistics(playerID) {
     let d = new Date();
@@ -134,66 +115,52 @@ function playerStatistics(playerID) {
             AVG: avg
         }
 
-        // $("#playerName").html(response.data[0].first_name + " " + response.data[0].last_name);
-
-        // $("#playerID").html(response.data[0].id);
-
-        // $("#playerHeight").html(response.data[0].height_feet);
-
-        // $("#playerweight").html(response.data[0].weight_pounds);
-
-        // $("#playerteam").html(response.data[0].team.full_name);
-
-        // $("#playercity").html(response.data[0].team.city);
+        $("#card").append("<div class=col id=playeStatsseason></div>");
+        $("#playeStatsseason").text("Season: " + stats[0].Season + " FG_Made: " + stats[0].FG_Made + " FG_Att: " + stats[0].FG_Att + " Three_Pts_Made: " + stats[0].Three_Pts_Made + " Three_Pts_Att: " + stats[0].Three_Pts_Att +
+            " FT Made: " + stats[0].FT_Made + " FT Att: " + stats[0].FT_Att + " Off Reb: " + stats[0].Off_Reb + " Def Reb: " + stats[0].Def_Reb + " Asst: " + stats[0].Asst + " Stl: " + stats[0].Stl + " Blk: " + stats[0].Blk + " Pts: " + stats[0].Pts + " AVG: " + stats[0].AVG);
 
 
-        stats.push(plyrData);
-        // $("#card").append("<div class=col id=playeStatsseason></div>");
-        // $("#playeStatsseason").text("Season: " + stats[0].Season + " FG_Made: " + stats[0].FG_Made + " FG_Att: " + stats[0].FG_Att + " Three_Pts_Made: " + stats[0].Three_Pts_Made + " Three_Pts_Att: " + stats[0].Three_Pts_Att +
-        //     " FT Made: " + stats[0].FT_Made + " FT Att: " + stats[0].FT_Att + " Off Reb: " + stats[0].Off_Reb + " Def Reb: " + stats[0].Def_Reb + " Asst: " + stats[0].Asst + " Stl: " + stats[0].Stl + " Blk: " + stats[0].Blk + " Pts: " + stats[0].Pts + " AVG: " + stats[0].AVG);
+        $("#card").append("<div class=col id=playeStatsseason></div>");
+        $("#playeStatsseason").text("Season: " + stats[0].Season);
 
+        $("#card").append("<div class=col id=playeStatsfgm></div>");
+        $("#playeStatsfgm").text("FG_Made: " + stats[0].FG_Made);
 
-        // $("#card").append("<div class=col id=playeStatsseason></div>");
-        // $("#playeStatsseason").text("Season: " + stats[0].Season);
+        $("#card").append("<div class=col id=playeStatsfga></div>");
+        $("#playeStatsfga").text("FG_Att: " + stats[0].FG_Att);
 
-        // $("#card").append("<div class=col id=playeStatsfgm></div>");
-        // $("#playeStatsfgm").text("FG_Made: " + stats[0].FG_Made);
+        $("#card").append("<div class=col id=playeStatsfg3m></div>");
+        $("#playeStatsfg3m").text("Three_Pts_Made: " + stats[0].Three_Pts_Made);
 
-        // $("#card").append("<div class=col id=playeStatsfga></div>");
-        // $("#playeStatsfga").text("FG_Att: " + stats[0].FG_Att);
+        $("#card").append("<div class=col id=playeStatsfg3a></div>");
+        $("#playeStatsfg3a").text("Three_Pts_Att: " + stats[0].Three_Pts_Att);
 
-        // $("#card").append("<div class=col id=playeStatsfg3m></div>");
-        // $("#playeStatsfg3m").text("Three_Pts_Made: " + stats[0].Three_Pts_Made);
+        $("#card").append("<div class=col id=playeStatsftm></div>");
+        $("#playeStatsftm").text("FT_Made: " + stats[0].FT_Made);
 
-        // $("#card").append("<div class=col id=playeStatsfg3a></div>");
-        // $("#playeStatsfg3a").text("Three_Pts_Att: " + stats[0].Three_Pts_Att);
+        $("#card").append("<div class=col id=playeStatsfta></div>");
+        $("#playeStatsfta").text("FT_Att: " + stats[0].FT_Att);
 
-        // $("#card").append("<div class=col id=playeStatsftm></div>");
-        // $("#playeStatsftm").text("FT_Made: " + stats[0].FT_Made);
+        $("#card").append("<div class=col id=playeStatsoreb></div>");
+        $("#playeStatsoreb").text("Off_Reb: " + stats[0].Off_Reb);
 
-        // $("#card").append("<div class=col id=playeStatsfta></div>");
-        // $("#playeStatsfta").text("FT_Att: " + stats[0].FT_Att);
+        $("#card").append("<div class=col id=playeStatsdreb></div>");
+        $("#playeStatsdreb").text("Def_Reb: " + stats[0].Def_Reb);
 
-        // $("#card").append("<div class=col id=playeStatsoreb></div>");
-        // $("#playeStatsoreb").text("Off_Reb: " + stats[0].Off_Reb);
+        $("#card").append("<div class=col id=playeStatsast></div>");
+        $("#playeStatsast").text("Asst: " + stats[0].Asst);
 
-        // $("#card").append("<div class=col id=playeStatsdreb></div>");
-        // $("#playeStatsdreb").text("Def_Reb: " + stats[0].Def_Reb);
+        $("#card").append("<div class=col id=playeStatsstl></div>");
+        $("#playeStatsstl").text("Stl: " + stats[0].Stl);
 
-        // $("#card").append("<div class=col id=playeStatsast></div>");
-        // $("#playeStatsast").text("Asst: " + stats[0].Asst);
+        $("#card").append("<div class=col id=playeStatsblk></div>");
+        $("#playeStatsblk").text("Blk: " + stats[0].Blk);
 
-        // $("#card").append("<div class=col id=playeStatsstl></div>");
-        // $("#playeStatsstl").text("Stl: " + stats[0].Stl);
+        $("#card").append("<div class=col id=playeStatspts></div>");
+        $("#playeStatspts").text("Pts: " + stats[0].Pts);
 
-        // $("#card").append("<div class=col id=playeStatsblk></div>");
-        // $("#playeStatsblk").text("Blk: " + stats[0].Blk);
-
-        // $("#card").append("<div class=col id=playeStatspts></div>");
-        // $("#playeStatspts").text("Pts: " + stats[0].Pts);
-
-        // $("#card").append("<div class=col id=playeStatsavg></div>");
-        // $("#playeStatsavg").text("AVG: " + stats[0].AVG);
+        $("#card").append("<div class=col id=playeStatsavg></div>");
+        $("#playeStatsavg").text("AVG: " + stats[0].AVG);
 
 
     })

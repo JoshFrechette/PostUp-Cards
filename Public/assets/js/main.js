@@ -28,7 +28,6 @@ $(".decklist").on("click", ".deckcard", function (event) {
   $.get("/api/playerbase/" + id, function (data) {
 
     let teamLogoURL = logoSelect(data.player_team);
-    console.log(teamLogoURL);
 
     $("#gif").append("<img src=" + data.img_src + " id=plyr_gif>");
 

@@ -146,23 +146,33 @@ padding: .2rem;
 display: inline;
 }
 
-.card-divider {
+/* .card-divider {
   text-align: center!important;
-}
+} */
 
-#cardMain{
+.cardmain{
 color: white;
 margin-left: 1rem;
 padding: 1rem;
 float: left;
-width: 400px;
-height: 600px;
 background-color: gainsboro;
 border: 2px solid rgb(11, 13, 46);
 border-radius: 5px;
 right: 0px;
 clip: rect(0px,300px,600px,0px);
 position: relative;
+}
+#cardfront {
+  width: 400px;
+  height: 600px;
+}
+#cardback {
+  width: 600px;
+  height: 400px;
+}
+
+.PlyrName {
+  background-color: white!important;
 }
 #giphy {
 color: white;
@@ -171,12 +181,10 @@ display: inline-block;
 margin: 5px 10px 5px 20px;
 }
 
-.PlyrName {
-  background-color: white;
-}
-.stats {
+
+.bio {
 text-align: center;
-display: inline-block;
+/* display: inline-block; */
 color: black;
 position: absolute;
 bottom: 0;
@@ -256,13 +264,13 @@ ul {
   list-style-type: none;
 }
 
-#card-landscape {
+/* #card-landscape {
   margin: 50px;
   float: right;
   width: 600px;
   height: 400px;
   background-color: rgb(33, 48, 102);
-}
+} */
 
 #credits {
   color: white;
@@ -274,8 +282,9 @@ ul {
 @media screen and (max-width: 480px) {
 #search {width: 100%; float: left;}
 #main {width: 100%;margin-left: 216px;}
-#card {width: 100%;margin-left: 216px;}
+#cardmain {width: 100%;margin-left: 216px;}
 #deck{width: 100%;}
 #deck-controls-next{width: 100%;}
 #deck-controls-prev{width: 100%;}
 }
+
