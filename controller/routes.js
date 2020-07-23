@@ -45,7 +45,7 @@ module.exports = function (app) {
     })
   });
 
-  // work inprogress, route to get individual card data from deckcard/deckview click event => need to have route identify by id
+  // work in progress, route to get individual card data from deckcard/deckview click event => need to have route identify by id
   app.get("/api/playerbase/:id", function (req, res) {
     var id = req.params.id
     // console.log("this id " + id)

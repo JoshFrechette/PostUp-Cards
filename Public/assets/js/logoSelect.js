@@ -1,7 +1,7 @@
 let teamLogo ='';
 
 let logoSelect = (playerTeam) => {
-    console.log(playerTeam);
+
     switch (playerTeam) {
         case 'Atlanta Hawks':
             teamLogo = "https://content.sportslogos.net/logos/6/220/full/9168_atlanta_hawks-primary-2016.png";

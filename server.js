@@ -17,6 +17,14 @@ app.use(express.json());
 app.use(express.static("Public"));
 app.engine("handlebars", exphbs({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
+//Passport Authentication
+// app.post('/login',
+//   passport.authenticate('local'),
+//   function(req, res) {
+//     // If this function gets called, authentication was successful.
+//     // `req.user` contains the authenticated user.
+//     res.redirect('/users/' + req.user.username);
+//   });
 
 //PostUp routes (have all api routes bundled later on)
 

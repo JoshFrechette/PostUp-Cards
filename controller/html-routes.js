@@ -7,16 +7,16 @@ module.exports = function (app) {
         res.render(path.join(__dirname, "../views/layouts/welcome"));
     });
 
-    app.get("/welcome", function (req, res) {
-        res.render(path.join(__dirname, "../views/layouts/welcome"));
-    });
+    // app.get("/welcome", function (req, res) {
+    //     res.render(path.join(__dirname, "../views/layouts/welcome"));
+    // });
 
     app.get("/create", function (req, res) {
         res.render(path.join(__dirname, "../views/index"));
     });
 
-    app.get("/login", function (req, res) {
-        res.render(path.join(__dirname, "../views/layouts/login"));
+    app.get("/signin", function (req, res) {
+        res.render(path.join(__dirname, "../views/layouts/signin"));
     });
 
     app.get("/signup", function (req, res) {
@@ -24,7 +24,7 @@ module.exports = function (app) {
     });
 
     app.get("/deck", function (req, res) {
-        res.render(path.join(__dirname, "../views/layouts/deck"));
+        res.render(path.join(__dirname, "../views/layouts/Deck"));
     });
 
     app.get("/back", function (req, res) {
