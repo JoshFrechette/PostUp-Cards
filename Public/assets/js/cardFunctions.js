@@ -5,7 +5,10 @@ let deckLoad = () => {
       $(".decklist").empty()
       for (const i in data) {
         var cardItem = $("<li class='CardDeckItem'>");
-        cardItem.append("<p>" + data[i].player_name + "<button data-id='" + data[i].player_id + "' class='deckcard' id='deckcard'> View Card </button></p>");
+        cardItem.append(`<p>${data[i].player_name}
+          <button data-id=${data[i].player_id} class='deckcard deckcardshow'><i class="far fa-eye"></i></button>
+          <button data-id=${data[i].player_id} class='deckcard deckcarddelete'><i class="far fa-trash-alt"></i></button>
+          </p>`);
 
         $(".decklist").prepend(cardItem);
       }

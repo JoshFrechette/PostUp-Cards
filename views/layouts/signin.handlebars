@@ -1,5 +1,7 @@
 <body>
 
+    {{> cards/header}}
+
     <div class="container">
         <h2>Log In</h2>
         <form class="center">
@@ -7,16 +9,10 @@
             Password: <input type='password' id='pword'><br>
         </form>
         <div class="center">
-            <button id="Login">Log In</button>
+            <button id="login">Log In</button>
         </div>
     </div>
-    
-    <footer>
-        <p id="giphy">Powered by Giphy</p>
-        <p id="credits">Team Awesome Team</p>
-    </footer>
+
+    {{> cards/footer}}
+
 </body>
-
-<script>
-
-</script>

@@ -4,6 +4,7 @@
   "description": "PostUp Cards lets the user build their own deck of virtual NBA player cards that they can access anytime.",
   "main": "server.js",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.14.0",
     "axios": "^0.19.2",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",

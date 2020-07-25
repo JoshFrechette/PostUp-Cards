@@ -2,39 +2,44 @@ import { playerInformation , NBAPlayerGif, NBAPlayerInfo, playerStatistics, seas
 import { deckLoad, newCard, cardClear, noCardRepeat} from "./cardFunctions.js";
 import { logoSelect } from "./logoSelect.js";
 
-$("#loginpage").on("click", function () {
-  console.log("working")
+//Nav Buttons
+$("#loginpage").on("click", function (e) {
   location.replace("/signinpage");
 });
-
 $("#signuppage").on("click", function () {
-  console.log("working");
   location.replace("/signuppage");
 });
-
 $("#create-button").on("click", function () {
-  console.log("working")
   location.replace("/create");
 });
-
+//Auth Buttons
+$("#login").on("click", function (){
+  console.log("logging in");
+});
+$("#signin").on("click", function (){
+  console.log("signing in");
+});
+//Card Function Buttons
 $("#submit").on("click", function () {
   playerInformation();
   $("#SearchPlayer").val('');
   $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
   deckLoad();
 });
-
-$("#clear").on("click", function () {
-  cardClear();
-});
-
 $("#save-card").on("click", function (event) {
   event.preventDefault();
   let plyrID = Number($("#playerID").text().trim());
   noCardRepeat(plyrID);
 });
-
-$(".decklist").on("click", ".deckcard", function (event) {
+$("#clear").on("click", function () {
+  cardClear();
+});
+//Deck actions
+$(".decklist").on("click", ".deckcarddelete", function (event) {
+  console.log("delete card")
+  event.preventDefault();
+});
+$(".decklist").on("click", ".deckcardshow", function (event) {
   event.preventDefault();
   $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
 
