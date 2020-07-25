@@ -1,15 +1,8 @@
 <body>
-    {{!-- <div class="row"> --}}
-    <header>
-        <a href="/">
-            <img src="/assets/images/PostUpCards-01.png" width="80" height="70" alt="logo" id="logo"></a>
-        {{!-- nav removed until login and signup functional --}}
-        <nav>           
-                <button id="login">Login</button>
-                <button id="signup">Signup</button>
-            </nav>
-    </header>
-    {{!-- </div> --}}
+    <div class="row">
+    {{> cards/header }}
+
+    </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-2-md" id="search">
@@ -44,9 +37,7 @@
 
         </div>
     </div>
-    <footer>
-        <p id="giphy">Powered by Giphy</p>
-        <p id="credits">Team Awesome Team</p>
-    </footer>
+    
+    {{> cards/footer}}
 
 </body>

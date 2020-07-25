@@ -2,19 +2,19 @@ import { playerInformation , NBAPlayerGif, NBAPlayerInfo, playerStatistics, seas
 import { deckLoad, newCard, cardClear, noCardRepeat} from "./cardFunctions.js";
 import { logoSelect } from "./logoSelect.js";
 
-$("#login").on("click", function () {
+$("#loginpage").on("click", function () {
   console.log("working")
-  location.replace("/login");
+  location.replace("/signinpage");
+});
+
+$("#signuppage").on("click", function () {
+  console.log("working");
+  location.replace("/signuppage");
 });
 
 $("#create-button").on("click", function () {
   console.log("working")
   location.replace("/create");
-});
-
-$("#signup").on("click", function () {
-  console.log("working");
-  location.replace("/signup");
 });
 
 $("#submit").on("click", function () {

@@ -15,11 +15,11 @@ module.exports = function (app) {
         res.render(path.join(__dirname, "../views/index"));
     });
 
-    app.get("/signin", function (req, res) {
+    app.get("/signinpage", function (req, res) {
         res.render(path.join(__dirname, "../views/layouts/signin"));
     });
 
-    app.get("/signup", function (req, res) {
+    app.get("/signuppage", function (req, res) {
         res.render(path.join(__dirname, "../views/layouts/signup"));
     });
 
