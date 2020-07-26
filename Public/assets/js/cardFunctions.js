@@ -62,8 +62,17 @@ let noCardRepeat = (plyrID) => {
   })
 }
 
+let cardDelete = (idDelete) => {
+  console.log("delete card action taken")
+  
+  // return $.ajax({
+  //   url: `api/playerbase/` + idDelete,
+  //   method: "DELETE"
+  // })
+}
+
 let cardClear = () => {
   $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo, #playerStatsSeason, #playerStatsTeam, #playerGP, #playerFGPer, #playerFTPer, #playerReb, #playerAst, #playerStl, #playerBlk, #playerPts, #playerAvg").html("");
 }
 
-export { deckLoad, newCard, cardClear, noCardRepeat };
+export { deckLoad, newCard, cardClear, noCardRepeat, cardDelete };

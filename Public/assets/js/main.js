@@ -1,51 +1,58 @@
 import { playerInformation , NBAPlayerGif, NBAPlayerInfo, playerStatistics, seasonStats} from "./playerInfo.js";
-import { deckLoad, newCard, cardClear, noCardRepeat} from "./cardFunctions.js";
+import { deckLoad, newCard, cardClear, noCardRepeat, cardDelete} from "./cardFunctions.js";
 import { logoSelect } from "./logoSelect.js";
+import { newUser } from "./loginFunctions.js";
 
 //Nav Buttons
-$("#loginpage").on("click", function (e) {
+$("#loginpage").on("click", (e) => {
   location.replace("/signinpage");
 });
-$("#signuppage").on("click", function () {
+$("#signuppage").on("click", () => {
   location.replace("/signuppage");
 });
-$("#create-button").on("click", function () {
+$("#create-button").on("click", () => {
   location.replace("/create");
 });
+
 //Auth Buttons
-$("#login").on("click", function (){
+$("#login").on("click", () => {
   console.log("logging in");
 });
-$("#signin").on("click", function (){
-  console.log("signing in");
+$("#signup").on("click", () => {
+  console.log("signing up");
+  newUser()
 });
+
 //Card Function Buttons
-$("#submit").on("click", function () {
+$("#submit").on("click", () => {
   playerInformation();
-  $("#SearchPlayer").val('');
-  $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
+    $("#SearchPlayer").val('');
+    $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
   deckLoad();
 });
-$("#save-card").on("click", function (event) {
+$("#save-card").on("click", (event) => {
   event.preventDefault();
   let plyrID = Number($("#playerID").text().trim());
   noCardRepeat(plyrID);
 });
-$("#clear").on("click", function () {
+$("#clear").on("click", () => {
   cardClear();
 });
+
 //Deck actions
-$(".decklist").on("click", ".deckcarddelete", function (event) {
+$(".decklist").on("click", ".deckcarddelete", function (e) {
   console.log("delete card")
-  event.preventDefault();
+  e.preventDefault();
+  var id = $(this).attr("data-id")
+  cardDelete(id)
 });
-$(".decklist").on("click", ".deckcardshow", function (event) {
-  event.preventDefault();
+$(".decklist").on("click", ".deckcardshow", function (e) {
+  e.preventDefault();
   $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
 
   var id = $(this).attr("data-id")
 
-  $.get("/api/playerbase/" + id, function (data) {
+  $.get("/api/playerbase/" + id, function(data) {
 
     let teamLogoURL = logoSelect(data.player_team);
 

@@ -1,7 +1,10 @@
 var db = require("../models");
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
 
 module.exports = function (app) {
-  //For user login
+  //For user login => change to signin?
+
   app.get('/login', function (req, res) {
     res.render('login', {
       title: 'Express Login'
@@ -15,7 +18,6 @@ module.exports = function (app) {
       res.json(dbusers);
     });
   });
-
   app.get("/api/users/:id", function (req, res) {
     // 2; Add a join to include all of the users's cards here
     db.users.findOne({
@@ -26,19 +28,29 @@ module.exports = function (app) {
       res.json(dbusers);
     });
   });
-
+  //Create a username and password for people signing up
   app.post("/api/users", function (req, res) {
-    db.users.create(req.body).then(function (dbusers) {
-      res.json(dbusers);
-    });
-  });
+    console.log(req.body)
+    db.users.create({
 
+      // username,
+      // password
+      name: req.body.username,
+      password: req.body.password
+    })
+
+      // .then(function (res) {
+      //   res.end();
+      // })
+  })
+
+
+  //Card related 
   app.get("/api/playerbase", function (req, res) {
     db.Playerbase.findAll().then(function (results) {
       res.json(results);
     })
   });
-
   app.get("/api/playerstats", function (req, res) {
     db.Playerstats.findAll().then(function (results) {
       res.json(results);
@@ -78,8 +90,6 @@ module.exports = function (app) {
 
   //add a new card
   app.post("/api/new", function (req, res) {
-    console.log("body from front end")
-    console.log(req.body)
 
     // Insert into table
     db.Playerbase.create({
@@ -109,10 +119,24 @@ module.exports = function (app) {
       // .then(function (PlayerBase) {
       //   res.json(PlayerBase);
       // });
-      .then(function (results) {
+      .then(function (res) {
         res.end();
       })
 
+  });
+
+  app.post("/api/playerbase/:id", function(req, res) {
+    console.log(res.params.id)
+
+    db.Playerbase.findOne(req.params.id).then(
+      (response) => {
+          res.json({successful: response});
+      }
+  ).catch(
+      (err) => {
+          rres.json({error: err});
+      }
+    )
   });
   //other routes..
 }
