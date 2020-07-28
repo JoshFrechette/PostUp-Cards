@@ -4,13 +4,15 @@
 
     <div class="container">
         <h2>Log In</h2>
-        <form class="center">
+
+        <form action="/signinpage" class="center">
             Username: <input type='text' id='uname'><br>
             Password: <input type='password' id='pword'><br>
+
+            <div class="center">
+                <button type="submit" value="Log In" id="signin">Log In</button>
+            </div>
         </form>
-        <div class="center">
-            <button id="signin">Log In</button>
-        </div>
     </div>
 
     {{> cards/footer}}

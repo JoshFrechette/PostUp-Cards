@@ -1,7 +1,7 @@
 import { playerInformation , NBAPlayerGif, NBAPlayerInfo, playerStatistics, seasonStats} from "./playerInfo.js";
 import { deckLoad, newCard, cardClear, noCardRepeat, cardDelete} from "./cardFunctions.js";
 import { logoSelect } from "./logoSelect.js";
-import { newUser } from "./loginFunctions.js";
+import { newUser, userLogin } from "./loginFunctions.js";
 
 //Nav Buttons
 $("#loginpage").on("click", (e) => {
@@ -15,12 +15,15 @@ $("#create-button").on("click", () => {
 });
 
 //Auth Buttons
-$("#login").on("click", () => {
+$("#signin").on("click", (e) => {
+  e.preventDefault();
   console.log("logging in");
+  userLogin();
 });
-$("#signup").on("click", () => {
+$("#signup").on("click", (e) => {
+  e.preventDefault();
   console.log("signing up");
-  newUser()
+  newUser();
 });
 
 //Card Function Buttons
