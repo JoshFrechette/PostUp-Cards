@@ -10,9 +10,10 @@ $("#loginpage").on("click", (e) => {
 $("#signuppage").on("click", () => {
   location.replace("/signuppage");
 });
-$("#create-button").on("click", () => {
-  location.replace("/create");
-});
+// with auth working, may not need anymore...
+// $("#create-button").on("click", () => {
+//   location.replace("/create");
+// });
 
 //Auth Buttons
 $("#signin").on("click", (e) => {

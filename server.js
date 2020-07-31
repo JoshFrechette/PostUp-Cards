@@ -20,13 +20,6 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 
-//passport auth
-// app.post('/signinpage',
-// passport.authenticate('local', { successRedirect: '/create',
-//                                 failureRedirect: '/signinpage',
-//                                 failureFlash: true })
-// );
-
 //PostUp routes (have all api routes bundled later on)
 require("./controller/routes")(app);
 require("./controller/html-routes.js")(app);

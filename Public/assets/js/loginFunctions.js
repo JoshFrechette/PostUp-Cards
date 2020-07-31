@@ -16,8 +16,8 @@ let newUser = () => {
 //     $.get("/api/users", newLogin)
 // }
 
-let userLogin = () => {
-    event.preventDefault();
+let userLogin = (event) => {
+    // event.preventDefault();
     var userData = {
         email: $("#uname").val(),
         password: $("#pword").val(),
@@ -25,6 +25,7 @@ let userLogin = () => {
     console.log(userData)
     if (!userData.email || !userData.password) {
     console.log('email and password dont match')
+    alert('email and password dont match')
         return;
     }
 
