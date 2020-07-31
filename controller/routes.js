@@ -65,35 +65,6 @@ module.exports = function (app) {
   //   });
   // });
 
-  //Create a username and password for people signing up
-  // app.post("/api/users", function (req, res) {
-  //   db.users.create({
-  //     email: req.body.username,
-  //     password: req.body.password
-  //   })
-  // });
-
-  // app.get("/api/users", function (req, res) {
-  //   console.log("login routing")
-  //   passport.use(new LocalStrategy(
-  //     function (req, res, done) {
-  //       console.log(req.body.username, req.body.password)
-  //       db.users.findOne({ name: req.body.username }, function (err, user) {
-  //         if (err) { return done(err); }
-  //         if (!user) {
-  //           return done(null, false, { message: 'Incorrect username.' });
-  //         }
-  //         if (!user.validPassword({ password: req.body.password })) {
-  //           return done(null, false, { message: 'Incorrect password.' });
-  //         }
-  //         console.log("login succes")
-  //         return done(null, user);
-
-  //       });
-  //     }
-  //   ))
-  // });
-
   //Card related 
   app.get("/api/playerbase", function (req, res) {
     db.Playerbase.findAll().then(function (results) {
@@ -139,8 +110,10 @@ module.exports = function (app) {
 
   //add a new card
   app.post("/api/new", function (req, res) {
+  console.log(newCard)
     // Insert into table
     db.Playerbase.create({
+      user_id: userId,
       player_id: req.body.playerID,
       player_name: req.body.playerName,
       player_pos: req.body.playerPos,
@@ -166,10 +139,14 @@ module.exports = function (app) {
       })
         // .then(function (PlayerBase) {
         //   res.json(PlayerBase);
-        // });
-        .then(function (res) {
-          res.end();
+        // })
+        .then(function (result) {
+          result.end();
         })
+        .catch(
+          (err) => {
+            res.json({ error: err });
+          })
 
   });
 
@@ -182,7 +159,7 @@ module.exports = function (app) {
       }
     ).catch(
       (err) => {
-        rres.json({ error: err });
+        res.json({ error: err });
       }
     )
   });

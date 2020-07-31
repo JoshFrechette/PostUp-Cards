@@ -1,9 +1,10 @@
-let deckLoad = () => {
+let deckLoad = (userId) => {
 
   $.get("/api/playerbase", function (data) {
     if (data.length !== 0) {
       $(".decklist").empty()
       for (const i in data) {
+        if(userId === data[i].userId){
         var cardItem = $("<li class='CardDeckItem'>");
         cardItem.append(`<p>${data[i].player_name}
           <button data-id=${data[i].player_id} class='deckcard deckcardshow'><i class="far fa-eye"></i></button>
@@ -13,12 +14,14 @@ let deckLoad = () => {
         $(".decklist").prepend(cardItem);
       }
     }
+    }
   })
 }
 
-let newCard = () => {
+let newCard = (userId) => {
   var newCard = {
 // Info from front of card
+    userID: this.userId,
     playerID: $("#playerID").text().trim(),
     playerName: $("#playerName").text().trim(),
     playerPos: $("#playerPos").text().trim(),
@@ -40,6 +43,7 @@ let newCard = () => {
     playerPts: $("#playerPts").text().trim(),
     playerAvg: $("#playerAvg").text().trim()
   };
+  console.log(newCard)
   $.post("/api/new", newCard)
   deckLoad();
 }

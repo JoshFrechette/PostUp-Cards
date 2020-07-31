@@ -3,6 +3,8 @@ import { deckLoad, newCard, cardClear, noCardRepeat, cardDelete} from "./cardFun
 import { logoSelect } from "./logoSelect.js";
 import { newUser, userLogin } from "./loginFunctions.js";
 
+let userID;
+
 //Nav Buttons
 $("#loginpage").on("click", (e) => {
   location.replace("/signinpage");
@@ -44,6 +46,7 @@ $("#clear").on("click", () => {
 });
 
 //Deck actions
+//Card delete is a work in progress...
 $(".decklist").on("click", ".deckcarddelete", function (e) {
   console.log("delete card")
   e.preventDefault();
@@ -54,7 +57,7 @@ $(".decklist").on("click", ".deckcardshow", function (e) {
   e.preventDefault();
   $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
 
-  var id = $(this).attr("data-id")
+  var id = $(this).attr("data-id");
 
   $.get("/api/playerbase/" + id, function(data) {
 
@@ -106,5 +109,3 @@ $(".decklist").on("click", ".deckcardshow", function (e) {
 
   })
 });
-
-deckLoad()

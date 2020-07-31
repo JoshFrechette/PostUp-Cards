@@ -58,7 +58,7 @@ let NBAPlayerInfo = (player) => {
 function playerStatistics(playerID) {
     let d = new Date();
     let currentSeason = d.getUTCFullYear();
-    console.log(currentSeason);
+    // console.log(currentSeason);
     // add an if conditonal to determine at what point the season is at when the user creates the card
     currentSeason = currentSeason - 1;
     var playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason + "&per_page=100";
@@ -66,7 +66,7 @@ function playerStatistics(playerID) {
         url: playerStats,
         method: "GET"
     }).then(function (playerStats) {
-        console.log(playerStats)
+        // console.log(playerStats)
         //Declaring the variables for the loop
         let fgm = 0;
         let fga = 0;
@@ -119,7 +119,7 @@ function playerStatistics(playerID) {
             last: playerStats.data.length -1
 
         }
-        console.log(stats.last)
+        // console.log(stats.last)
 
         $("#playerStatsSeason").html(stats.Season);
 
