@@ -2,7 +2,7 @@ module.exports = function (sequelize, DataTypes) {
     var Playerbase = sequelize.define("Playerbase", {
         // Giving the Playerbase model a name of type STRING
         user_id: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
             // allowNull: false,
             // validate: {
             //     len: [1]

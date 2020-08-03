@@ -110,10 +110,10 @@ module.exports = function (app) {
 
   //add a new card
   app.post("/api/new", function (req, res) {
-  console.log(newCard)
+  console.log(req.body.userID)
     // Insert into table
     db.Playerbase.create({
-      user_id: userId,
+      user_id: req.body.userID,
       player_id: req.body.playerID,
       player_name: req.body.playerName,
       player_pos: req.body.playerPos,

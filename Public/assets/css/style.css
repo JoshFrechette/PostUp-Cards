@@ -31,7 +31,7 @@ margin: 1rem 1rem 1rem 1rem;
 margin: 1rem 1rem 1rem 1rem;
 }
 
-#loginpage, #signuppage{
+#loginpage, #signuppage, #logout{
 background-color: rgb(33, 48, 102);
 color: white;
 font-size: 18px;

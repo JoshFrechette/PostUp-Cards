@@ -1,3 +1,6 @@
+// import { deckLoad } from './cardFunctions';
+let userID;
+
 let newUser = () => {
     var newUser = {
         email: $("#uname").val(),
@@ -35,15 +38,18 @@ function loginUser(email, password) {
             //     email: res.email,
             //     id: res.id
             // })
-            console.log(res.email, res.id)
-            let userId = res.id;
+            // console.log(res.email, res.id)
+            userID = res.id;
             window.location.replace("/create");
-            deckLoad(userId)
+            console.log(userID)
+            deckLoad(userID)
+            // return userID;
             // If there's an error, log the error
         })
         .catch(function (err) {
             console.log(err);
-        });
+        })
+        return userID;
 }
 
-export { newUser, userLogin };
+export { newUser, userLogin, userID };

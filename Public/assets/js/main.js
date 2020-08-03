@@ -1,9 +1,16 @@
 import { playerInformation , NBAPlayerGif, NBAPlayerInfo, playerStatistics, seasonStats} from "./playerInfo.js";
 import { deckLoad, newCard, cardClear, noCardRepeat, cardDelete} from "./cardFunctions.js";
 import { logoSelect } from "./logoSelect.js";
-import { newUser, userLogin } from "./loginFunctions.js";
+// import { newUser, userLogin } from "./loginFunctions.js";
 
-let userID;
+var userID;
+
+//onload events
+window.addEventListener('load', (e) => {
+  e.preventDefault();
+  deckLoad(userID);
+});
+// $('.deckview').onload = deckLoad(userID);
 
 //Nav Buttons
 $("#loginpage").on("click", (e) => {
@@ -11,6 +18,9 @@ $("#loginpage").on("click", (e) => {
 });
 $("#signuppage").on("click", () => {
   location.replace("/signuppage");
+});
+$("#logout").on("click", (e) => {
+  location.replace("/");
 });
 // with auth working, may not need anymore...
 // $("#create-button").on("click", () => {
@@ -20,26 +30,26 @@ $("#signuppage").on("click", () => {
 //Auth Buttons
 $("#signin").on("click", (e) => {
   e.preventDefault();
-  console.log("logging in");
   userLogin();
+  return userID;
 });
 $("#signup").on("click", (e) => {
   e.preventDefault();
-  console.log("signing up");
   newUser();
 });
 
 //Card Function Buttons
 $("#submit").on("click", () => {
+  console.log(userID)
   playerInformation();
     $("#SearchPlayer").val('');
     $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
-  deckLoad();
+    deckLoad(userID);
 });
 $("#save-card").on("click", (event) => {
   event.preventDefault();
   let plyrID = Number($("#playerID").text().trim());
-  noCardRepeat(plyrID);
+  noCardRepeat(plyrID, userID);
 });
 $("#clear").on("click", () => {
   cardClear();
@@ -109,3 +119,61 @@ $(".decklist").on("click", ".deckcardshow", function (e) {
 
   })
 });
+
+let newUser = () => {
+  var newUser = {
+      email: $("#uname").val(),
+      password: $("#pword").val(),
+  };
+  console.log(newUser)
+  $.post("/api/users", newUser)
+}
+
+let userLogin = (event) => {
+  // event.preventDefault();
+  var userData = {
+      email: $("#uname").val(),
+      password: $("#pword").val(),
+  };
+  if (!userData.email || !userData.password) {
+  console.log('email and password dont match')
+  alert('email and password dont match')
+      return;
+  }
+  // If we have an email and password we run the loginUser function and clear the form
+  loginUser(userData.email, userData.password);
+  $("#uname").val("");
+  $("#pword").val("");
+};
+
+// loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+function loginUser(email, password) {
+  $.post("/api/login", {
+    email: email,
+    password: password
+  })
+    .then(function (res) {
+      // $.get("/api/user_data", {
+      //     email: res.email,
+      //     id: res.id
+      // })
+      // console.log(res.email, res.id)
+      userID = res.id;
+      window.location.replace("/create")
+
+      // window.onload = deckLoad(userID);
+      console.log(userID)
+      // deckLoad(userID)
+      // If there's an error, log the error
+    })
+    .then(function () {
+      deckLoad(userID)
+    })
+    .catch(function (err) {
+      console.log(err);
+    })
+  // $('.deckview').onload = deckLoad(userID);
+  return userID;
+}
+
+

@@ -1,27 +1,39 @@
-let deckLoad = (userId) => {
+var userID;
 
+let deckLoad = () => {
+  // let newUserId = userID.toString();
+  console.log("deck loaded");
   $.get("/api/playerbase", function (data) {
-    if (data.length !== 0) {
-      $(".decklist").empty()
+    console.table(data)
+    // if (data.length !== 0) {
+    //   console.log("deck found")
+    //   $(".decklist").empty();
       for (const i in data) {
-        if(userId === data[i].userId){
-        var cardItem = $("<li class='CardDeckItem'>");
-        cardItem.append(`<p>${data[i].player_name}
+        console.log("running through data")
+        // if (userID === data[i].user_id) {
+          // console.log(newUserId, " and " ,data[i].user_id)
+          var cardItem = $("<li class='CardDeckItem'>");
+          cardItem.append(`<p>${data[i].player_name}
           <button data-id=${data[i].player_id} class='deckcard deckcardshow'><i class="far fa-eye"></i></button>
           <button data-id=${data[i].player_id} class='deckcard deckcarddelete'><i class="far fa-trash-alt"></i></button>
           </p>`);
 
-        $(".decklist").prepend(cardItem);
+          $(".decklist").prepend(cardItem);
+        // } if (userID !== data[i].userId) {
+        //   alert("You have no cards in your deck!")
+      //   } else {
+      //     alert('Problem loading deck')
+        // }
       }
-    }
-    }
+    // }
   })
 }
 
-let newCard = (userId) => {
+let newCard = (userID) => {
+  console.log(userID);
   var newCard = {
 // Info from front of card
-    userID: this.userId,
+    userID: "1",
     playerID: $("#playerID").text().trim(),
     playerName: $("#playerName").text().trim(),
     playerPos: $("#playerPos").text().trim(),
@@ -48,7 +60,7 @@ let newCard = (userId) => {
   deckLoad();
 }
 
-let noCardRepeat = (plyrID) => {
+let noCardRepeat = (plyrID, userID) => {
   $.get("/api/playerbase", function (data) {
     if (data.length === 0) {
       newCard();
@@ -61,7 +73,7 @@ let noCardRepeat = (plyrID) => {
           break;
         }
       }
-      newCard();
+      newCard(userID);
     }
   })
 }
