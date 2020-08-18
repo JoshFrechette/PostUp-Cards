@@ -11,16 +11,11 @@ $("#signuppage").on("click", () => {
   location.replace("/signuppage");
 });
 $("#logout").on("click", (e) => {
-  console.log("User has logged out")
-  //add code to logout of session, include value in local storage
+  //add code to logout of session
   localStorage.removeItem('userID');
   // thisUserID = "";
   location.replace("/");
 });
-// with auth working, may not need anymore...
-// $("#create-button").on("click", () => {
-//   location.replace("/create");
-// });
 
 //Auth Buttons
 $("#signin").on("click", (e) => {
@@ -45,7 +40,6 @@ $("#save-card").on("click", (event) => {
   noCardRepeat(plyrID);
 });
 
-
 $("#clear").on("click", () => {
   cardClear();
 });
@@ -58,6 +52,7 @@ $(".decklist").on("click", ".deckcarddelete", function (e) {
   var id = $(this).attr("data-id")
   cardDelete(id)
 });
+
 $(".decklist").on("click", ".deckcardshow", function (e) {
   e.preventDefault();
   $("#gif, #playerName, #playerID, #playerHeight, #playerweight, #playerteam, #playercity, #teamLogo").html("");
@@ -95,54 +90,6 @@ $(".decklist").on("click", ".deckcardshow", function (e) {
 
   })
 });
-
-// let newUser = () => {
-//   var newUser = {
-//     email: $("#uname").val(),
-//     password: $("#pword").val(),
-//   };
-//   console.log(newUser)
-//   $.post("/api/users", newUser)
-// }
-
-// let userLogin = (event) => {
-//   // event.preventDefault();
-//   var userData = {
-//     email: $("#uname").val(),
-//     password: $("#pword").val(),
-//   };
-//   if (!userData.email || !userData.password) {
-//     console.log('email and password dont match');
-//     alert('email and password dont match');
-//     return;
-//   }
-//   // If we have an email and password we run the loginUser function and clear the form
-//   loginUser(userData.email, userData.password);
-//   $("#uname").val("");
-//   $("#pword").val("");
-// };
-
-// // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-// function loginUser(email, password) {
-//   $.post("/api/login", {
-//     email: email,
-//     password: password
-//   })
-//     .then(function (res) {
-//       console.log(res.id)
-//       //set userid to local storage
-//       localStorage.setItem("userID", res.id)
-//       // $.get("/api/user_data", {
-//       //     email: res.email,
-//       //     id: res.id
-//       // })
-//       window.location.replace("/create");
-//     })
-//     // If there's an error, log the error
-//     .catch(function (err) {
-//       console.log(err);
-//     })
-// }
 
 document.addEventListener('DOMContentLoaded', (event) => {
   deckLoad();

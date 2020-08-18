@@ -3,7 +3,7 @@ let thisUserID;
 let deckLoad = () => {
   $(".decklist").html("");
   thisUserID = Number(localStorage.getItem('userID'));
-  console.log("This user's ID ", thisUserID);
+
   $.get("/api/playerbase", function (data) {
     console.table(data)
     if (data.length === 0) {
@@ -13,7 +13,6 @@ let deckLoad = () => {
     } else {
       for (const i in data) {
         if (data[i].user_id === thisUserID) {
-          console.table(data[i].user_id)
           var cardItem = $("<li class='CardDeckItem'>");
           cardItem.append(`<p>${data[i].player_name}
           <button data-id=${data[i].player_id} class='deckcard deckcardshow'><i class="far fa-eye"></i></button>
@@ -21,10 +20,8 @@ let deckLoad = () => {
           </p>`);
 
           $(".decklist").prepend(cardItem);
-        // } if (userID !== data[i].userId) {
-        //   alert("You have no cards in your deck!")
-      //   } else {
-      //     alert('Problem loading deck')
+        } else {
+          alert('Problem loading deck')
         }
       }
     }
@@ -32,7 +29,6 @@ let deckLoad = () => {
 }
 
 let newCard = () => {
-  console.log("New card ", thisUserID);
   var newCard = {
 // Info from front of card
     userID: thisUserID,
@@ -57,13 +53,11 @@ let newCard = () => {
     playerPts: $("#playerPts").text().trim(),
     playerAvg: $("#playerAvg").text().trim()
   };
-  console.log(newCard)
   $.post("/api/new", newCard)
   deckLoad();
 }
 
 let noCardRepeat = (plyrID) => {
-  console.log("at noCardRepeat ", thisUserID);
   $.get("/api/playerbase", function (data) {
     if (data.length === 0) {
       newCard();
