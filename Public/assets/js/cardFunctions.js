@@ -1,7 +1,7 @@
 let thisUserID;
 
 let deckLoad = () => {
-  thisUserID = localStorage.getItem('userID');
+  thisUserID = Number(localStorage.getItem('userID'));
   console.log("This user's ID ", thisUserID);
   $.get("/api/playerbase", function (data) {
     console.table(data)
