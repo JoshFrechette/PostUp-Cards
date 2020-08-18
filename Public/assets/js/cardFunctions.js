@@ -1,17 +1,18 @@
-var userID;
+let thisUserID;
 
 let deckLoad = () => {
-  // let newUserId = userID.toString();
-  console.log("deck loaded");
+  thisUserID = localStorage.getItem('userID');
+  console.log("This user's ID ", thisUserID);
   $.get("/api/playerbase", function (data) {
     console.table(data)
-    // if (data.length !== 0) {
-    //   console.log("deck found")
-    //   $(".decklist").empty();
+    if (data.length === 0) {
+      // alert("You have no cards in your deck!")
+      console.log("You have no cards in your deck!");
+      // $(".decklist").empty();
+    } else {
       for (const i in data) {
-        console.log("running through data")
-        // if (userID === data[i].user_id) {
-          // console.log(newUserId, " and " ,data[i].user_id)
+        if (data[i].user_id === thisUserID) {
+          console.table(data[i].user_id)
           var cardItem = $("<li class='CardDeckItem'>");
           cardItem.append(`<p>${data[i].player_name}
           <button data-id=${data[i].player_id} class='deckcard deckcardshow'><i class="far fa-eye"></i></button>
@@ -23,17 +24,17 @@ let deckLoad = () => {
         //   alert("You have no cards in your deck!")
       //   } else {
       //     alert('Problem loading deck')
-        // }
+        }
       }
-    // }
+    }
   })
 }
 
-let newCard = (userID) => {
-  console.log(userID);
+let newCard = () => {
+  console.log("New card ", thisUserID);
   var newCard = {
 // Info from front of card
-    userID: "1",
+    userID: thisUserID,
     playerID: $("#playerID").text().trim(),
     playerName: $("#playerName").text().trim(),
     playerPos: $("#playerPos").text().trim(),
@@ -60,7 +61,8 @@ let newCard = (userID) => {
   deckLoad();
 }
 
-let noCardRepeat = (plyrID, userID) => {
+let noCardRepeat = (plyrID) => {
+  console.log("at noCardRepeat ", thisUserID);
   $.get("/api/playerbase", function (data) {
     if (data.length === 0) {
       newCard();
@@ -73,18 +75,13 @@ let noCardRepeat = (plyrID, userID) => {
           break;
         }
       }
-      newCard(userID);
+      newCard();
     }
   })
 }
 
 let cardDelete = (idDelete) => {
   console.log("delete card action taken")
-  
-  // return $.ajax({
-  //   url: `api/playerbase/` + idDelete,
-  //   method: "DELETE"
-  // })
 }
 
 let cardClear = () => {
