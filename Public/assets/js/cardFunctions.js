@@ -21,7 +21,7 @@ let deckLoad = () => {
 
           $(".decklist").prepend(cardItem);
         } else {
-          alert('Problem loading deck')
+          // alert('Problem loading deck')
         }
       }
     }
