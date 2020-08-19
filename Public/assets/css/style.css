@@ -137,6 +137,11 @@ position: relative;
 #cardback {
   width: 600px;
   height: 400px;
+
+}
+.stats {
+  height: 300px;
+  overflow: scroll;
 }
 
 
@@ -201,6 +206,10 @@ table-layout: fixed;
 color: black;
 font-size: small;
 text-align: center;
+}
+#seasonAvg {
+  height: 100px;
+  overflow: scroll;
 }
 
 .welcome {

@@ -136,64 +136,67 @@ function playerStatistics(playerID) {
 let seasonStats = (currentSeason, playerID) => {
     let a = 1;
     var i;
-    let lastSeason = currentSeason -1;
-    // for (i = 0; i < 20; i++) {
-        var seasonAvgs = "https://cors-anywhere.herokuapp.com/https://www.balldontlie.io/api/v1/season_averages?season=" + lastSeason + "&player_ids[]=" + playerID;
-        $.ajax({
-            url: seasonAvgs,
-            method: "GET"
-        }).then(function (seasonAvgs) {
-            console.log(seasonAvgs)
-            if (!seasonAvgs) {
-                return;     
-            } else {
-            console.log("Season stat success")
-                //For loop to combine all of the season stats for the player
-                for (const avgStats of seasonAvgs.data) {
-                    console.log("looping though avg season info");
-                    let tableAvgStats = {
-                        Season: avgStats.season,
-                        GP: avgStats.games_played,
-                        FGPer: (((avgStats.fg_pct) * 100).toFixed(1)),
-                        FTPer: (((avgStats.ft_pct) * 100).toFixed(1)),
-                        RebAvg: avgStats.reb,
-                        AstAvg: avgStats.ast,
-                        StlAvg: avgStats.stl,
-                        BlkAvg: avgStats.blk,
-                        PtsAvg: avgStats.pts
+    let lastSeason = currentSeason - 1;
+
+    for (i = 0; i < 20; i++) {
+        
+        // setTimeout(function () {
+            console.log(i, " this many loops")
+            var seasonAvgs = "https://cors-anywhere.herokuapp.com/https://www.balldontlie.io/api/v1/season_averages?season=" + lastSeason + "&player_ids[]=" + playerID;
+            $.ajax({
+                url: seasonAvgs,
+                method: "GET"
+            }).then(function (seasonAvgs) {
+                console.log(seasonAvgs)
+                if (!seasonAvgs) {
+                    return;
+                } else {
+                    console.log("Season stat success")
+                    //For loop to combine all of the season stats for the player
+                    for (const avgStats of seasonAvgs.data) {
+
+                        console.log("looping though avg season info");
+                        let tableAvgStats = {
+                            Season: avgStats.season,
+                            GP: avgStats.games_played,
+                            FGPer: (((avgStats.fg_pct) * 100).toFixed(1)),
+                            FTPer: (((avgStats.ft_pct) * 100).toFixed(1)),
+                            RebAvg: avgStats.reb,
+                            AstAvg: avgStats.ast,
+                            StlAvg: avgStats.stl,
+                            BlkAvg: avgStats.blk,
+                            PtsAvg: avgStats.pts
+                        }
+                        var table = document.getElementById("seasonAvg");
+                        var newRow = table.insertRow(a);
+                        var YRCell = newRow.insertCell(0);
+                        var GPCell = newRow.insertCell(1);
+                        var FGCell = newRow.insertCell(2);
+                        var FTCell = newRow.insertCell(3);
+                        var REBCell = newRow.insertCell(4);
+                        var ASTCell = newRow.insertCell(5);
+                        var STLCell = newRow.insertCell(6);
+                        var BLKCell = newRow.insertCell(7);
+                        var PTSCell = newRow.insertCell(8);
+
+                        YRCell.innerHTML = tableAvgStats.Season;
+                        GPCell.innerHTML = tableAvgStats.GP;
+                        FGCell.innerHTML = tableAvgStats.FGPer;
+                        FTCell.innerHTML = tableAvgStats.FTPer;
+                        REBCell.innerHTML = tableAvgStats.RebAvg;
+                        ASTCell.innerHTML = tableAvgStats.AstAvg;
+                        STLCell.innerHTML = tableAvgStats.StlAvg;
+                        BLKCell.innerHTML = tableAvgStats.BlkAvg;
+                        PTSCell.innerHTML = tableAvgStats.PtsAvg;
+
                     }
-                    var table = document.getElementById("seasonAvg");
-                    var newRow = table.insertRow(a);
-                    var YRCell = newRow.insertCell(0);
-                    var GPCell = newRow.insertCell(1);
-                    var FGCell = newRow.insertCell(2);
-                    var FTCell = newRow.insertCell(3);
-                    var REBCell = newRow.insertCell(4);
-                    var ASTCell = newRow.insertCell(5);
-                    var STLCell = newRow.insertCell(6);
-                    var BLKCell = newRow.insertCell(7);
-                    var PTSCell = newRow.insertCell(8);
-
-                    YRCell.innerHTML = tableAvgStats.Season;
-                    GPCell.innerHTML = tableAvgStats.GP;
-                    FGCell.innerHTML = tableAvgStats.FGPer;
-                    FTCell.innerHTML = tableAvgStats.FTPer;
-                    REBCell.innerHTML = tableAvgStats.RebAvg;
-                    ASTCell.innerHTML = tableAvgStats.AstAvg;
-                    STLCell.innerHTML = tableAvgStats.StlAvg;
-                    BLKCell.innerHTML = tableAvgStats.BlkAvg;
-                    PTSCell.innerHTML = tableAvgStats.PtsAvg;
-
                 }
-
-            }
-
+            // }, 100000000);
+            a = a++;
+            lastSeason = lastSeason - 1;
+            console.log(lastSeason);
         })
-        a = a++;
-        lastSeason = lasttSeason--;
-        console.log(currentSeason);
-    // }
-
+    }
 }
 
 export { playerInformation, NBAPlayerGif, NBAPlayerInfo, playerStatistics, seasonStats };
