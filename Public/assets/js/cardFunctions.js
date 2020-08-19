@@ -41,17 +41,17 @@ let newCard = () => {
     playerCity: $("#playercity").text().trim(),
     playerGIF: $("#plyr_gif").attr('src').trim(),
 //info from back of card
-    playerStatsSeason: $("#playerStatsSeason").text().trim(),
-    playerStatsTeam: $("#playerStatsTeam").text().trim(),
-    playerGP: $("#playerGP").text().trim(),
-    playerFGPer: $("#playerFGPer").text().trim(),
-    playerFTPer: $("#playerFTPer").text().trim(),
-    playerReb: $("#playerReb").text().trim(),
-    playerAst: $("#playerAst").text().trim(),
-    playerStl: $("#playerStl").text().trim(),
-    playerBlk: $("#playerBlk").text().trim(),
-    playerPts: $("#playerPts").text().trim(),
-    playerAvg: $("#playerAvg").text().trim()
+    playerStatsSeason: $("#currStats").text().trim(),
+    playerStatsTeam: $("#currTeam").text().trim(),
+    playerGP: $("#currGP").text().trim(),
+    playerFGPer: $("#currFGPer").text().trim(),
+    playerFTPer: $("#currFTPer").text().trim(),
+    playerReb: $("#currReb").text().trim(),
+    playerAst: $("#currAst").text().trim(),
+    playerStl: $("#currStl").text().trim(),
+    playerBlk: $("#currBlk").text().trim(),
+    playerPts: $("#currPts").text().trim(),
+    playerAvg: $("#currAvg").text().trim()
   };
   $.post("/api/new", newCard)
   deckLoad();

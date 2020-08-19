@@ -111,20 +111,20 @@ function playerStatistics(playerID) {
         }
         console.log(stats)
 
-        $("#playerStatsSeason").html(stats.Season);
-        $("#playerStatsTeam").html(playerStats.data[stats.last].team.name);
-        $("#playerGP").html(playerStats.data.length -1);
-        $("#playerFGPer").html(stats.FGPer);
-        $("#playerFTPer").html(stats.FTPer);
-        $("#playerReb").html(stats.Reb);
-        $("#playerAst").html(stats.Ast);
-        $("#playerStl").html(stats.Stl);
-        $("#playerBlk").html(stats.Blk);
-        $("#playerPts").html(stats.Pts);
-        $("#playerAvg").html(stats.AVG);
+        $("#currStats").html(stats.Season);
+        $("#currTeam").html(playerStats.data[stats.last].team.name);
+        $("#currGP").html(playerStats.data.length -1);
+        $("#currFGPer").html(stats.FGPer);
+        $("#currFTPer").html(stats.FTPer);
+        $("#currReb").html(stats.Reb);
+        $("#currAst").html(stats.Ast);
+        $("#currStl").html(stats.Stl);
+        $("#currBlk").html(stats.Blk);
+        $("#currPts").html(stats.Pts);
+        $("#currAvg").html(stats.AVG);
 
     })
-
+    seasonStats()
 }
 
 // let allSeasonStats = (currentSeason,playerID) => {
@@ -161,13 +161,13 @@ let seasonStats = (currentSeason, playerID) => {
 
         // }
 
-        $("#card").append("<div class=col id=plyrAvgSeason></div>");
+        // $("#card").append("<div class=col id=plyrAvgSeason></div>");
 
-        $("#card-landscape").append("<div class=col id=plyrAvgSeason></div>");
+        // $("#card-landscape").append("<div class=col id=plyrAvgSeason></div>");
 
-        $("#plyrAvgSeason").html(" Season: " + currentSeason + " FG Made AVG: " + seasonAvg.data[0].fgm + " FG Att AVG: " + seasonAvg.data[0].fga + " Three Pts Made AVG: " + seasonAvg.data[0].fg3m +
-            " Three Pts Att AVG: " + seasonAvg.data[0].fg3a + " FT Made AVG: " + seasonAvg.data[0].ftm + " FT Att AVG: " + seasonAvg.data[0].fta + " Off Reb AVG: " + seasonAvg.data[0].oreb + " Def Reb AVG: " + seasonAvg.data[0].dreb
-            + " Asst AVG: " + seasonAvg.data[0].ast + " Stl AVG: " + seasonAvg.data[0].stl + " Blk AVG: " + seasonAvg.data[0].blk + " Pts AVG: " + seasonAvg.data[0].pts);
+        // $("#plyrAvgSeason").html(" Season: " + currentSeason + " FG Made AVG: " + seasonAvg.data[0].fgm + " FG Att AVG: " + seasonAvg.data[0].fga + " Three Pts Made AVG: " + seasonAvg.data[0].fg3m +
+        //     " Three Pts Att AVG: " + seasonAvg.data[0].fg3a + " FT Made AVG: " + seasonAvg.data[0].ftm + " FT Att AVG: " + seasonAvg.data[0].fta + " Off Reb AVG: " + seasonAvg.data[0].oreb + " Def Reb AVG: " + seasonAvg.data[0].dreb
+        //     + " Asst AVG: " + seasonAvg.data[0].ast + " Stl AVG: " + seasonAvg.data[0].stl + " Blk AVG: " + seasonAvg.data[0].blk + " Pts AVG: " + seasonAvg.data[0].pts);
 
     })
 
