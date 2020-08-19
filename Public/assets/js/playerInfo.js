@@ -51,26 +51,26 @@ function playerStatistics(playerID) {
     // console.log(currentSeason);
     // add an if conditonal to determine at what point the season is at when the user creates the card
     // currentSeason = currentSeason - 1;
-    var playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason + "&per_page=100";
+      var playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason + "&seasons[]=" + (currentSeason -1) + "&seasons[]=" + (currentSeason - 2) + "&seasons[]=" + (currentSeason - 3) + "&seasons[]=" + (currentSeason - 4) + "&seasons[]=" + (currentSeason - 5) + "&seasons[]=" + (currentSeason - 6) + "&seasons[]=" + (currentSeason - 7) + "&seasons[]=" + (currentSeason - 8) + "&seasons[]=" + (currentSeason - 9) + "&seasons[]=" + (currentSeason - 10) + "&seasons[]=" + (currentSeason - 11) + "&seasons[]=" + (currentSeason - 12) + "&seasons[]=" + (currentSeason - 13) + "&seasons[]=" + (currentSeason - 14) + "&seasons[]=" + (currentSeason - 15) + "&seasons[]=" + (currentSeason - 16) + "&seasons[]=" + (currentSeason -17) + "&seasons[]=" + (currentSeason -18) + "&seasons[]=" + (currentSeason -19) + "&seasons[]=" + (currentSeason -20) + "&per_page=100";
     $.ajax({
         url: playerStats,
         method: "GET"
     }).then(function (playerStats) {
-        // console.log(playerStats)
+        console.table(playerStats)
         //Declaring the variables for the loop
-        let fgm = 0;
-        let fga = 0;
-        let fg3m = 0;
-        let fg3a = 0;
-        let ftm = 0;
-        let fta = 0;
-        let oreb = 0;
-        let dreb = 0;
-        let ast = 0;
-        let stl = 0;
-        let blk = 0;
-        let pts = 0;
-        let avg = 0;
+        // let fgm = 0;
+        // let fga = 0;
+        // let fg3m = 0;
+        // let fg3a = 0;
+        // let ftm = 0;
+        // let fta = 0;
+        // let oreb = 0;
+        // let dreb = 0;
+        // let ast = 0;
+        // let stl = 0;
+        // let blk = 0;
+        // let pts = 0;
+        // let avg = 0;
 
         //For loop to combine all of the season stats for the player
         for (const allStats of playerStats.data) {
@@ -124,7 +124,7 @@ function playerStatistics(playerID) {
         $("#currAvg").html(stats.AVG);
 
     })
-    seasonStats()
+    // seasonStats(currentSeason, playerID)
 }
 
 // let allSeasonStats = (currentSeason,playerID) => {
@@ -139,38 +139,26 @@ function playerStatistics(playerID) {
 
 let seasonStats = (currentSeason, playerID) => {
     let avgStats = [];
-    currentSeason = currentSeason--;
+    // currentSeason = currentSeason--;
+
     var playerStats = "https://cors-anywhere.herokuapp.com/https://www.balldontlie.io/api/v1/season_averages?season=" + currentSeason + "&player_ids[]=" + playerID;
     $.ajax({
         url: playerStats,
         method: "GET"
     }).then(function (avgData) {
         let seasonAvg = avgData;
-        // console.log(seasonAvg);
+        console.log(seasonAvg);
         //Create the JSON for every season
-        // let plrAvgStats = {
+        let plrAvgStats = {
+            //Create the JSON for every season
 
-        //     //Create the JSON for every season
-        //     let plrAvgStats = {
+        }
+        avgStats.push(plrAvgStats);
 
-        // }
-        // avgStats.push(plrAvgStats);
-
-        // console.log(avgStats);
-
-
-        // }
-
-        // $("#card").append("<div class=col id=plyrAvgSeason></div>");
-
-        // $("#card-landscape").append("<div class=col id=plyrAvgSeason></div>");
-
-        // $("#plyrAvgSeason").html(" Season: " + currentSeason + " FG Made AVG: " + seasonAvg.data[0].fgm + " FG Att AVG: " + seasonAvg.data[0].fga + " Three Pts Made AVG: " + seasonAvg.data[0].fg3m +
-        //     " Three Pts Att AVG: " + seasonAvg.data[0].fg3a + " FT Made AVG: " + seasonAvg.data[0].ftm + " FT Att AVG: " + seasonAvg.data[0].fta + " Off Reb AVG: " + seasonAvg.data[0].oreb + " Def Reb AVG: " + seasonAvg.data[0].dreb
-        //     + " Asst AVG: " + seasonAvg.data[0].ast + " Stl AVG: " + seasonAvg.data[0].stl + " Blk AVG: " + seasonAvg.data[0].blk + " Pts AVG: " + seasonAvg.data[0].pts);
+        console.log(avgStats);
 
     })
-
+    return avgStats;
 }
 
 export { playerInformation, NBAPlayerGif, NBAPlayerInfo, playerStatistics, seasonStats };
