@@ -51,12 +51,12 @@ function playerStatistics(playerID) {
     // console.log(currentSeason);
     // add an if conditonal to determine at what point the season is at when the user creates the card
     // currentSeason = currentSeason - 1;
-      var playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason + "&seasons[]=" + (currentSeason -1) + "&seasons[]=" + (currentSeason - 2) + "&seasons[]=" + (currentSeason - 3) + "&seasons[]=" + (currentSeason - 4) + "&seasons[]=" + (currentSeason - 5) + "&seasons[]=" + (currentSeason - 6) + "&seasons[]=" + (currentSeason - 7) + "&seasons[]=" + (currentSeason - 8) + "&seasons[]=" + (currentSeason - 9) + "&seasons[]=" + (currentSeason - 10) + "&seasons[]=" + (currentSeason - 11) + "&seasons[]=" + (currentSeason - 12) + "&seasons[]=" + (currentSeason - 13) + "&seasons[]=" + (currentSeason - 14) + "&seasons[]=" + (currentSeason - 15) + "&seasons[]=" + (currentSeason - 16) + "&seasons[]=" + (currentSeason -17) + "&seasons[]=" + (currentSeason -18) + "&seasons[]=" + (currentSeason -19) + "&seasons[]=" + (currentSeason -20) + "&per_page=100";
+      var playerStats = "https://cors-anywhere.herokuapp.com/https://balldontlie.io/api/v1/stats?player_ids[]=" + playerID + "&seasons[]=" + currentSeason + "&per_page=100";
     $.ajax({
         url: playerStats,
         method: "GET"
     }).then(function (playerStats) {
-        console.table(playerStats)
+        console.table("these are all the seasons ", playerStats)
         //Declaring the variables for the loop
         // let fgm = 0;
         // let fga = 0;
